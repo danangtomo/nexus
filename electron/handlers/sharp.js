@@ -119,6 +119,7 @@ ipcMain.handle('sharp:process', async (_e, opts) => {
  */
 ipcMain.handle('sharp:metadata', async (_e, filePath) => {
   const meta = await getSharp()(filePath).metadata()
+  meta.size = fs.statSync(filePath).size
   return meta
 })
 
