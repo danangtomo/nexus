@@ -1,0 +1,28 @@
+appId: com.nexus.app
+productName: NEXUS
+directories:
+  output: out
+  buildResources: build
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+extraResources:
+  - from: node_modules/ffmpeg-static
+    to: ffmpeg-static
+    filter:
+      - "**/*"
+win:
+  target: nsis
+  icon: build/icon.ico
+mac:
+  target: dmg
+  icon: build/icon.icns
+linux:
+  target:
+    - AppImage
+    - deb
+  icon: build/icon.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
