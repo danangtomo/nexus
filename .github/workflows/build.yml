@@ -48,12 +48,9 @@ jobs:
         run: sudo apt-get update -y && sudo apt-get install -y fakeroot rpm
 
       # ── 4. Install JS dependencies ────────────────────────────────────────
+      # postinstall in package.json runs electron-builder install-app-deps automatically
       - name: Install dependencies
         run: npm ci
-
-      # ── 5. Rebuild native modules (better-sqlite3, sharp) for Electron ───
-      - name: Rebuild native modules
-        run: npm run rebuild
 
       # ── 6. Build renderer (Vite → dist/) ─────────────────────────────────
       - name: Build renderer
