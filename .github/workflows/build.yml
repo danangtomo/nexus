@@ -1,0 +1,96 @@
+name: Build & Release NEXUS
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+# Needed to create GitHub Releases and upload assets
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build — ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false   # don't cancel sibling jobs if one platform fails
+      matrix:
+        include:
+          - name: Windows
+            runner: windows-latest
+            eb_flag: --win
+
+          - name: macOS
+            runner: macos-latest
+            eb_flag: --mac
+
+          - name: Linux
+            runner: ubuntu-latest
+            eb_flag: --linux
+
+    steps:
+      # ── 1. Source ─────────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Node + npm cache ───────────────────────────────────────────────
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'          # caches ~/.npm, keyed on package-lock.json
+
+      # ── 3. Linux system deps (fakeroot for .deb, rpm for future RPM) ─────
+      - name: Install Linux system dependencies
+        if: matrix.runner == 'ubuntu-latest'
+        run: sudo apt-get update -y && sudo apt-get install -y fakeroot rpm
+
+      # ── 4. Install JS dependencies ────────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 5. Rebuild native modules (better-sqlite3, sharp) for Electron ───
+      - name: Rebuild native modules
+        run: npm run rebuild
+
+      # ── 6. Build renderer (Vite → dist/) ─────────────────────────────────
+      - name: Build renderer
+        run: npm run build
+
+      # ── 7. Package with electron-builder (→ out/) ────────────────────────
+      - name: Package app
+        run: npx electron-builder ${{ matrix.eb_flag }}
+        env:
+          # Skip macOS code signing — no certificate on CI
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+          # electron-builder uses GH_TOKEN to publish draft releases
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 8. Upload installers as workflow artifacts (every push) ───────────
+      #       Downloadable from the Actions run page for 30 days
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-${{ matrix.name }}
+          path: |
+            out/*.exe
+            out/*.dmg
+            out/*.deb
+            out/*.AppImage
+          if-no-files-found: warn
+
+      # ── 9. Publish to GitHub Release (only on version tags) ───────────────
+      #       Creates the release automatically from the tag, attaches files
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true   # auto-fills changelog from commits
+          files: |
+            out/*.exe
+            out/*.dmg
+            out/*.deb
+            out/*.AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
