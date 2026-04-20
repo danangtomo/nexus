@@ -4,59 +4,68 @@ import { getPageCount, mergePdfs } from './handler'
 import styles from './index.module.css'
 
 export default function PdfMerger() {
-  const [files, setFiles]     = useState([])  // [{path, name, pages}]
-  const [merging, setMerging] = useState(false)
-  const [done, setDone]       = useState(false)
+  const [files, setFiles]           = useState([])
+  const [merging, setMerging]       = useState(false)
+  const [done, setDone]             = useState(false)
   const [outputPath, setOutputPath] = useState('')
-  const dragIdx = useRef(null)
 
+  // Drag-to-reorder refs — only update state on drop (no re-renders mid-drag)
+  const dragSrc  = useRef(null)
+  const dragDest = useRef(null)
+
+  // ── File loading ───────────────────────────────────────────────────────────
   const handleFiles = useCallback(async (incoming) => {
     setDone(false)
-    const newFiles = []
-    for (const f of incoming) {
-      const path = f.path ?? f
-      const name = f.name ?? path.split(/[\\/]/).pop()
-      // skip duplicates
-      setFiles((prev) => {
-        if (prev.find((x) => x.path === path)) return prev
-        return prev // add after page count loads
+
+    // Normalise: accept File objects, {path,name} objects, or plain strings
+    const toLoad = incoming
+      .map((f) => {
+        if (typeof f === 'string') return { path: f, name: f.split(/[\\/]/).pop() }
+        const p = typeof f.path === 'string' ? f.path : ''
+        const n = typeof f.name === 'string' ? f.name : p.split(/[\\/]/).pop()
+        return { path: p, name: n }
       })
-      try {
-        const pages = await getPageCount(path)
-        newFiles.push({ path, name, pages })
-      } catch {
-        newFiles.push({ path, name, pages: '?' })
-      }
-    }
+      .filter((f) => f.path.length > 0)
+
+    // Add immediately with pages = null (shows "…")
     setFiles((prev) => {
       const existing = new Set(prev.map((x) => x.path))
-      return [...prev, ...newFiles.filter((f) => !existing.has(f.path))]
+      const fresh = toLoad.filter((f) => !existing.has(f.path))
+      return [...prev, ...fresh.map((f) => ({ path: f.path, name: f.name, pages: null }))]
     })
+
+    // Load page counts one by one, update each row as it resolves
+    for (const f of toLoad) {
+      try {
+        const pages = await getPageCount(f.path)
+        setFiles((prev) => prev.map((x) => x.path === f.path ? { ...x, pages } : x))
+      } catch {
+        setFiles((prev) => prev.map((x) => x.path === f.path ? { ...x, pages: '?' } : x))
+      }
+    }
   }, [])
 
-  const removeFile = (path) => {
-    setDone(false)
-    setFiles((prev) => prev.filter((f) => f.path !== path))
-  }
-
-  const clearAll = () => { setFiles([]); setDone(false) }
+  const removeFile = (path) => { setDone(false); setFiles((prev) => prev.filter((f) => f.path !== path)) }
+  const clearAll   = () => { setFiles([]); setDone(false) }
 
   // ── Drag-to-reorder ────────────────────────────────────────────────────────
-  const onDragStart = (idx) => { dragIdx.current = idx }
-
-  const onDragOver = (e, idx) => {
+  const onDragStart = (idx) => { dragSrc.current = idx }
+  const onDragEnter = (idx) => { dragDest.current = idx }
+  const onDrop      = (e)   => {
     e.preventDefault()
-    if (dragIdx.current === null || dragIdx.current === idx) return
+    const src  = dragSrc.current
+    const dest = dragDest.current
+    if (src === null || dest === null || src === dest) return
     setFiles((prev) => {
       const next = [...prev]
-      const [moved] = next.splice(dragIdx.current, 1)
-      next.splice(idx, 0, moved)
-      dragIdx.current = idx
+      const [moved] = next.splice(src, 1)
+      next.splice(dest, 0, moved)
       return next
     })
+    dragSrc.current  = null
+    dragDest.current = null
   }
-
-  const onDragEnd = () => { dragIdx.current = null }
+  const onDragEnd = () => { dragSrc.current = null; dragDest.current = null }
 
   // ── Merge ──────────────────────────────────────────────────────────────────
   const merge = async () => {
@@ -81,7 +90,9 @@ export default function PdfMerger() {
     }
   }
 
-  const totalPages = files.reduce((acc, f) => acc + (typeof f.pages === 'number' ? f.pages : 0), 0)
+  const totalPages = files.reduce(
+    (acc, f) => acc + (typeof f.pages === 'number' ? f.pages : 0), 0
+  )
 
   return (
     <div className={styles.page}>
@@ -131,7 +142,9 @@ export default function PdfMerger() {
                 className={styles.fileRow}
                 draggable
                 onDragStart={() => onDragStart(idx)}
-                onDragOver={(e) => onDragOver(e, idx)}
+                onDragEnter={() => onDragEnter(idx)}
+                onDrop={onDrop}
+                onDragOver={(e) => e.preventDefault()}
                 onDragEnd={onDragEnd}
               >
                 <span className={styles.dragHandle}>⠿</span>
@@ -140,7 +153,9 @@ export default function PdfMerger() {
                   <span className={styles.fileName}>{f.name}</span>
                 </div>
                 <span className={styles.pages}>
-                  {typeof f.pages === 'number' ? `${f.pages} page${f.pages !== 1 ? 's' : ''}` : '…'}
+                  {typeof f.pages === 'number'
+                    ? `${f.pages} page${f.pages !== 1 ? 's' : ''}`
+                    : f.pages === '?' ? 'error' : '…'}
                 </span>
                 {!merging && (
                   <button className={styles.removeBtn} onClick={() => removeFile(f.path)}>×</button>
