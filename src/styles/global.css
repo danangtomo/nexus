@@ -4,63 +4,149 @@
   padding: 0;
 }
 
+/* ── Apple HIG Design Tokens — Dark mode (default) ───────────────────────── */
 :root {
-  --bg-primary: #0f0f0f;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #242424;
-  --bg-elevated: #2a2a2a;
-  --bg-hover: #333333;
+  /* Backgrounds — Apple systemBackground hierarchy */
+  --bg-primary:   #000000;   /* systemBackground */
+  --bg-secondary: #1c1c1e;   /* secondarySystemBackground */
+  --bg-tertiary:  #2c2c2e;   /* tertiarySystemBackground */
+  --bg-elevated:  #3a3a3c;   /* systemFill */
+  --bg-hover:     rgba(255,255,255,0.08);
 
-  --text-primary: #f5f5f5;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  /* Labels — Apple semantic label colors */
+  --text-primary:   #ffffff;               /* label */
+  --text-secondary: rgba(235,235,245,0.6); /* secondaryLabel */
+  --text-muted:     rgba(235,235,245,0.3); /* tertiaryLabel */
+  --text-disabled:  rgba(235,235,245,0.18);/* quaternaryLabel */
 
-  --accent: #6366f1;
-  --accent-hover: #818cf8;
-  --accent-soft: rgba(99, 102, 241, 0.15);
+  /* Accent — Apple systemBlue (dark) */
+  --accent:      #0a84ff;
+  --accent-hover:#409cff;
+  --accent-soft: rgba(10,132,255,0.15);
 
-  --border: #2a2a2a;
-  --border-subtle: #1f1f1f;
+  /* Separators */
+  --border:        rgba(84,84,88,0.65);  /* separator */
+  --border-subtle: rgba(84,84,88,0.35);  /* opaqueSeparator */
 
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --info: #3b82f6;
+  /* System colors — Apple HIG exact dark values */
+  --success: #30d158;   /* systemGreen dark */
+  --warning: #ffd60a;   /* systemYellow dark */
+  --danger:  #ff453a;   /* systemRed dark */
+  --info:    #64d2ff;   /* systemTeal dark */
+  --orange:  #ff9f0a;   /* systemOrange dark */
+  --purple:  #bf5af2;   /* systemPurple dark */
 
-  --radius-sm: 6px;
-  --radius: 10px;
-  --radius-lg: 16px;
+  /* Fills — Apple systemFill hierarchy */
+  --fill-primary:   rgba(120,120,128,0.36);
+  --fill-secondary: rgba(120,120,128,0.32);
+  --fill-tertiary:  rgba(120,120,128,0.24);
+  --fill-quaternary:rgba(120,120,128,0.18);
 
-  --sidebar-width: 220px;
-  --header-height: 52px;
+  /* ── Typography — Apple SF Pro scale ───────────────────────────────────── */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+               'Helvetica Neue', 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
-  --font-mono: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  /* Type scale (Apple HIG pt → px at 1:1) */
+  --text-large-title: 34px; /* Large Title */
+  --text-title1:      28px; /* Title 1 */
+  --text-title2:      22px; /* Title 2 */
+  --text-title3:      20px; /* Title 3 — semibold */
+  --text-headline:    17px; /* Headline — semibold */
+  --text-body:        17px; /* Body */
+  --text-callout:     16px; /* Callout */
+  --text-subhead:     15px; /* Subheading */
+  --text-footnote:    13px; /* Footnote */
+  --text-caption1:    12px; /* Caption 1 */
+  --text-caption2:    11px; /* Caption 2 */
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow: 0 4px 16px rgba(0,0,0,0.5);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+  /* Letter spacing (Apple tracking values) */
+  --tracking-title1:   -0.8px;
+  --tracking-title2:   -0.7px;
+  --tracking-headline: -0.43px;
+  --tracking-body:     -0.43px;
+  --tracking-footnote:  0.03px;
+  --tracking-caption1:  0.12px;
 
-  --transition: 150ms ease;
+  /* ── Spacing — Apple 8pt grid ───────────────────────────────────────────── */
+  --space-1:  4px;   /* xxs */
+  --space-2:  8px;   /* xs  */
+  --space-3: 12px;   /* sm  */
+  --space-4: 16px;   /* md  — primary content inset */
+  --space-5: 20px;   /* —   */
+  --space-6: 24px;   /* lg  — section spacing */
+  --space-8: 32px;   /* xl  — between sections */
+  --space-10:40px;   /* —   */
+  --space-12:48px;   /* xxl */
+
+  /* ── Corner radius — Apple system values ────────────────────────────────── */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius:     8px;   /* controls, inputs */
+  --radius-md: 10px;   /* cards */
+  --radius-lg: 12px;   /* panels */
+  --radius-xl: 16px;   /* sheets, large cards */
+  --radius-2xl:20px;   /* large containers */
+
+  /* ── Layout ─────────────────────────────────────────────────────────────── */
+  --sidebar-width: 250px;       /* Apple HIG recommended sidebar width */
+  --min-touch:      44px;       /* Apple minimum interactive target */
+  --content-inset:  var(--space-6); /* 24px side margins on desktop */
+
+  /* ── Shadows ─────────────────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.48);
+  --shadow:    0 4px 16px rgba(0,0,0,0.56);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.64);
+
+  /* ── Motion ──────────────────────────────────────────────────────────────── */
+  --ease-out:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:   100ms;
+  --duration:        200ms;
+  --duration-slow:   350ms;
+  --transition: var(--duration) var(--ease-out);
 }
 
+/* ── Apple HIG — Light mode ─────────────────────────────────────────────── */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-primary: #f5f5f5;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #fafafa;
-    --bg-elevated: #ffffff;
-    --bg-hover: #f0f0f0;
+    --bg-primary:   #f2f2f7;   /* systemGroupedBackground */
+    --bg-secondary: #ffffff;   /* secondarySystemGroupedBackground */
+    --bg-tertiary:  #f2f2f7;   /* tertiarySystemBackground */
+    --bg-elevated:  #ffffff;
+    --bg-hover:     rgba(0,0,0,0.05);
 
-    --text-primary: #111111;
-    --text-secondary: #555555;
-    --text-muted: #888888;
+    --text-primary:   #000000;
+    --text-secondary: rgba(60,60,67,0.6);
+    --text-muted:     rgba(60,60,67,0.3);
+    --text-disabled:  rgba(60,60,67,0.18);
 
-    --border: #e5e5e5;
-    --border-subtle: #f0f0f0;
+    --accent:      #007aff;   /* systemBlue light */
+    --accent-hover:#0071e3;
+    --accent-soft: rgba(0,122,255,0.12);
+
+    --border:        rgba(60,60,67,0.29);
+    --border-subtle: rgba(60,60,67,0.12);
+
+    --success: #34c759;
+    --warning: #ffcc00;
+    --danger:  #ff3b30;
+    --info:    #5ac8fa;
+    --orange:  #ff9500;
+    --purple:  #af52de;
+
+    --fill-primary:   rgba(120,120,128,0.2);
+    --fill-secondary: rgba(120,120,128,0.16);
+    --fill-tertiary:  rgba(120,120,128,0.12);
+    --fill-quaternary:rgba(120,120,128,0.08);
+
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow:    0 4px 16px rgba(0,0,0,0.14);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
   }
 }
 
+/* ── Base ────────────────────────────────────────────────────────────────── */
 html, body, #root {
   height: 100%;
   width: 100%;
@@ -68,11 +154,13 @@ html, body, #root {
 
 body {
   font-family: var(--font-sans);
+  font-size: var(--text-footnote);   /* 13px — Apple footnote = app default */
+  line-height: 1.47;                 /* Apple body line height ratio */
+  letter-spacing: var(--tracking-footnote);
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-size: 14px;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   user-select: none;
 }
 
@@ -94,46 +182,67 @@ a {
   text-decoration: none;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+/* Allow text selection inside tool content areas */
+textarea, input[type="text"], input[type="search"], [data-selectable] {
+  user-select: text;
 }
 
+/* ── Scrollbar — Apple thin style ────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 8px; height: 8px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  {
+  background: var(--fill-tertiary);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--fill-primary); background-clip: content-box; border: 2px solid transparent; }
+
+/* ── Typography helpers ──────────────────────────────────────────────────── */
+.text-large-title { font-size: var(--text-large-title); font-weight: 400; letter-spacing: -1.05px; line-height: 1.21; }
+.text-title1      { font-size: var(--text-title1);      font-weight: 400; letter-spacing: var(--tracking-title1); line-height: 1.21; }
+.text-title2      { font-size: var(--text-title2);      font-weight: 400; letter-spacing: var(--tracking-title2); line-height: 1.27; }
+.text-title3      { font-size: var(--text-title3);      font-weight: 600; letter-spacing: -0.6px;  line-height: 1.25; }
+.text-headline    { font-size: var(--text-headline);    font-weight: 600; letter-spacing: var(--tracking-headline); line-height: 1.29; }
+.text-body        { font-size: var(--text-body);        font-weight: 400; letter-spacing: var(--tracking-body);     line-height: 1.29; }
+.text-callout     { font-size: var(--text-callout);     font-weight: 400; letter-spacing: -0.32px; line-height: 1.25; }
+.text-subhead     { font-size: var(--text-subhead);     font-weight: 400; letter-spacing:  0px;    line-height: 1.27; }
+.text-footnote    { font-size: var(--text-footnote);    font-weight: 400; letter-spacing: var(--tracking-footnote); line-height: 1.23; }
+.text-caption1    { font-size: var(--text-caption1);    font-weight: 400; letter-spacing: var(--tracking-caption1); line-height: 1.25; }
+.text-caption2    { font-size: var(--text-caption2);    font-weight: 400; letter-spacing:  0.15px; line-height: 1.27; }
+
+/* ── Buttons — Apple HIG ─────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  font-size: 13px;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--min-touch);    /* 44px — Apple minimum touch target */
+  padding: 0 var(--space-4);
+  border-radius: var(--radius);
+  font-size: var(--text-footnote); /* 13px */
   font-weight: 500;
-  transition: background var(--transition), opacity var(--transition);
+  letter-spacing: -0.08px;
+  transition: background var(--transition), opacity var(--transition), transform var(--duration-fast) var(--ease-out);
   white-space: nowrap;
+  -webkit-app-region: no-drag;
 }
+
+.btn:active { transform: scale(0.97); }
 
 .btn-primary {
   background: var(--accent);
   color: #fff;
 }
-.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:hover  { background: var(--accent-hover); }
 
 .btn-ghost {
-  background: transparent;
+  background: var(--fill-tertiary);
   color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border: none;
 }
 .btn-ghost:hover {
-  background: var(--bg-hover);
+  background: var(--fill-secondary);
   color: var(--text-primary);
 }
 
@@ -143,27 +252,64 @@ a {
 }
 
 .btn:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
+  transform: none;
 }
 
+/* Compact variant — use for secondary actions inside panels */
+.btn-sm {
+  min-height: 28px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-caption1);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Form controls — Apple HIG ───────────────────────────────────────────── */
 input[type="text"],
 input[type="number"],
 input[type="password"],
 input[type="email"],
+input[type="search"],
 textarea,
 select {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
+  background: var(--fill-tertiary);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
-  padding: 8px 12px;
-  font-size: 13px;
-  transition: border-color var(--transition);
+  padding: 0 var(--space-3);
+  height: var(--min-touch);        /* 44px — Apple minimum */
+  font-size: var(--text-footnote);
+  font-family: var(--font-sans);
+  letter-spacing: var(--tracking-footnote);
+  transition: border-color var(--transition), background var(--transition);
+  width: 100%;
+}
+
+textarea {
+  height: auto;
+  padding: var(--space-3);
+  line-height: 1.47;
+  resize: vertical;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--accent);
+  background: var(--fill-quaternary);
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Separator ───────────────────────────────────────────────────────────── */
+.separator {
+  height: 1px;
+  background: var(--border-subtle);
+  border: none;
+  margin: 0;
 }

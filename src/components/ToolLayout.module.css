@@ -1,3 +1,4 @@
+/* Apple HIG: 24px content inset on desktop, title uses Title 2 */
 .layout {
   display: flex;
   flex-direction: column;
@@ -5,19 +6,20 @@
 }
 
 .header {
-  padding: 20px 28px 0;
+  padding: var(--space-6) var(--content-inset) var(--space-2);
   flex-shrink: 0;
 }
 
+/* Apple Title 2 — 22px, regular weight */
 .title {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: var(--text-title2);
+  font-weight: 400;
+  letter-spacing: var(--tracking-title2);
   color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  line-height: 1.27;
 }
 
 .content {
   flex: 1;
-  padding: 20px 28px 28px;
+  padding: var(--space-4) var(--content-inset) var(--content-inset);
 }
