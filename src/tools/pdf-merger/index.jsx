@@ -118,20 +118,13 @@ export default function PdfMerger() {
               <button
                 className="btn btn-ghost btn-sm"
                 disabled={merging}
-                onClick={() => document.getElementById('pdf-add-input').click()}
+                onClick={async () => {
+                  const paths = await window.nexus.openFiles({ filters: [{ name: 'PDF', extensions: ['pdf'] }] })
+                  if (paths && paths.length) handleFiles(paths)
+                }}
               >
                 Add more
               </button>
-              <input
-                id="pdf-add-input"
-                type="file"
-                multiple
-                accept=".pdf"
-                style={{ display: 'none' }}
-                onChange={(e) =>
-                  handleFiles(Array.from(e.target.files).map((f) => ({ path: f.path, name: f.name })))
-                }
-              />
             </div>
           </div>
 
