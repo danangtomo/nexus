@@ -1,271 +1,297 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── Apple HIG Design Tokens — Dark mode (default) ───────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   APPLE HIG DESIGN TOKENS — Dark (default)
+   Source: developer.apple.com/design/human-interface-guidelines
+   ═══════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* Backgrounds — Apple systemBackground hierarchy */
-  --bg-primary:   #000000;   /* systemBackground */
-  --bg-secondary: #1c1c1e;   /* secondarySystemBackground */
-  --bg-tertiary:  #2c2c2e;   /* tertiarySystemBackground */
-  --bg-elevated:  #3a3a3c;   /* systemFill */
-  --bg-hover:     rgba(255,255,255,0.08);
+  /* ── Backgrounds ──────────────────────────────────────────────────────── */
+  --color-bg:           #000000;   /* systemBackground */
+  --color-bg-secondary: #1c1c1e;   /* secondarySystemBackground */
+  --color-bg-tertiary:  #2c2c2e;   /* tertiarySystemBackground */
+  --color-bg-grouped:   #000000;   /* systemGroupedBackground */
+  --color-bg-grouped2:  #1c1c1e;   /* secondarySystemGroupedBackground */
+  --color-bg-elevated:  #1c1c1e;   /* elevated surface */
 
-  /* Labels — Apple semantic label colors */
-  --text-primary:   #ffffff;               /* label */
-  --text-secondary: rgba(235,235,245,0.6); /* secondaryLabel */
-  --text-muted:     rgba(235,235,245,0.3); /* tertiaryLabel */
-  --text-disabled:  rgba(235,235,245,0.18);/* quaternaryLabel */
+  /* ── Materials (vibrancy approximation) ──────────────────────────────── */
+  --material-sidebar:   rgba(28,28,30,0.82);
+  --material-overlay:   rgba(44,44,46,0.90);
+  --material-thin:      rgba(28,28,30,0.60);
 
-  /* Accent — Apple systemBlue (dark) */
-  --accent:      #0a84ff;
-  --accent-hover:#409cff;
-  --accent-soft: rgba(10,132,255,0.15);
+  /* ── Labels ───────────────────────────────────────────────────────────── */
+  --color-label:          rgba(255,255,255,1.00);   /* label */
+  --color-label-2:        rgba(235,235,245,0.60);   /* secondaryLabel */
+  --color-label-3:        rgba(235,235,245,0.30);   /* tertiaryLabel */
+  --color-label-4:        rgba(235,235,245,0.18);   /* quaternaryLabel */
 
-  /* Separators */
-  --border:        rgba(84,84,88,0.65);  /* separator */
-  --border-subtle: rgba(84,84,88,0.35);  /* opaqueSeparator */
+  /* ── System Colors ────────────────────────────────────────────────────── */
+  --color-blue:   #0a84ff;
+  --color-green:  #30d158;
+  --color-red:    #ff453a;
+  --color-orange: #ff9f0a;
+  --color-yellow: #ffd60a;
+  --color-teal:   #64d2ff;
+  --color-indigo: #5e5ce6;
+  --color-purple: #bf5af2;
+  --color-pink:   #ff375f;
+  --color-brown:  #ac8e68;
+  --color-gray:   #8e8e93;
 
-  /* System colors — Apple HIG exact dark values */
-  --success: #30d158;   /* systemGreen dark */
-  --warning: #ffd60a;   /* systemYellow dark */
-  --danger:  #ff453a;   /* systemRed dark */
-  --info:    #64d2ff;   /* systemTeal dark */
-  --orange:  #ff9f0a;   /* systemOrange dark */
-  --purple:  #bf5af2;   /* systemPurple dark */
+  /* ── Fills ────────────────────────────────────────────────────────────── */
+  --fill-1: rgba(120,120,128,0.36);
+  --fill-2: rgba(120,120,128,0.32);
+  --fill-3: rgba(120,120,128,0.24);
+  --fill-4: rgba(120,120,128,0.18);
 
-  /* Fills — Apple systemFill hierarchy */
-  --fill-primary:   rgba(120,120,128,0.36);
-  --fill-secondary: rgba(120,120,128,0.32);
-  --fill-tertiary:  rgba(120,120,128,0.24);
-  --fill-quaternary:rgba(120,120,128,0.18);
+  /* ── Separators ───────────────────────────────────────────────────────── */
+  --separator:        rgba(84,84,88,0.65);
+  --separator-opaque: #38383a;
 
-  /* ── Typography — Apple SF Pro scale ───────────────────────────────────── */
+  /* ── Aliases (used by components) ────────────────────────────────────── */
+  --bg-primary:    var(--color-bg);
+  --bg-secondary:  var(--color-bg-secondary);
+  --bg-tertiary:   var(--color-bg-tertiary);
+  --bg-elevated:   var(--color-bg-elevated);
+  --bg-hover:      var(--fill-4);
+  --text-primary:  var(--color-label);
+  --text-secondary:var(--color-label-2);
+  --text-muted:    var(--color-label-3);
+  --text-disabled: var(--color-label-4);
+  --accent:        var(--color-blue);
+  --accent-hover:  #409cff;
+  --accent-soft:   rgba(10,132,255,0.18);
+  --border:        var(--separator);
+  --border-subtle: rgba(84,84,88,0.36);
+  --success:       var(--color-green);
+  --warning:       var(--color-yellow);
+  --danger:        var(--color-red);
+  --info:          var(--color-teal);
+
+  /* ── Typography — Apple SF Pro exact scale ────────────────────────────── */
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
-               'Helvetica Neue', 'Segoe UI', sans-serif;
+               'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
   --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
 
-  /* Type scale (Apple HIG pt → px at 1:1) */
-  --text-large-title: 34px; /* Large Title */
-  --text-title1:      28px; /* Title 1 */
-  --text-title2:      22px; /* Title 2 */
-  --text-title3:      20px; /* Title 3 — semibold */
-  --text-headline:    17px; /* Headline — semibold */
-  --text-body:        17px; /* Body */
-  --text-callout:     16px; /* Callout */
-  --text-subhead:     15px; /* Subheading */
-  --text-footnote:    13px; /* Footnote */
-  --text-caption1:    12px; /* Caption 1 */
-  --text-caption2:    11px; /* Caption 2 */
+  --text-large-title: 34px;  /* weight 400, tracking -1.05px */
+  --text-title1:      28px;  /* weight 400, tracking -0.8px  */
+  --text-title2:      22px;  /* weight 400, tracking -0.7px  */
+  --text-title3:      20px;  /* weight 600, tracking -0.6px  */
+  --text-headline:    17px;  /* weight 600, tracking -0.43px */
+  --text-body:        17px;  /* weight 400, tracking -0.43px */
+  --text-callout:     16px;  /* weight 400, tracking -0.32px */
+  --text-subhead:     15px;  /* weight 400, tracking  0px   */
+  --text-footnote:    13px;  /* weight 400, tracking +0.03px */
+  --text-caption1:    12px;  /* weight 400, tracking +0.12px */
+  --text-caption2:    11px;  /* weight 400, tracking +0.15px */
 
-  /* Letter spacing (Apple tracking values) */
-  --tracking-title1:   -0.8px;
-  --tracking-title2:   -0.7px;
-  --tracking-headline: -0.43px;
-  --tracking-body:     -0.43px;
-  --tracking-footnote:  0.03px;
-  --tracking-caption1:  0.12px;
+  /* ── Spacing — 8pt grid ───────────────────────────────────────────────── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10:40px;
+  --sp-12:48px;
+  --sp-16:64px;
 
-  /* ── Spacing — Apple 8pt grid ───────────────────────────────────────────── */
-  --space-1:  4px;   /* xxs */
-  --space-2:  8px;   /* xs  */
-  --space-3: 12px;   /* sm  */
-  --space-4: 16px;   /* md  — primary content inset */
-  --space-5: 20px;   /* —   */
-  --space-6: 24px;   /* lg  — section spacing */
-  --space-8: 32px;   /* xl  — between sections */
-  --space-10:40px;   /* —   */
-  --space-12:48px;   /* xxl */
-
-  /* ── Corner radius — Apple system values ────────────────────────────────── */
+  /* ── Corner radius — Apple system values ──────────────────────────────── */
   --radius-xs:  4px;
   --radius-sm:  6px;
-  --radius:     8px;   /* controls, inputs */
-  --radius-md: 10px;   /* cards */
-  --radius-lg: 12px;   /* panels */
-  --radius-xl: 16px;   /* sheets, large cards */
-  --radius-2xl:20px;   /* large containers */
+  --radius:     8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl:20px;
 
-  /* ── Layout ─────────────────────────────────────────────────────────────── */
-  --sidebar-width: 250px;       /* Apple HIG recommended sidebar width */
-  --min-touch:      44px;       /* Apple minimum interactive target */
-  --content-inset:  var(--space-6); /* 24px side margins on desktop */
+  /* ── Layout ───────────────────────────────────────────────────────────── */
+  --sidebar-width: 250px;
+  --min-tap:        44px;   /* Apple minimum touch/click target */
+  --content-inset:  var(--sp-6);
 
-  /* ── Shadows ─────────────────────────────────────────────────────────────── */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.48);
-  --shadow:    0 4px 16px rgba(0,0,0,0.56);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.64);
+  /* ── Shadows ──────────────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3);
+  --shadow:    0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.4);
 
-  /* ── Motion ──────────────────────────────────────────────────────────────── */
-  --ease-out:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast:   100ms;
-  --duration:        200ms;
-  --duration-slow:   350ms;
-  --transition: var(--duration) var(--ease-out);
+  /* ── Motion — Apple easing curves ────────────────────────────────────── */
+  --ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-decelerate: cubic-bezier(0.0,  0.0,  0.2,  1.0);
+  --ease-accelerate: cubic-bezier(0.4,  0.0,  1.0,  1.0);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-instant:  80ms;
+  --dur-fast:    150ms;
+  --dur-normal:  250ms;
+  --dur-slow:    400ms;
+  --transition: var(--dur-fast) var(--ease-standard);
 }
 
-/* ── Apple HIG — Light mode ─────────────────────────────────────────────── */
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-primary:   #f2f2f7;   /* systemGroupedBackground */
-    --bg-secondary: #ffffff;   /* secondarySystemGroupedBackground */
-    --bg-tertiary:  #f2f2f7;   /* tertiarySystemBackground */
-    --bg-elevated:  #ffffff;
-    --bg-hover:     rgba(0,0,0,0.05);
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIGHT THEME — applied by JS via document.documentElement.dataset.theme
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="light"] {
+  --color-bg:           #f2f2f7;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary:  #f2f2f7;
+  --color-bg-grouped:   #f2f2f7;
+  --color-bg-grouped2:  #ffffff;
+  --color-bg-elevated:  #ffffff;
 
-    --text-primary:   #000000;
-    --text-secondary: rgba(60,60,67,0.6);
-    --text-muted:     rgba(60,60,67,0.3);
-    --text-disabled:  rgba(60,60,67,0.18);
+  --material-sidebar:   rgba(242,242,247,0.82);
+  --material-overlay:   rgba(255,255,255,0.90);
+  --material-thin:      rgba(242,242,247,0.60);
 
-    --accent:      #007aff;   /* systemBlue light */
-    --accent-hover:#0071e3;
-    --accent-soft: rgba(0,122,255,0.12);
+  --color-label:   rgba(0,0,0,1.00);
+  --color-label-2: rgba(60,60,67,0.60);
+  --color-label-3: rgba(60,60,67,0.30);
+  --color-label-4: rgba(60,60,67,0.18);
 
-    --border:        rgba(60,60,67,0.29);
-    --border-subtle: rgba(60,60,67,0.12);
+  --color-blue:   #007aff;
+  --color-green:  #34c759;
+  --color-red:    #ff3b30;
+  --color-orange: #ff9500;
+  --color-yellow: #ffcc00;
+  --color-teal:   #5ac8fa;
+  --color-indigo: #5856d6;
+  --color-purple: #af52de;
+  --color-pink:   #ff2d55;
+  --color-brown:  #a2845e;
+  --color-gray:   #8e8e93;
 
-    --success: #34c759;
-    --warning: #ffcc00;
-    --danger:  #ff3b30;
-    --info:    #5ac8fa;
-    --orange:  #ff9500;
-    --purple:  #af52de;
+  --fill-1: rgba(120,120,128,0.20);
+  --fill-2: rgba(120,120,128,0.16);
+  --fill-3: rgba(120,120,128,0.12);
+  --fill-4: rgba(120,120,128,0.08);
 
-    --fill-primary:   rgba(120,120,128,0.2);
-    --fill-secondary: rgba(120,120,128,0.16);
-    --fill-tertiary:  rgba(120,120,128,0.12);
-    --fill-quaternary:rgba(120,120,128,0.08);
+  --separator:        rgba(60,60,67,0.29);
+  --separator-opaque: #c6c6c8;
 
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-    --shadow:    0 4px 16px rgba(0,0,0,0.14);
-    --shadow-lg: 0 12px 40px rgba(0,0,0,0.18);
-  }
+  --accent-hover: #0071e3;
+  --accent-soft:  rgba(0,122,255,0.12);
+  --bg-hover:     var(--fill-4);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+  --shadow:    0 4px 12px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.10);
 }
 
-/* ── Base ────────────────────────────────────────────────────────────────── */
-html, body, #root {
-  height: 100%;
-  width: 100%;
-}
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+html, body, #root { height: 100%; width: 100%; }
 
 body {
   font-family: var(--font-sans);
-  font-size: var(--text-footnote);   /* 13px — Apple footnote = app default */
-  line-height: 1.47;                 /* Apple body line height ratio */
-  letter-spacing: var(--tracking-footnote);
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  font-size: var(--text-footnote);
+  line-height: 1.47;
+  letter-spacing: 0.03px;
+  background: var(--color-bg);
+  color: var(--color-label);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-}
-
-input, textarea, select {
-  font-family: inherit;
-  outline: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Allow text selection inside tool content areas */
-textarea, input[type="text"], input[type="search"], [data-selectable] {
-  user-select: text;
-}
+button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+input, textarea, select { font-family: inherit; outline: none; }
+a { color: inherit; text-decoration: none; }
+textarea, input[type="text"], input[type="search"], [data-selectable] { user-select: text; }
 
 /* ── Scrollbar — Apple thin style ────────────────────────────────────────── */
 ::-webkit-scrollbar        { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track  { background: transparent; }
 ::-webkit-scrollbar-thumb  {
-  background: var(--fill-tertiary);
+  background: var(--fill-2);
   border-radius: 4px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--fill-primary); background-clip: content-box; border: 2px solid transparent; }
+::-webkit-scrollbar-thumb:hover { background: var(--fill-1); background-clip: content-box; border: 2px solid transparent; }
 
-/* ── Typography helpers ──────────────────────────────────────────────────── */
-.text-large-title { font-size: var(--text-large-title); font-weight: 400; letter-spacing: -1.05px; line-height: 1.21; }
-.text-title1      { font-size: var(--text-title1);      font-weight: 400; letter-spacing: var(--tracking-title1); line-height: 1.21; }
-.text-title2      { font-size: var(--text-title2);      font-weight: 400; letter-spacing: var(--tracking-title2); line-height: 1.27; }
-.text-title3      { font-size: var(--text-title3);      font-weight: 600; letter-spacing: -0.6px;  line-height: 1.25; }
-.text-headline    { font-size: var(--text-headline);    font-weight: 600; letter-spacing: var(--tracking-headline); line-height: 1.29; }
-.text-body        { font-size: var(--text-body);        font-weight: 400; letter-spacing: var(--tracking-body);     line-height: 1.29; }
-.text-callout     { font-size: var(--text-callout);     font-weight: 400; letter-spacing: -0.32px; line-height: 1.25; }
-.text-subhead     { font-size: var(--text-subhead);     font-weight: 400; letter-spacing:  0px;    line-height: 1.27; }
-.text-footnote    { font-size: var(--text-footnote);    font-weight: 400; letter-spacing: var(--tracking-footnote); line-height: 1.23; }
-.text-caption1    { font-size: var(--text-caption1);    font-weight: 400; letter-spacing: var(--tracking-caption1); line-height: 1.25; }
-.text-caption2    { font-size: var(--text-caption2);    font-weight: 400; letter-spacing:  0.15px; line-height: 1.27; }
+/* ── Focus ring — Apple blue outline ─────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
 
-/* ── Buttons — Apple HIG ─────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════ */
+.t-large-title { font-size:var(--text-large-title); font-weight:400; letter-spacing:-1.05px; line-height:1.20; }
+.t-title1      { font-size:var(--text-title1);      font-weight:400; letter-spacing:-0.80px; line-height:1.21; }
+.t-title2      { font-size:var(--text-title2);      font-weight:400; letter-spacing:-0.70px; line-height:1.27; }
+.t-title3      { font-size:var(--text-title3);      font-weight:600; letter-spacing:-0.60px; line-height:1.25; }
+.t-headline    { font-size:var(--text-headline);    font-weight:600; letter-spacing:-0.43px; line-height:1.29; }
+.t-body        { font-size:var(--text-body);        font-weight:400; letter-spacing:-0.43px; line-height:1.29; }
+.t-callout     { font-size:var(--text-callout);     font-weight:400; letter-spacing:-0.32px; line-height:1.25; }
+.t-subhead     { font-size:var(--text-subhead);     font-weight:400; letter-spacing: 0px;    line-height:1.27; }
+.t-footnote    { font-size:var(--text-footnote);    font-weight:400; letter-spacing: 0.03px; line-height:1.23; }
+.t-caption1    { font-size:var(--text-caption1);    font-weight:400; letter-spacing: 0.12px; line-height:1.25; }
+.t-caption2    { font-size:var(--text-caption2);    font-weight:400; letter-spacing: 0.15px; line-height:1.27; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTONS — Apple HIG
+   min 44px height, 8px radius, no border on primary
+   ═══════════════════════════════════════════════════════════════════════════ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  min-height: var(--min-touch);    /* 44px — Apple minimum touch target */
-  padding: 0 var(--space-4);
+  gap: var(--sp-2);
+  min-height: var(--min-tap);
+  padding: 0 var(--sp-4);
   border-radius: var(--radius);
-  font-size: var(--text-footnote); /* 13px */
+  font-size: var(--text-footnote);
   font-weight: 500;
   letter-spacing: -0.08px;
-  transition: background var(--transition), opacity var(--transition), transform var(--duration-fast) var(--ease-out);
   white-space: nowrap;
+  transition:
+    background var(--transition),
+    opacity var(--transition),
+    transform var(--dur-instant) var(--ease-standard);
   -webkit-app-region: no-drag;
 }
 
-.btn:active { transform: scale(0.97); }
+.btn:active:not(:disabled) { transform: scale(0.96); }
+.btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
-.btn-primary:hover  { background: var(--accent-hover); }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover:not(:disabled) { filter: brightness(1.1); }
 
+/* Apple tinted button — fill with accent tint */
+.btn-tinted { background: var(--accent-soft); color: var(--accent); }
+.btn-tinted:hover:not(:disabled) { background: rgba(10,132,255,0.24); }
+
+/* Apple plain/ghost — no background, just label color */
+.btn-plain { background: transparent; color: var(--accent); }
+.btn-plain:hover:not(:disabled) { background: var(--fill-4); }
+
+/* Apple bordered — subtle border */
 .btn-ghost {
-  background: var(--fill-tertiary);
+  background: var(--fill-3);
   color: var(--text-secondary);
-  border: none;
 }
-.btn-ghost:hover {
-  background: var(--fill-secondary);
+.btn-ghost:hover:not(:disabled) {
+  background: var(--fill-2);
   color: var(--text-primary);
 }
 
-.btn-danger {
-  background: var(--danger);
-  color: #fff;
-}
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover:not(:disabled) { filter: brightness(1.1); }
 
-.btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Compact variant — use for secondary actions inside panels */
+/* Compact — 28px height for toolbar/inline contexts */
 .btn-sm {
   min-height: 28px;
-  padding: 0 var(--space-3);
+  padding: 0 var(--sp-3);
   font-size: var(--text-caption1);
   border-radius: var(--radius-sm);
 }
 
-/* ── Form controls — Apple HIG ───────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM CONTROLS — Apple HIG (44px min height, 6px radius)
+   ═══════════════════════════════════════════════════════════════════════════ */
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -273,43 +299,96 @@ input[type="email"],
 input[type="search"],
 textarea,
 select {
-  background: var(--fill-tertiary);
+  background: var(--fill-3);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  padding: 0 var(--space-3);
-  height: var(--min-touch);        /* 44px — Apple minimum */
+  color: var(--color-label);
+  padding: 0 var(--sp-3);
+  height: var(--min-tap);
   font-size: var(--text-footnote);
   font-family: var(--font-sans);
-  letter-spacing: var(--tracking-footnote);
-  transition: border-color var(--transition), background var(--transition);
+  letter-spacing: 0.03px;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
   width: 100%;
 }
 
 textarea {
   height: auto;
-  padding: var(--space-3);
+  padding: var(--sp-3);
   line-height: 1.47;
   resize: vertical;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus, textarea:focus, select:focus {
   border-color: var(--accent);
-  background: var(--fill-quaternary);
-  outline: none;
+  background: var(--fill-4);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: var(--text-muted);
+input::placeholder, textarea::placeholder { color: var(--text-muted); }
+
+/* Range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--fill-2);
+  border-radius: 2px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  accent-color: var(--accent);
 }
 
-/* ── Separator ───────────────────────────────────────────────────────────── */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform var(--dur-instant) var(--ease-spring);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  height: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY
+   ═══════════════════════════════════════════════════════════════════════════ */
 .separator {
   height: 1px;
-  background: var(--border-subtle);
+  background: var(--separator);
   border: none;
   margin: 0;
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Label + helper text pair */
+.field-label {
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-2);
 }

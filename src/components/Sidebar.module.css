@@ -1,19 +1,19 @@
 /* Apple HIG: sidebar width 250px, translucent background, full-height */
 .sidebar {
-  width: var(--sidebar-width);       /* 250px — Apple HIG recommended */
+  width: var(--sidebar-width);
   min-width: var(--sidebar-width);
   height: 100vh;
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  -webkit-app-region: drag;          /* allow dragging window from sidebar */
+  -webkit-app-region: drag;
 }
 
 /* ── Logo / app name ─────────────────────────────────────────────────────── */
 .logo {
-  padding: var(--space-4) var(--space-4) var(--space-3);
+  padding: var(--sp-4) var(--sp-4) var(--sp-3);
   border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
@@ -21,7 +21,7 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--sp-2);
   -webkit-app-region: no-drag;
 }
 
@@ -39,34 +39,33 @@
   flex-shrink: 0;
 }
 
-/* Apple Title 3 weight for app name */
 .logoText {
-  font-size: var(--text-subhead);    /* 15px — Apple subheading */
+  font-size: var(--text-subhead);
   font-weight: 600;
   letter-spacing: -0.2px;
-  color: var(--text-primary);
+  color: var(--color-label);
 }
 
 /* ── Navigation ──────────────────────────────────────────────────────────── */
 .nav {
   flex: 1;
   overflow-y: auto;
-  padding: var(--space-2) 0 var(--space-6);
+  padding: var(--sp-2) 0 var(--sp-6);
   -webkit-app-region: no-drag;
 }
 
 .category {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--sp-1);
 }
 
-/* Apple HIG: section headers use Caption 2 — 11px, semibold, uppercase */
+/* Apple HIG: section headers — Caption 2, 11px, semibold, uppercase, muted */
 .catHeader {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4) var(--space-1);
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4) var(--sp-1);
   color: var(--text-muted);
-  font-size: var(--text-caption2);   /* 11px — Apple Caption 2 */
+  font-size: var(--text-caption2);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -82,17 +81,16 @@
   list-style: none;
 }
 
-/* Apple HIG: sidebar rows 32px height, 28px indented, footnote size */
+/* Apple HIG: sidebar rows 32px height, footnote size */
 .toolLink {
   display: flex;
   align-items: center;
-  height: 32px;                      /* Apple sidebar row height */
-  padding: 0 var(--space-4) 0 36px; /* 36px indent for items */
-  font-size: var(--text-footnote);   /* 13px — Apple footnote */
-  letter-spacing: var(--tracking-footnote);
+  height: 32px;
+  padding: 0 var(--sp-4) 0 36px;
+  font-size: var(--text-footnote);
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
-  margin: 1px var(--space-2);       /* slight inset from sidebar edges */
+  margin: 1px var(--sp-2);
   transition: background var(--transition), color var(--transition);
   white-space: nowrap;
   overflow: hidden;
@@ -104,9 +102,44 @@
   color: var(--text-primary);
 }
 
-/* Apple HIG: selected sidebar item uses accent color background tint */
 .toolLink.active {
   background: var(--accent);
   color: #ffffff;
   font-weight: 500;
+}
+
+/* ── Settings footer ─────────────────────────────────────────────────────── */
+.footer {
+  flex-shrink: 0;
+  padding: var(--sp-2) var(--sp-2) var(--sp-4);
+  border-top: 1px solid var(--border-subtle);
+  -webkit-app-region: no-drag;
+}
+
+.settingsLink {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  height: 36px;
+  padding: 0 var(--sp-3);
+  font-size: var(--text-footnote);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+
+.settingsLink:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.settingsLink.active {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.settingsIcon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
 }

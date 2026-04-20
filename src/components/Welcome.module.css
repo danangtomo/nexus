@@ -1,46 +1,46 @@
 .page {
   max-width: 860px;
   margin: 0 auto;
-  padding: 60px 28px 40px;
+  padding: var(--sp-10) var(--sp-6) var(--sp-8);
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: var(--sp-12);
 }
 
 .badge {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--text-caption2);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-hover);
   background: var(--accent-soft);
-  border-radius: 20px;
-  padding: 4px 14px;
-  margin-bottom: 20px;
+  border-radius: var(--radius-2xl);
+  padding: var(--sp-1) 14px;
+  margin-bottom: var(--sp-5);
 }
 
 .heading {
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: var(--text-large-title);
+  font-weight: 700;
+  line-height: 1.1;
   letter-spacing: -0.03em;
-  color: var(--text-primary);
-  margin-bottom: 14px;
+  color: var(--color-label);
+  margin-bottom: var(--sp-3);
 }
 
 .sub {
-  font-size: 16px;
+  font-size: var(--text-callout);
   color: var(--text-secondary);
   max-width: 480px;
-  margin: 0 auto 28px;
+  margin: 0 auto var(--sp-6);
   line-height: 1.6;
 }
 
 .startBtn {
-  font-size: 14px;
+  font-size: var(--text-footnote);
   padding: 11px 28px;
   border-radius: var(--radius);
 }
@@ -48,14 +48,14 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: var(--sp-4);
 }
 
 .card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 20px;
+  padding: var(--sp-5);
   transition: border-color var(--transition);
 }
 
@@ -66,18 +66,19 @@
 .cardIcon {
   font-size: 24px;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: var(--sp-2);
 }
 
 .cardLabel {
-  font-size: 14px;
+  font-size: var(--text-footnote);
   font-weight: 600;
   display: block;
-  margin-bottom: 4px;
+  color: var(--color-label);
+  margin-bottom: var(--sp-1);
 }
 
 .cardDesc {
-  font-size: 12px;
+  font-size: var(--text-caption1);
   color: var(--text-muted);
   line-height: 1.5;
 }

@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import ToolLayout from './components/ToolLayout'
 import Welcome from './components/Welcome'
+import Settings from './components/Settings'
 import styles from './App.module.css'
 
 // Phase 3 — File & image conversion
@@ -98,6 +99,7 @@ export default function App() {
           <Route path="/regex-tester" element={<ToolLayout title="Regex Tester"><RegexTester /></ToolLayout>} />
           <Route path="/word-counter" element={<ToolLayout title="Word Counter"><WordCounter /></ToolLayout>} />
 
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

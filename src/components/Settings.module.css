@@ -1,0 +1,134 @@
+.page {
+  max-width: 640px;
+  padding: var(--sp-6) var(--content-inset) var(--sp-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.pageTitle {
+  font-size: var(--text-title2);
+  font-weight: 400;
+  letter-spacing: -0.7px;
+  color: var(--color-label);
+}
+
+/* ── Section ─────────────────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+/* Apple HIG section header: caption2, semibold, uppercase, muted */
+.sectionTitle {
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 var(--sp-1);
+}
+
+.sectionBody {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Appearance cards ─────────────────────────────────────────────────────── */
+.appearanceRow {
+  padding: var(--sp-5) var(--sp-4);
+}
+
+.appearanceCards {
+  display: flex;
+  gap: var(--sp-4);
+}
+
+/* Apple macOS System Settings appearance card */
+.appearanceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--sp-2);
+  border-radius: var(--radius-lg);
+  transition: background var(--transition);
+  -webkit-app-region: no-drag;
+}
+
+.appearanceCard:hover { background: var(--fill-4); }
+
+.previewWrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 2px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+
+.cardSelected .previewWrap {
+  border-color: var(--accent);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+/* Radio circle — unchecked */
+.checkCircle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--separator);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+
+/* Radio circle — checked */
+.checkActive {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cardLabel {
+  font-size: var(--text-caption1);
+  font-weight: 500;
+  color: var(--color-label);
+  letter-spacing: 0.12px;
+}
+
+/* ── About rows ──────────────────────────────────────────────────────────── */
+.aboutRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sp-4);
+  min-height: var(--min-tap);
+}
+
+.aboutLabel {
+  font-size: var(--text-footnote);
+  color: var(--color-label);
+}
+
+.aboutValue {
+  font-size: var(--text-footnote);
+  color: var(--text-secondary);
+}
+
+.rowSep {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0 var(--sp-4);
+}

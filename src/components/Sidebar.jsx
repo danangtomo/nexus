@@ -129,6 +129,18 @@ export default function Sidebar() {
           </div>
         ))}
       </nav>
+
+      <div className={styles.footer}>
+        <NavLink
+          to="/settings"
+          className={({ isActive }) =>
+            `${styles.settingsLink} ${isActive ? styles.active : ''}`
+          }
+        >
+          <span className={styles.settingsIcon}>⚙️</span>
+          Settings
+        </NavLink>
+      </div>
     </aside>
   )
 }

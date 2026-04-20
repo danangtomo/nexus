@@ -1,0 +1,41 @@
+/* Apple HIG Segmented Control — pill container, animated selection pill */
+.control {
+  display: inline-flex;
+  background: var(--fill-3);
+  border-radius: var(--radius);
+  padding: 2px;
+  gap: 2px;
+  position: relative;
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-1);
+  border-radius: calc(var(--radius) - 2px);
+  font-size: var(--text-footnote);
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    color     var(--dur-fast) var(--ease-standard);
+  white-space: nowrap;
+  -webkit-app-region: no-drag;
+}
+
+.selected {
+  background: var(--color-bg-elevated);
+  color: var(--color-label);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.icon { font-size: 13px; line-height: 1; }
+
+/* Sizes */
+.md .segment { height: 28px; padding: 0 var(--sp-3); font-size: var(--text-footnote); }
+.sm .segment { height: 22px; padding: 0 var(--sp-2); font-size: var(--text-caption1); }
