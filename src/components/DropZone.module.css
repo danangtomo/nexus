@@ -1,0 +1,32 @@
+.zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  background: var(--bg-secondary);
+}
+
+.zone:hover,
+.zone.dragging {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.sublabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}

@@ -1,0 +1,83 @@
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 28px 40px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-hover);
+  background: var(--accent-soft);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.sub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.startBtn {
+  font-size: 14px;
+  padding: 11px 28px;
+  border-radius: var(--radius);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: border-color var(--transition);
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.cardIcon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cardLabel {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cardDesc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
