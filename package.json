@@ -15,7 +15,10 @@
     "rebuild": "electron-builder install-app-deps"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "danangtomo",
+    "email": "ajidanang9@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "archiver": "^7.0.1",
