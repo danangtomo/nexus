@@ -1,8 +1,208 @@
-.placeholder {
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── Mode tabs ── */
+.tabs {
+  display: flex;
+  gap: var(--sp-1);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-1);
+  width: fit-content;
+}
+
+.tab {
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: var(--radius-md);
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.tab:hover { color: var(--color-label); }
+.tabActive { background: var(--accent); color: #fff; }
+
+/* ── Pane ── */
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── Section ── */
+.section { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+.sectionLabel {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+  margin: 0;
+}
+
+/* ── Inputs ── */
+.textarea {
+  width: 100%;
+  padding: var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--text-footnote);
+  color: var(--color-label);
+  resize: vertical;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color var(--transition);
+}
+.textarea:focus { outline: none; border-color: var(--accent); }
+
+.input {
+  width: 100%;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--text-footnote);
+  color: var(--color-label);
+  box-sizing: border-box;
+  transition: border-color var(--transition);
+}
+.input:focus { outline: none; border-color: var(--accent); }
+
+/* ── Options row ── */
+.optRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+.optGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.optLabel {
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.btnRow {
+  display: flex;
+  gap: var(--sp-1);
+}
+
+.optBtn {
+  padding: var(--sp-1) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.optBtn:hover { border-color: var(--accent); color: var(--color-label); }
+.optActive { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ── Color pickers ── */
+.colorRow { display: flex; gap: var(--sp-3); }
+
+.colorLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-caption1);
+  color: var(--color-label);
+  cursor: pointer;
+}
+
+.colorInput {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: none;
+}
+
+/* ── Format grid ── */
+.fmtGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.fmtBtn {
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.fmtBtn:hover { border-color: var(--accent); color: var(--color-label); }
+.fmtActive { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+.hint {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Preview area ── */
+.previewArea {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  color: var(--text-muted);
-  font-size: 16px;
+  min-height: 200px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
 }
+
+.qrCanvas {
+  display: block;
+  border-radius: var(--radius-sm);
+  image-rendering: pixelated;
+}
+
+.barcodeSvg {
+  max-width: 100%;
+}
+
+.previewHint {
+  font-size: var(--text-footnote);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Error ── */
+.error {
+  font-size: var(--text-footnote);
+  color: var(--danger);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-3);
+  background: rgba(255, 59, 48, 0.08);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  border-radius: var(--radius-md);
+}
+
+/* ── Footer ── */
+.footer { display: flex; justify-content: flex-end; }
