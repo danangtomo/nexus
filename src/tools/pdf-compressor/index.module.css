@@ -1,8 +1,164 @@
-.placeholder {
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+/* ── File bar ── */
+.fileBar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 300px;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.fileBarLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.fileName {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: var(--text-caption1);
   color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Quality selector ── */
+.sectionLabel {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+  margin: 0 0 var(--sp-2) 0;
+}
+
+.qualityList {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.qualityCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-1);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--color-bg-secondary);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  text-align: left;
+}
+
+.qualityCard:hover {
+  border-color: var(--color-accent);
+  background: var(--bg-hover);
+}
+
+.qualityActive {
+  border-color: var(--color-accent);
+  background: rgba(var(--accent-rgb, 0, 122, 255), 0.08);
+}
+
+.qualityLabel {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+}
+
+.qualityDesc {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Error ── */
+.error {
+  font-size: var(--text-footnote);
+  color: var(--danger);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-3);
+  background: rgba(255, 59, 48, 0.08);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  border-radius: var(--radius-md);
+}
+
+/* ── Result banner ── */
+.resultBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(48, 209, 88, 0.10);
+  border: 1px solid rgba(48, 209, 88, 0.25);
+  border-radius: var(--radius-lg);
+  gap: var(--sp-3);
+}
+
+.resultLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex: 1;
+  min-width: 0;
+}
+
+.resultCheck {
   font-size: 16px;
+  color: var(--color-green);
+  flex-shrink: 0;
+}
+
+.resultSizes {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  font-size: var(--text-footnote);
+  color: var(--color-label);
+}
+
+.arrow {
+  color: var(--text-muted);
+}
+
+.newSize {
+  font-weight: 600;
+  color: var(--color-green);
+}
+
+.savings {
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  color: var(--color-green);
+  background: rgba(48, 209, 88, 0.15);
+  padding: 1px var(--sp-2);
+  border-radius: var(--radius-xs);
+}
+
+.noSavings {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: flex-end;
 }

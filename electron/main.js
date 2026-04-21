@@ -6,6 +6,7 @@ const { getDb } = require('./db')
 // Engine IPC handlers (registered when required)
 require('./handlers/sharp')
 require('./handlers/ffmpeg')
+require('./handlers/ghostscript')
 
 const isDev = process.env.NODE_ENV === 'development'
 

@@ -61,6 +61,13 @@ contextBridge.exposeInMainWorld('nexus', {
     thumbnail: (filePath, size) => ipcRenderer.invoke('sharp:thumbnail', filePath, size),
   },
 
+  // Ghostscript — PDF encryption & compression
+  gs: {
+    encrypt:  (opts) => ipcRenderer.invoke('gs:encrypt',  opts),
+    decrypt:  (opts) => ipcRenderer.invoke('gs:decrypt',  opts),
+    compress: (opts) => ipcRenderer.invoke('gs:compress', opts),
+  },
+
   // FFmpeg — video/audio
   ffmpeg: {
     run: (opts) => ipcRenderer.invoke('ffmpeg:run', opts),
