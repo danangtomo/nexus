@@ -27,7 +27,11 @@ export async function recognizeImage(filePath, lang, onProgress) {
   const worker = await createWorker(lang, 1, {
     logger: (m) => {
       if (m.status === 'recognizing text') {
-        onProgress(Math.round(m.progress * 100))
+        // recognizing phase = 30–100%
+        onProgress(30 + Math.round(m.progress * 70))
+      } else if (typeof m.progress === 'number') {
+        // loading/init phases = 0–30%
+        onProgress(Math.round(m.progress * 30))
       }
     },
   })

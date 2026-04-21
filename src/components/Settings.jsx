@@ -70,7 +70,13 @@ export default function Settings() {
           <div className={styles.rowSep} />
           <div className={styles.aboutRow}>
             <span className={styles.aboutLabel}>Designed by</span>
-            <span className={styles.aboutValue}>Danang Estutomoaji</span>
+            <a
+              className={styles.aboutLink}
+              href="https://github.com/danangtomo"
+              onClick={(e) => { e.preventDefault(); window.nexus.openExternal('https://github.com/danangtomo') }}
+            >
+              Danang Estutomoaji
+            </a>
           </div>
           <div className={styles.rowSep} />
           <div className={styles.aboutRow}>

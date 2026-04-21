@@ -127,6 +127,14 @@
   color: var(--text-secondary);
 }
 
+.aboutLink {
+  font-size: var(--text-footnote);
+  color: var(--color-accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+.aboutLink:hover { text-decoration: underline; }
+
 .rowSep {
   height: 1px;
   background: var(--border-subtle);

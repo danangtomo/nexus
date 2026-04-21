@@ -74,8 +74,9 @@ contextBridge.exposeInMainWorld('nexus', {
     probe: (filePath) => ipcRenderer.invoke('ffmpeg:probe', filePath),
     thumbnail: (filePath, timestamp) => ipcRenderer.invoke('ffmpeg:thumbnail', filePath, timestamp),
     onProgress: (callback) => {
-      ipcRenderer.on('ffmpeg:progress', (_e, data) => callback(data))
-      return () => ipcRenderer.removeListener('ffmpeg:progress', callback)
+      const handler = (_e, data) => callback(data)
+      ipcRenderer.on('ffmpeg:progress', handler)
+      return () => ipcRenderer.removeListener('ffmpeg:progress', handler)
     },
   },
 

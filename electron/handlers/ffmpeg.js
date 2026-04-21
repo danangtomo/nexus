@@ -57,15 +57,13 @@ ipcMain.handle('ffmpeg:probe', async (_e, filePath) => {
  * Returns { success: true } or throws on error.
  */
 ipcMain.handle('ffmpeg:run', async (event, opts) => {
+  const { input, output, args = [], overwrite = true } = opts
+
+  fs.mkdirSync(path.dirname(output), { recursive: true })
+
+  const totalSeconds = await probeDuration(input)
+
   return new Promise((resolve, reject) => {
-    const { input, output, args = [], overwrite = true } = opts
-
-    fs.mkdirSync(path.dirname(output), { recursive: true })
-
-    // Probe duration first so we can compute percent
-    let totalSeconds = 0
-    probeDuration(input).then((dur) => { totalSeconds = dur })
-
     const ffArgs = [
       '-i', input,
       ...args,
