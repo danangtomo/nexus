@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useTheme } from '../contexts/ThemeContext'
 import styles from './Settings.module.css'
 
@@ -21,6 +22,11 @@ const APPEARANCE_OPTIONS = [
 
 export default function Settings() {
   const { theme, changeTheme } = useTheme()
+  const [version, setVersion] = useState('')
+
+  useEffect(() => {
+    window.nexus.getAppVersion().then(setVersion)
+  }, [])
 
   return (
     <div className={styles.page}>
@@ -59,12 +65,17 @@ export default function Settings() {
         <div className={styles.sectionBody}>
           <div className={styles.aboutRow}>
             <span className={styles.aboutLabel}>Version</span>
-            <span className={styles.aboutValue}>1.0.0</span>
+            <span className={styles.aboutValue}>{version || '—'}</span>
+          </div>
+          <div className={styles.rowSep} />
+          <div className={styles.aboutRow}>
+            <span className={styles.aboutLabel}>Designed by</span>
+            <span className={styles.aboutValue}>Danang Estutomoaji</span>
           </div>
           <div className={styles.rowSep} />
           <div className={styles.aboutRow}>
             <span className={styles.aboutLabel}>License</span>
-            <span className={styles.aboutValue}>MIT</span>
+            <span className={styles.aboutValue}>AGPL-3.0</span>
           </div>
           <div className={styles.rowSep} />
           <div className={styles.aboutRow}>
