@@ -25,19 +25,6 @@
   -webkit-app-region: no-drag;
 }
 
-.logoMark {
-  width: 28px;
-  height: 28px;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 700;
-  font-size: var(--text-subhead);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
 
 .logoText {
   font-size: var(--text-subhead);

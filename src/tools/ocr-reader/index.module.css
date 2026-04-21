@@ -50,7 +50,7 @@
   transition: border-color var(--transition);
 }
 
-.select:focus { border-color: var(--color-accent); }
+.select:focus { border-color: var(--accent); }
 
 /* ── Progress ── */
 .progressWrap {
@@ -110,7 +110,7 @@
   min-height: 240px;
   max-height: 400px;
   padding: var(--sp-4);
-  background: var(--color-bg-primary);
+  background: var(--color-bg);
   color: var(--color-label);
   font-size: var(--text-footnote);
   font-family: var(--font-mono, monospace);

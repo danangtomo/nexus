@@ -129,7 +129,7 @@
 
 .aboutLink {
   font-size: var(--text-footnote);
-  color: var(--color-accent);
+  color: var(--accent);
   text-decoration: none;
   cursor: pointer;
 }

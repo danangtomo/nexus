@@ -95,12 +95,35 @@ const categories = [
   },
 ]
 
+function LogoMark() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      <rect width="160" height="160" rx="36" fill="#0d0d1a"/>
+      <ellipse cx="80" cy="80" rx="44" ry="44" fill="url(#sg)" opacity="0.18"/>
+      <line x1="44" y1="108" x2="44"  y2="52"  stroke="#fff" strokeWidth="10" strokeLinecap="round"/>
+      <line x1="44" y1="52"  x2="116" y2="108" stroke="#fff" strokeWidth="10" strokeLinecap="round"/>
+      <line x1="116" y1="108" x2="116" y2="52" stroke="#fff" strokeWidth="10" strokeLinecap="round"/>
+      <circle cx="44"  cy="52"  r="7" fill="#007AFF"/>
+      <circle cx="116" cy="52"  r="7" fill="#007AFF"/>
+      <circle cx="44"  cy="108" r="7" fill="#007AFF"/>
+      <circle cx="116" cy="108" r="7" fill="#007AFF"/>
+      <circle cx="80"  cy="80"  r="5" fill="#007AFF" opacity="0.6"/>
+      <defs>
+        <radialGradient id="sg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stopColor="#007AFF"/>
+          <stop offset="100%" stopColor="#007AFF" stopOpacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  )
+}
+
 export default function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.logo}>
         <NavLink to="/" className={styles.logoLink}>
-          <span className={styles.logoMark}>N</span>
+          <LogoMark />
           <span className={styles.logoText}>NEXUS</span>
         </NavLink>
       </div>

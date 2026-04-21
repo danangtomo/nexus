@@ -75,8 +75,8 @@
   transition: border-color var(--transition), color var(--transition), background var(--transition);
 }
 
-.fmtBtn:hover { border-color: var(--color-accent); color: var(--color-label); }
-.fmtActive { border-color: var(--color-accent); color: var(--color-accent); background: rgba(0,122,255,0.08); }
+.fmtBtn:hover { border-color: var(--accent); color: var(--color-label); }
+.fmtActive { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
 /* ── Quality row ── */
 .qualityRow { display: flex; gap: var(--sp-2); }
@@ -94,8 +94,8 @@
   transition: border-color var(--transition), color var(--transition), background var(--transition);
 }
 
-.qualBtn:hover { border-color: var(--color-accent); color: var(--color-label); }
-.qualActive { border-color: var(--color-accent); color: var(--color-accent); background: rgba(0,122,255,0.08); }
+.qualBtn:hover { border-color: var(--accent); color: var(--color-label); }
+.qualActive { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
 /* ── Lossless note ── */
 .note {

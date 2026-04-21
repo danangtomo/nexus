@@ -68,7 +68,7 @@
 }
 
 .segActive {
-  background: var(--color-accent);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .input:focus {
-  border-color: var(--color-accent);
+  border-color: var(--accent);
 }
 
 .inputSmall {
@@ -124,7 +124,7 @@
 }
 
 .inputSmall:focus {
-  border-color: var(--color-accent);
+  border-color: var(--accent);
 }
 
 .numberRow {
