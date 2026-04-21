@@ -7,54 +7,30 @@ let ffmpegPath
 function getFfmpegPath() {
   if (!ffmpegPath) {
     ffmpegPath = require('ffmpeg-static')
-    // ffmpeg-static returns null in some packaged contexts; fall back to PATH
     if (!ffmpegPath) ffmpegPath = 'ffmpeg'
   }
   return ffmpegPath
 }
 
 /**
- * ffmpeg:probe — get media info (duration, streams, format)
- * Returns parsed ffprobe JSON.
+ * ffmpeg:probe — get media info using ffmpeg -i (no ffprobe needed)
+ * Returns a structure compatible with ffprobe JSON: { streams, format }
  */
 ipcMain.handle('ffmpeg:probe', async (_e, filePath) => {
-  return new Promise((resolve, reject) => {
-    const ff = getFfmpegPath()
-    // ffprobe is bundled alongside ffmpeg-static
-    const ffprobePath = ff.replace(/ffmpeg(\.exe)?$/, 'ffprobe$1')
-    const probe = fs.existsSync(ffprobePath) ? ffprobePath : 'ffprobe'
-
-    const args = [
-      '-v', 'quiet',
-      '-print_format', 'json',
-      '-show_format',
-      '-show_streams',
-      filePath,
-    ]
-
-    let out = ''
-    const proc = spawn(probe, args)
-    proc.stdout.on('data', (d) => { out += d.toString() })
-    proc.on('close', (code) => {
-      if (code !== 0) return reject(new Error(`ffprobe exited ${code}`))
-      try { resolve(JSON.parse(out)) } catch { resolve({}) }
-    })
-    proc.on('error', reject)
+  return new Promise((resolve) => {
+    const proc = spawn(getFfmpegPath(), ['-i', filePath])
+    let stderr = ''
+    proc.stderr.on('data', (d) => { stderr += d.toString() })
+    proc.on('close', () => resolve(parseMediaInfo(stderr, filePath)))
+    proc.on('error', () => resolve({ streams: [], format: {} }))
   })
 })
 
 /**
  * ffmpeg:run — run an FFmpeg conversion with real-time progress
  *
- * opts: {
- *   input: string           — input file path
- *   output: string          — output file path
- *   args?: string[]         — extra ffmpeg args inserted before output
- *   overwrite?: boolean     — default true
- * }
- *
- * Sends 'ffmpeg:progress' events to renderer: { percent, fps, speed, time }
- * Returns { success: true } or throws on error.
+ * opts: { input, output, args?, overwrite? }
+ * Sends 'ffmpeg:progress' events: { percent, fps, speed, time }
  */
 ipcMain.handle('ffmpeg:run', async (event, opts) => {
   const { input, output, args = [], overwrite = true } = opts
@@ -78,7 +54,6 @@ ipcMain.handle('ffmpeg:run', async (event, opts) => {
       const chunk = data.toString()
       stderr += chunk
 
-      // Parse progress line: "frame=  42 fps= 25 ... time=00:00:01.68 ..."
       const timeMatch = chunk.match(/time=(\d+):(\d+):(\d+\.\d+)/)
       if (timeMatch) {
         const elapsed =
@@ -86,13 +61,13 @@ ipcMain.handle('ffmpeg:run', async (event, opts) => {
           parseInt(timeMatch[2]) * 60 +
           parseFloat(timeMatch[3])
         const percent = totalSeconds > 0 ? Math.min(99, (elapsed / totalSeconds) * 100) : 0
-        const fpsMatch = chunk.match(/fps=\s*([\d.]+)/)
+        const fpsMatch   = chunk.match(/fps=\s*([\d.]+)/)
         const speedMatch = chunk.match(/speed=\s*([\d.]+)x/)
         event.sender.send('ffmpeg:progress', {
           percent,
-          fps: fpsMatch ? parseFloat(fpsMatch[1]) : 0,
+          fps:   fpsMatch   ? parseFloat(fpsMatch[1])   : 0,
           speed: speedMatch ? parseFloat(speedMatch[1]) : 0,
-          time: `${timeMatch[1]}:${timeMatch[2]}:${timeMatch[3]}`,
+          time:  `${timeMatch[1]}:${timeMatch[2]}:${timeMatch[3]}`,
         })
       }
     })
@@ -113,7 +88,7 @@ ipcMain.handle('ffmpeg:run', async (event, opts) => {
 })
 
 /**
- * ffmpeg:thumbnail — extract a video frame at given timestamp as base64 JPEG
+ * ffmpeg:thumbnail — extract a video frame as base64 JPEG
  */
 ipcMain.handle('ffmpeg:thumbnail', async (_e, filePath, timestamp = '00:00:02') => {
   return new Promise((resolve, reject) => {
@@ -130,8 +105,7 @@ ipcMain.handle('ffmpeg:thumbnail', async (_e, filePath, timestamp = '00:00:02') 
     proc.stdout.on('data', (d) => chunks.push(d))
     proc.on('close', (code) => {
       if (code === 0 || chunks.length > 0) {
-        const b64 = Buffer.concat(chunks).toString('base64')
-        resolve(`data:image/jpeg;base64,${b64}`)
+        resolve(`data:image/jpeg;base64,${Buffer.concat(chunks).toString('base64')}`)
       } else {
         reject(new Error(`ffmpeg thumbnail failed (code ${code})`))
       }
@@ -140,25 +114,68 @@ ipcMain.handle('ffmpeg:thumbnail', async (_e, filePath, timestamp = '00:00:02') 
   })
 })
 
-// ── Helper ────────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
+/**
+ * Get duration in seconds by running `ffmpeg -i <file>` and parsing stderr.
+ * ffmpeg-static does not bundle ffprobe, so we avoid it entirely.
+ */
 function probeDuration(filePath) {
   return new Promise((resolve) => {
-    const ff = getFfmpegPath()
-    const ffprobePath = ff.replace(/ffmpeg(\.exe)?$/, 'ffprobe$1')
-    const probe = fs.existsSync(ffprobePath) ? ffprobePath : 'ffprobe'
-    const proc = spawn(probe, [
-      '-v', 'error',
-      '-show_entries', 'format=duration',
-      '-of', 'default=noprint_wrappers=1:nokey=1',
-      filePath,
-    ])
-    let out = ''
-    proc.stdout.on('data', (d) => { out += d.toString() })
-    proc.on('close', () => {
-      const dur = parseFloat(out.trim())
-      resolve(isNaN(dur) ? 0 : dur)
-    })
+    const proc = spawn(getFfmpegPath(), ['-i', filePath])
+    let stderr = ''
+    proc.stderr.on('data', (d) => { stderr += d.toString() })
+    proc.on('close', () => resolve(parseDuration(stderr)))
     proc.on('error', () => resolve(0))
   })
+}
+
+/** Parse "Duration: HH:MM:SS.cc" from ffmpeg -i stderr */
+function parseDuration(stderr) {
+  const m = stderr.match(/Duration:\s*(\d+):(\d+):(\d+\.\d+)/)
+  if (!m) return 0
+  return parseInt(m[1]) * 3600 + parseInt(m[2]) * 60 + parseFloat(m[3])
+}
+
+/**
+ * Build a ffprobe-compatible object from ffmpeg -i stderr output.
+ * Covers the fields that video-converter and audio-converter actually read.
+ */
+function parseMediaInfo(stderr, filePath) {
+  const result = { streams: [], format: {} }
+
+  // Duration → format.duration (seconds as string)
+  const dur = parseDuration(stderr)
+  if (dur > 0) result.format.duration = String(dur)
+
+  // File size via fs (ffmpeg doesn't print it reliably)
+  try { result.format.size = String(fs.statSync(filePath).size) } catch {}
+
+  // Video stream: "Stream #0:0: Video: h264 ..., 1920x1080 ..."
+  const videoRe = /Stream #\d+:\d+[^:]*: Video: (\w+)[^\n]*?(\d{2,5})x(\d{2,5})/
+  const vm = stderr.match(videoRe)
+  if (vm) {
+    result.streams.push({
+      codec_type: 'video',
+      codec_name: vm[1],
+      width:  parseInt(vm[2]),
+      height: parseInt(vm[3]),
+    })
+  }
+
+  // Audio stream: "Stream #0:0: Audio: mp3, 44100 Hz, stereo"
+  const audioRe = /Stream #\d+:\d+[^:]*: Audio: (\w+),\s*(\d+) Hz,\s*(\w+)/
+  const am = stderr.match(audioRe)
+  if (am) {
+    const chStr = am[3].toLowerCase()
+    const channels = chStr === 'mono' ? 1 : chStr === 'stereo' ? 2 : null
+    result.streams.push({
+      codec_type:  'audio',
+      codec_name:  am[1],
+      sample_rate: parseInt(am[2]),
+      channels,
+    })
+  }
+
+  return result
 }
