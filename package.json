@@ -1,6 +1,6 @@
 {
   "name": "nexus",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "NEXUS — All-in-one offline productivity desktop app",
   "main": "electron/main.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "build:mac": "npm run build && electron-builder --mac",
     "build:linux": "npm run build && electron-builder --linux",
     "rebuild": "electron-builder install-app-deps",
-    "bundle-gs": "node scripts/bundle-ghostscript.js"
+    "bundle-gs": "node scripts/bundle-ghostscript.js",
+    "build-icons": "node scripts/build-icons.js"
   },
   "keywords": [],
   "author": {

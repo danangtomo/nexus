@@ -12,12 +12,20 @@ const isDev = process.env.NODE_ENV === 'development'
 
 let mainWindow
 
+function getIconPath() {
+  const base = path.join(__dirname, '../build')
+  if (process.platform === 'win32')  return path.join(base, 'icon.ico')
+  if (process.platform === 'darwin') return path.join(base, 'icon.icns')
+  return path.join(base, 'icon.png')
+}
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 800,
     minWidth: 900,
     minHeight: 600,
+    icon: getIconPath(),
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
