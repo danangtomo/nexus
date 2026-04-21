@@ -3,32 +3,62 @@ import * as XLSX from 'xlsx'
 export const INPUT_EXTS = ['xlsx', 'xls', 'csv', 'tsv', 'ods', 'json']
 
 export const FORMATS = [
-  { ext: 'xlsx', label: 'XLSX', mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' },
-  { ext: 'csv',  label: 'CSV',  mime: 'text/csv' },
-  { ext: 'tsv',  label: 'TSV',  mime: 'text/tab-separated-values' },
-  { ext: 'json', label: 'JSON', mime: 'application/json' },
-  { ext: 'html', label: 'HTML', mime: 'text/html' },
+  { ext: 'xlsx', label: 'XLSX' },
+  { ext: 'csv',  label: 'CSV'  },
+  { ext: 'tsv',  label: 'TSV'  },
+  { ext: 'json', label: 'JSON' },
+  { ext: 'html', label: 'HTML' },
 ]
 
-export async function readSpreadsheet(filePath) {
+async function loadWorkbook(filePath) {
+  const ext = filePath.split('.').pop().toLowerCase()
+
+  // Text formats: read as UTF-8 to preserve encoding (avoids â€" garbling)
+  if (ext === 'csv' || ext === 'tsv') {
+    const text = await window.nexus.readFile(filePath, 'utf8')
+    const sep  = ext === 'tsv' ? '\t' : ','
+    return XLSX.read(text, { type: 'string', FS: sep })
+  }
+
+  // JSON: build a workbook from the array/object
+  if (ext === 'json') {
+    const text = await window.nexus.readFile(filePath, 'utf8')
+    const data = JSON.parse(text)
+    const rows = Array.isArray(data) ? data : [data]
+    const ws   = XLSX.utils.json_to_sheet(rows)
+    const wb   = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
+    return wb
+  }
+
+  // Binary formats (XLSX, XLS, ODS …)
   const bytes = await window.nexus.readFile(filePath, null)
-  const wb = XLSX.read(bytes, { type: 'buffer' })
-  const sheetNames = wb.SheetNames
-  const firstSheet = wb.Sheets[sheetNames[0]]
-  const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1, defval: '' })
-  return { sheetNames, rows, wb }
+  return XLSX.read(bytes, { type: 'buffer' })
 }
 
-export async function convertSpreadsheet(filePath, outputFormat, savePath) {
-  const bytes = await window.nexus.readFile(filePath, null)
-  const wb = XLSX.read(bytes, { type: 'buffer' })
+export async function readSpreadsheet(filePath, sheetIndex = 0) {
+  const wb         = await loadWorkbook(filePath)
+  const sheetNames = wb.SheetNames
+  const idx        = Math.min(sheetIndex, sheetNames.length - 1)
+  const sheet      = wb.Sheets[sheetNames[idx]]
+  const rows       = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' })
+  return { sheetNames, rows }
+}
+
+export async function convertSpreadsheet(filePath, outputFormat, savePath, sheetIndex = 0) {
+  const wb    = await loadWorkbook(filePath)
+  const idx   = Math.min(sheetIndex, wb.SheetNames.length - 1)
+  const sheet = wb.Sheets[wb.SheetNames[idx]]
 
   let output
-  const sheet = wb.Sheets[wb.SheetNames[0]]
-
   switch (outputFormat) {
     case 'xlsx':
-      output = XLSX.write(wb, { bookType: 'xlsx', type: 'buffer' })
+      // Export only the selected sheet
+      output = (() => {
+        const out = XLSX.utils.book_new()
+        XLSX.utils.book_append_sheet(out, sheet, wb.SheetNames[idx])
+        return XLSX.write(out, { bookType: 'xlsx', type: 'buffer' })
+      })()
       break
     case 'csv':
       output = XLSX.utils.sheet_to_csv(sheet)
@@ -48,9 +78,5 @@ export async function convertSpreadsheet(filePath, outputFormat, savePath) {
       throw new Error(`Unknown format: ${outputFormat}`)
   }
 
-  if (typeof output === 'string') {
-    await window.nexus.writeFile(savePath, output)
-  } else {
-    await window.nexus.writeFile(savePath, output)
-  }
+  await window.nexus.writeFile(savePath, output)
 }

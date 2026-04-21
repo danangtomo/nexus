@@ -112,6 +112,32 @@
 
 .tr:last-child .td { border-bottom: none; }
 
+/* ── Sheet tabs ── */
+.sheetTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.sheetTab {
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--text-footnote);
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheetTab:hover      { border-color: var(--accent); color: var(--color-label); }
+.sheetTabActive      { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
 /* ── Format selector ── */
 .section { display: flex; flex-direction: column; gap: var(--sp-2); }
 
