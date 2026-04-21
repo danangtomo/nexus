@@ -18,7 +18,7 @@ async function readTextSafe(filePath) {
   const bytes  = new Uint8Array(binary.length)
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
   // Decode as UTF-8 (non-fatal: bad bytes become U+FFFD instead of throwing)
-  const text = new TextDecoder('utf-8').decode(bytes)
+  let text = new TextDecoder('utf-8').decode(bytes)
   if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1) // strip BOM
   return text
 }
