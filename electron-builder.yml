@@ -12,6 +12,10 @@ extraResources:
     to: ffmpeg-static
     filter:
       - "**/*"
+  - from: resources/ghostscript
+    to: ghostscript
+    filter:
+      - "**/*"
 win:
   target: nsis
   icon: build/icon.ico

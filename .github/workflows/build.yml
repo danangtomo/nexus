@@ -45,12 +45,26 @@ jobs:
       # ── 3. Linux system deps (fakeroot for .deb, rpm for future RPM) ─────
       - name: Install Linux system dependencies
         if: matrix.runner == 'ubuntu-latest'
-        run: sudo apt-get update -y && sudo apt-get install -y fakeroot rpm
+        run: sudo apt-get update -y && sudo apt-get install -y fakeroot rpm ghostscript
+
+      # ── 3b. Install Ghostscript — Windows ────────────────────────────────
+      - name: Install Ghostscript (Windows)
+        if: matrix.runner == 'windows-latest'
+        run: choco install ghostscript --yes
+
+      # ── 3c. Install Ghostscript — macOS ──────────────────────────────────
+      - name: Install Ghostscript (macOS)
+        if: matrix.runner == 'macos-latest'
+        run: brew install ghostscript
 
       # ── 4. Install JS dependencies ────────────────────────────────────────
       # postinstall in package.json runs electron-builder install-app-deps automatically
       - name: Install dependencies
         run: npm ci
+
+      # ── 5. Bundle Ghostscript binary into resources/ ──────────────────────
+      - name: Bundle Ghostscript
+        run: node scripts/bundle-ghostscript.js
 
       # ── 6. Build renderer (Vite → dist/) ─────────────────────────────────
       - name: Build renderer

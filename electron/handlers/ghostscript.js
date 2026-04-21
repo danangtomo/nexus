@@ -6,15 +6,16 @@ const fs               = require('fs')
 // ── Binary resolution ─────────────────────────────────────────────────────────
 
 function getGsPath() {
-  const isWin = process.platform === 'win32'
+  const isWin   = process.platform === 'win32'
+  const binName = isWin ? 'gswin64c.exe' : 'gs'
 
   if (app.isPackaged) {
-    const binName = isWin ? 'gswin64c.exe' : 'gs'
-    return path.join(process.resourcesPath, 'ghostscript', binName)
+    const bundled = path.join(process.resourcesPath, 'ghostscript', binName)
+    if (fs.existsSync(bundled)) return bundled
+    return 'gs' // Mac/Linux fallback: system PATH
   }
 
   if (isWin) {
-    // Search default Windows install locations (newest version first)
     const gsRoot = 'C:\\Program Files\\gs'
     if (fs.existsSync(gsRoot)) {
       const versions = fs.readdirSync(gsRoot).sort().reverse()
@@ -23,7 +24,7 @@ function getGsPath() {
         if (fs.existsSync(candidate)) return candidate
       }
     }
-    return 'gswin64c' // last resort: hope it's in PATH
+    return 'gswin64c'
   }
 
   return 'gs'
