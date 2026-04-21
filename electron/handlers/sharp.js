@@ -45,10 +45,8 @@ ipcMain.handle('sharp:process', async (_e, opts) => {
     })
   }
 
-  // Strip metadata
-  if (opts.stripExif) {
-    pipeline = pipeline.withMetadata({})
-  } else {
+  // Preserve metadata unless explicitly stripping (Sharp strips by default when withMetadata is not called)
+  if (!opts.stripExif) {
     pipeline = pipeline.withMetadata()
   }
 
