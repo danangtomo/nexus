@@ -7,6 +7,7 @@ const { getDb } = require('./db')
 require('./handlers/sharp')
 require('./handlers/ffmpeg')
 require('./handlers/ghostscript')
+require('./handlers/archive')
 
 const isDev = process.env.NODE_ENV === 'development'
 

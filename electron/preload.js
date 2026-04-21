@@ -86,6 +86,13 @@ contextBridge.exposeInMainWorld('nexus', {
     return () => ipcRenderer.removeAllListeners('progress')
   },
 
+  // Archive — ZIP/TAR.GZ compress & extract
+  archive: {
+    list: (archivePath) => ipcRenderer.invoke('archive:list', archivePath),
+    extract: (opts) => ipcRenderer.invoke('archive:extract', opts),
+    compress: (opts) => ipcRenderer.invoke('archive:compress', opts),
+  },
+
   // Shell / system
   openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
   showItemInFolder: (filePath) =>

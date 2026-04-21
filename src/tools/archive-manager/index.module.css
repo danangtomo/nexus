@@ -1,8 +1,254 @@
-.placeholder {
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── Mode tabs ── */
+.tabs {
+  display: flex;
+  gap: var(--sp-1);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-1);
+  width: fit-content;
+}
+
+.tab {
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: var(--radius-md);
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.tab:hover { color: var(--color-label); }
+.tabActive {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Pane ── */
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── Drop area ── */
+.dropArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-height: 160px;
+  border: 2px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  transition: border-color var(--transition);
+  cursor: default;
+  padding: var(--sp-4);
+}
+.dropArea:hover { border-color: var(--accent); }
+.dropAreaFilled {
+  align-items: stretch;
+  justify-content: flex-start;
+  min-height: unset;
+  padding: var(--sp-2);
+}
+
+.dropHint {
+  font-size: var(--text-footnote);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── File list (compress) ── */
+.fileList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  width: 100%;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--bg-hover);
+  border-radius: var(--radius-md);
+}
+
+.fileItemName {
+  flex: 1;
+  font-size: var(--text-footnote);
+  color: var(--color-label);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.removeBtn {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
   color: var(--text-muted);
-  font-size: 16px;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
 }
+.removeBtn:hover { color: var(--danger); background: rgba(255,59,48,0.1); }
+
+/* ── Add buttons ── */
+.addBtns {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+/* ── Section ── */
+.section { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+.sectionLabel {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+  margin: 0;
+}
+
+/* ── Format selector ── */
+.formatRow {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.fmtBtn {
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--color-bg-secondary);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.fmtBtn:hover { border-color: var(--accent); color: var(--color-label); }
+.fmtActive { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ── File bar (extract) ── */
+.fileBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  gap: var(--sp-3);
+}
+
+.fileBarLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.fileName {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metaTag {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+}
+
+/* ── Entry list (extract preview) ── */
+.entryList {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.entryRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  border-bottom: 1px solid var(--border-subtle);
+  min-width: 0;
+}
+.entryRow:last-child { border-bottom: none; }
+.entryDir { background: var(--bg-hover); }
+
+.entryIcon { font-size: 13px; flex-shrink: 0; }
+
+.entryName {
+  font-size: var(--text-caption1);
+  color: var(--color-label);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.moreNote {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-3);
+  text-align: center;
+}
+
+/* ── Error ── */
+.error {
+  font-size: var(--text-footnote);
+  color: var(--danger);
+  margin: 0;
+  padding: var(--sp-2) var(--sp-3);
+  background: rgba(255, 59, 48, 0.08);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  border-radius: var(--radius-md);
+}
+
+/* ── Success banner ── */
+.successBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(48, 209, 88, 0.10);
+  border: 1px solid rgba(48, 209, 88, 0.25);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-footnote);
+  font-weight: 500;
+  color: var(--color-green);
+}
+
+/* ── Footer ── */
+.footer { display: flex; justify-content: flex-end; }
