@@ -44,9 +44,11 @@ export default function SpreadsheetConverter() {
   const handleConvert = async () => {
     const fmt      = FORMATS.find((f) => f.ext === format)
     const baseName = file.name.replace(/\.[^.]+$/, '')
+    const inputExt = file.name.split('.').pop().toLowerCase()
+    const sameFmt  = inputExt === fmt.ext
     const savePath = await window.nexus.saveFile({
       title: 'Save converted file',
-      defaultPath: `${baseName}.${fmt.ext}`,
+      defaultPath: `${baseName}${sameFmt ? '_converted' : ''}.${fmt.ext}`,
       filters: [{ name: fmt.label, extensions: [fmt.ext] }],
     })
     if (!savePath) return
