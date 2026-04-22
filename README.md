@@ -6,7 +6,7 @@
 
 **All-in-one offline productivity desktop app**
 
-[![Version](https://img.shields.io/badge/version-0.10.0-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
+[![Version](https://img.shields.io/badge/version-0.11.0-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
 [![License](https://img.shields.io/badge/license-AGPL--3.0-blueviolet?style=flat-square)](LICENSE)
 [![Electron](https://img.shields.io/badge/Electron-41-47848F?style=flat-square&logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
@@ -32,63 +32,63 @@ Built with an Apple HIG-inspired design system, supporting Light, Dark, and Auto
 ### Image
 | Tool | What it does |
 |------|-------------|
-| Image Converter | Convert between JPG, PNG, WEBP, AVIF, TIFF |
-| Image Resizer | Resize by pixels or percent, aspect-lock, batch |
-| Image Compressor | Quality slider with live size savings preview |
-| Background Remover | Remove backgrounds locally via WASM |
-| Watermark Tool | Add text or image overlays |
-| Metadata Remover | Strip EXIF data from images |
+| Image Converter | Convert between JPG, PNG, WEBP, AVIF, TIFF — batch, quality control |
+| Image Resizer | Resize by pixels or percent, aspect-lock, fit modes, batch |
+| Image Compressor | Quality slider with live size savings preview, total bytes saved |
+| Background Remover | AI background removal (RMBG-1.4, local ONNX) — before/after preview, background color switcher |
+| Watermark Tool | Text watermark, 9 positions, font size / opacity / color — live canvas preview |
+| Metadata Remover | Strip EXIF, ICC, XMP, IPTC — shows metadata table |
 
 ### PDF
 | Tool | What it does |
 |------|-------------|
-| PDF Merger | Drag-to-reorder pages, merge multiple PDFs |
+| PDF Merger | Drag-to-reorder, page count per file, merge via pdf-lib |
 | PDF Splitter | Split by page range or every N pages |
-| PDF Compressor | Compress via Ghostscript (Screen / eBook / Printer) |
-| PDF Encryptor | Encrypt with user + owner password, or decrypt |
-| OCR Reader | Extract text from images or PDFs — 20 languages |
+| PDF Compressor | Compress via Ghostscript — Screen / eBook / Printer quality |
+| PDF Encryptor | Set / remove user + owner password (AES-256 via pdf-lib) |
+| OCR Reader | Extract text from images or PDFs — 20+ languages via Tesseract.js |
 
 ### Video & Audio
 | Tool | What it does |
 |------|-------------|
-| Video Converter | Convert to MP4, WebM, MKV, AVI, MOV, GIF |
-| Audio Converter | Convert to MP3, AAC, OGG, FLAC, WAV, M4A |
+| Video Converter | Convert to MP4, WebM, MKV, AVI, MOV, GIF via FFmpeg |
+| Audio Converter | Convert to MP3, AAC, OGG, FLAC, WAV, M4A — quality per codec, lossless mode |
 
 ### Documents & Data
 | Tool | What it does |
 |------|-------------|
-| Doc Converter | Convert DOCX, PDF, MD, HTML, TXT |
-| Spreadsheet Converter | Convert XLSX, CSV, JSON, ODS |
-| Archive Manager | Compress and extract ZIP, TAR, 7z |
-| QR & Barcode | Generate QR codes and barcodes |
+| Doc Converter | DOCX → HTML / TXT, MD → HTML / TXT, TXT ↔ HTML / MD — rendered preview |
+| Spreadsheet Converter | Convert XLSX, CSV, TSV, JSON, HTML — multi-sheet selector, UTF-8 BOM support |
+| Archive Manager | Compress ZIP / TAR.GZ via archiver; extract ZIP — file listing preview |
+| QR & Barcode | Generate QR codes + 6 barcode formats (Code 128, Code 39, EAN-13, EAN-8, UPC-A, ITF-14) |
 
 ### Office
 | Tool | What it does |
 |------|-------------|
-| Rich Text Editor | Write, format, export DOCX/PDF |
-| Markdown Editor | Split-pane live preview |
-| CSV Editor | Sort, filter, edit, export |
-| JSON Formatter | Format, validate, tree view |
-| Diff Checker | Compare two files side by side |
-| Chart Builder | Bar, line, pie, scatter from CSV |
-| SQL Runner | Run SQL on CSV/JSON files |
-| Formula Calculator | Excel-style formula evaluator |
-| Kanban Board | Drag & drop, saved to SQLite |
-| Pomodoro Timer | Focus + break cycles, session log |
-| Gantt Chart | Tasks, dependencies, drag resize |
-| Timezone Converter | Compare cities side by side |
+| Markdown Editor | Typora-level: KaTeX math, Mermaid diagrams, Outline Panel, Focus Mode, Typewriter Mode; export PDF / DOCX / LaTeX / MediaWiki; import DOCX / HTML |
+| JSON Formatter | Format, minify, validate — 4 live tabs (Formatted / Minified / Tree / Stats), Beautify Input |
+| Rich Text Editor | *(coming soon)* |
+| CSV Editor | *(coming soon)* |
+| Diff Checker | *(coming soon)* |
+| Chart Builder | *(coming soon)* |
+| SQL Runner | *(coming soon)* |
+| Formula Calculator | *(coming soon)* |
+| Kanban Board | *(coming soon)* |
+| Pomodoro Timer | *(coming soon)* |
+| Gantt Chart | *(coming soon)* |
+| Timezone Converter | *(coming soon)* |
 
 ### Security & Utilities
 | Tool | What it does |
 |------|-------------|
-| Password Generator | Length, symbols, passphrase mode |
-| File Encryptor | AES-256 client-side |
-| Hash Generator | MD5 / SHA-1 / SHA-256 for text and files |
-| Unit Converter | Length, weight, temperature |
-| Color Converter | HEX ↔ RGB ↔ HSL ↔ CMYK |
-| Base64 Encoder | Text, file, URL encoding |
-| Regex Tester | Live match highlight, flags |
-| Word Counter | Words, chars, sentences, reading time |
+| Word Counter | Words, chars, sentences, reading time — CJK / Arabic / Cyrillic / Indic support, PDF visual render, per-reader WPM table |
+| Password Generator | *(coming soon)* |
+| File Encryptor | *(coming soon)* |
+| Hash Generator | *(coming soon)* |
+| Unit Converter | *(coming soon)* |
+| Color Converter | *(coming soon)* |
+| Base64 Encoder | *(coming soon)* |
+| Regex Tester | *(coming soon)* |
 
 ---
 
@@ -100,13 +100,20 @@ Built with an Apple HIG-inspired design system, supporting Light, Dark, and Auto
 | UI | [React 19](https://react.dev/) + [Vite](https://vitejs.dev/) |
 | Storage | [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) |
 | Video / Audio | [FFmpeg](https://ffmpeg.org/) via [ffmpeg-static](https://github.com/eugeneware/ffmpeg-static) |
-| PDF compression / encryption | [Ghostscript](https://www.ghostscript.com/) (bundled) |
-| OCR | [Tesseract.js](https://tesseract.projectnaptha.com/) (WASM, 20 languages) |
+| PDF compression | [Ghostscript](https://www.ghostscript.com/) (bundled) |
+| OCR | [Tesseract.js](https://tesseract.projectnaptha.com/) (WASM, 20+ languages) |
 | Image processing | [Sharp](https://sharp.pixelplumbing.com/) |
+| PDF rendering | [pdfjs-dist](https://mozilla.github.io/pdf.js/) |
 | PDF manipulation | [pdf-lib](https://pdf-lib.js.org/) |
 | Spreadsheets | [SheetJS](https://sheetjs.com/) |
 | DOCX parsing | [mammoth.js](https://github.com/mwilliamson/mammoth.js) |
 | Archives | [JSZip](https://stuk.github.io/jszip/) + [archiver](https://github.com/archiverjs/node-archiver) |
+| AI background removal | [@huggingface/transformers](https://github.com/huggingface/transformers.js) (RMBG-1.4, local ONNX) |
+| Markdown rendering | [marked](https://marked.js.org/) |
+| Math rendering | [KaTeX](https://katex.org/) |
+| Diagram rendering | [Mermaid](https://mermaid.js.org/) |
+| HTML → Markdown | [turndown](https://github.com/mixmark-io/turndown) |
+| QR & barcodes | [qrcode](https://github.com/soldair/node-qrcode) + [jsbarcode](https://github.com/lindell/JsBarcode) |
 | Packaging | [electron-builder](https://www.electron.build/) |
 
 ---
@@ -147,14 +154,26 @@ Pre-built installers are available on the [Releases](https://github.com/danangto
 
 ---
 
+## Support
+
+☕ [Support via Saweria](https://saweria.co/langdon) — GoPay, OVO, Dana, QRIS, Bank Transfer
+
+---
+
 ## License
 
-NEXUS is open source under the [AGPL-3.0 License](LICENSE).
+NEXUS is open source under the [GNU Affero General Public License v3.0](LICENSE).
+
+This means you can use, study, share, and modify this software freely — but any distributed or hosted version must also be open source under the same license.
 
 Bundled components have their own licenses:
 - FFmpeg — LGPL 2.1+
 - Ghostscript — AGPL-3.0
-- Tesseract — Apache 2.0
+- Tesseract.js — Apache 2.0
+- pdf.js (pdfjs-dist) — Apache 2.0
+- @huggingface/transformers — MIT
+- KaTeX — MIT
+- Mermaid — MIT
 
 ---
 
