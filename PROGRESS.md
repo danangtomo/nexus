@@ -61,6 +61,7 @@
 - [x] metadata-remover (Sharp thumbnail + metadata read; strip EXIF/ICC/XMP/IPTC; shows metadata table)
 
 ## Phase 4 — Office productivity tools (12 tools)
+- [x] word-counter (words, chars, sentences, reading time; multi-script CJK/Arabic/Cyrillic/Indic; PDF visual render via pdfjs-dist; per-reader-type WPM table; content type detection; drag & drop + open file)
 - [ ] rich-text-editor (TipTap — write, format, export DOCX/PDF)
 - [ ] markdown-editor (split pane live preview)
 - [ ] csv-editor (AG Grid — sort, filter, edit, export)
@@ -82,7 +83,7 @@
 - [ ] color-converter (HEX↔RGB↔HSL↔CMYK)
 - [ ] base64-encoder (text, file, URL encoding)
 - [ ] regex-tester (live match highlight, flags)
-- [ ] word-counter (words, chars, sentences, reading time)
+- [x] word-counter (words, chars, sentences, reading time — moved to Phase 4 and completed)
 
 ## Phase 6 — Polish & distribution
 - [ ] App icon & branding (512x512 → all platform formats)
@@ -113,3 +114,4 @@
 | #13 | 2026-04-21 | audio-converter (MP3/AAC/OGG/FLAC/WAV/M4A, quality per codec, lossless detection, FFmpeg IPC) | spreadsheet-converter |
 | #16 | 2026-04-22 | background-remover (@imgly WASM, before/after preview, PNG download, COOP/COEP headers) | watermark-tool |
 | #17 | 2026-04-22 | background-remover rewrite (RMBG-1.4 via @huggingface/transformers, direct tensor access, sigmoid mask sharpening, bg color switcher, image fill fix); watermark-tool complete | word-counter |
+| #18 | 2026-04-22 | word-counter — multi-script (CJK/Arabic/Cyrillic/Indic), PDF visual render, per-reader WPM table, content type detection, drag & drop + file open, 15 sample test files | markdown-editor |

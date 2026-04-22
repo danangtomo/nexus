@@ -1,20 +1,22 @@
 # NEXUS — TODO & Next Task
 
 ## ⚡ NEXT TASK (start here)
-**Phase 4 — Build word-counter** (`src/tools/word-counter/`)
+**Phase 4 — Build markdown-editor** (`src/tools/markdown-editor/`)
 
-- Count words, characters (with/without spaces), sentences, paragraphs, reading time
-- Accepts typed text or dropped .txt/.md file
-- Pure JS, no dependencies
+- Split-pane editor: left = raw Markdown, right = live HTML preview
+- Toolbar buttons for bold, italic, heading, link, code block
+- Open .md file, save .md file
+- Export as HTML
+- Uses `marked` (already installed)
 
-**Done when:** Paste or drop text, all stats update live.
+**Done when:** Type Markdown on the left, formatted preview updates instantly on the right.
 
 ---
 
 ## Backlog (in order)
 
 ### Phase 4 — Office tools (do in this order)
-1. word-counter — simplest, pure JS
+1. ~~word-counter~~ — done ✓
 2. markdown-editor — marked.js, straightforward
 3. json-formatter — jsoneditor
 4. diff-checker — jsdiff

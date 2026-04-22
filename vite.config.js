@@ -15,7 +15,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['@huggingface/transformers', 'onnxruntime-web'],
+    exclude: ['@huggingface/transformers', 'onnxruntime-web', 'pdfjs-dist'],
   },
   server: {
     port: 5173,
