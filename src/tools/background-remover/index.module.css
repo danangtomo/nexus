@@ -65,33 +65,93 @@
   justify-content: center;
 }
 
-/* Checkerboard for transparent result */
+/* Checkerboard for transparent result — light neutral tones */
 .checker {
   background-image:
-    linear-gradient(45deg, #ccc 25%, transparent 25%),
-    linear-gradient(-45deg, #ccc 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #ccc 75%),
-    linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
   background-size: 16px 16px;
   background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
-  background-color: #fff;
+  background-color: #f5f5f5;
 }
 
-@media (prefers-color-scheme: dark) {
-  .checker {
-    background-image:
-      linear-gradient(45deg, #333 25%, transparent 25%),
-      linear-gradient(-45deg, #333 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #333 75%),
-      linear-gradient(-45deg, transparent 75%, #333 75%);
-    background-color: #1a1a1a;
-  }
+/* ── Background color switcher ── */
+.bgSwitcher {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.bgSwitcherLabel {
+  font-size: var(--text-caption2);
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  margin-right: var(--sp-1);
+}
+
+.bgSwatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.15s, transform 0.1s;
+  outline: none;
+}
+
+.bgSwatch:hover {
+  transform: scale(1.15);
+}
+
+.bgSwatchActive {
+  border-color: var(--accent);
+  transform: scale(1.15);
+}
+
+.bgSwatchChecker {
+  background-image:
+    linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+  background-color: #f5f5f5;
+}
+
+.bgColorInput {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: border-color 0.15s, transform 0.1s;
+}
+
+.bgColorInput:hover {
+  transform: scale(1.15);
+}
+
+.bgColorInputActive {
+  border-color: var(--accent);
+  transform: scale(1.15);
 }
 
 .img {
-  max-width: 100%;
-  max-height: 360px;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
   display: block;
 }
 

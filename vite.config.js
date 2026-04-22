@@ -15,7 +15,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['@imgly/background-removal', 'onnxruntime-web'],
+    exclude: ['@huggingface/transformers', 'onnxruntime-web'],
   },
   server: {
     port: 5173,

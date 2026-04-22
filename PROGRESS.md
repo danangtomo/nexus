@@ -45,8 +45,8 @@
 - [x] image-converter (JPG/PNG/WEBP/AVIF/TIFF batch — BMP removed as output, Sharp read-only)
 - [x] image-resizer (px/% resize, aspect lock, fit modes, bulk, output dims shown)
 - [x] image-compressor (quality slider, size preview, total bytes saved)
-- [x] background-remover (@imgly/background-removal WASM; before/after preview, PNG download; ONNX runtime WASM bundled by Vite; model fetched from CDN first run then cached)
-- [ ] watermark-tool (text/image overlay, position, opacity)
+- [x] background-remover (RMBG-1.4 via @huggingface/transformers fp32 ONNX; before/after preview, PNG download; checkerboard + solid color background switcher; sigmoid mask sharpening; image fills panel width)
+- [x] watermark-tool (text watermark, 9 positions, font size/opacity/color sliders, live canvas preview, Sharp SVG overlay save)
 - [x] pdf-merger (drag-to-reorder, page count per file, merge via pdf-lib)
 - [x] pdf-splitter (by page range or every N pages)
 - [x] pdf-compressor (ghostscript via child_process)
@@ -112,3 +112,4 @@
 | #12 | 2026-04-21 | video-converter (6 formats, per-codec quality args, VP9 fix, AVI mpeg4 fix) | audio-converter |
 | #13 | 2026-04-21 | audio-converter (MP3/AAC/OGG/FLAC/WAV/M4A, quality per codec, lossless detection, FFmpeg IPC) | spreadsheet-converter |
 | #16 | 2026-04-22 | background-remover (@imgly WASM, before/after preview, PNG download, COOP/COEP headers) | watermark-tool |
+| #17 | 2026-04-22 | background-remover rewrite (RMBG-1.4 via @huggingface/transformers, direct tensor access, sigmoid mask sharpening, bg color switcher, image fill fix); watermark-tool complete | word-counter |

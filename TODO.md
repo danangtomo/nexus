@@ -1,25 +1,17 @@
 # NEXUS — TODO & Next Task
 
 ## ⚡ NEXT TASK (start here)
-**Phase 3 — Build watermark-tool** (`src/tools/watermark-tool/`)
+**Phase 4 — Build word-counter** (`src/tools/word-counter/`)
 
-- Drop an image (JPG/PNG/WEBP)
-- Add text watermark: content, font size, color, opacity, position (9 presets)
-- Preview watermarked image
-- Save output via Sharp (IPC)
+- Count words, characters (with/without spaces), sentences, paragraphs, reading time
+- Accepts typed text or dropped .txt/.md file
+- Pure JS, no dependencies
 
-**Done when:** Drop a photo, watermark applied and saved.
+**Done when:** Paste or drop text, all stats update live.
 
 ---
 
 ## Backlog (in order)
-
-### Phase 3 — Conversion tools remaining
-1. background-remover — @imgly/background-removal WASM
-4. watermark-tool — Sharp overlay
-5. qr-barcode — qrcode.js + JsBarcode
-6. metadata-remover — Sharp metadata strip
-7. doc-converter — mammoth.js + marked (LibreOffice deferred)
 
 ### Phase 4 — Office tools (do in this order)
 1. word-counter — simplest, pure JS
