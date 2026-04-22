@@ -68,6 +68,7 @@ ipcMain.handle('sharp:process', async (_e, opts) => {
             text {
               font-family: Arial, sans-serif;
               font-size: ${fontSize}px;
+              font-weight: bold;
               fill: ${color};
               opacity: ${opacity};
             }
@@ -136,11 +137,15 @@ ipcMain.handle('sharp:thumbnail', async (_e, filePath, size = 200) => {
 
 function positionToGravity(pos) {
   const map = {
-    'top-left': 'northwest',
-    'top-right': 'northeast',
-    'bottom-left': 'southwest',
+    'top-left':     'northwest',
+    'top-center':   'north',
+    'top-right':    'northeast',
+    'middle-left':  'west',
+    'center':       'center',
+    'middle-right': 'east',
+    'bottom-left':  'southwest',
+    'bottom-center':'south',
     'bottom-right': 'southeast',
-    'center': 'center',
   }
   return map[pos] || 'southeast'
 }
@@ -148,14 +153,18 @@ function positionToGravity(pos) {
 function buildWatermarkTextEl(position, text, w, h, fontSize) {
   const pad = fontSize
   const positions = {
-    'top-left':     { x: pad, y: fontSize + pad, anchor: 'start' },
-    'top-right':    { x: w - pad, y: fontSize + pad, anchor: 'end' },
-    'bottom-left':  { x: pad, y: h - pad, anchor: 'start' },
-    'bottom-right': { x: w - pad, y: h - pad, anchor: 'end' },
-    'center':       { x: w / 2, y: h / 2, anchor: 'middle' },
+    'top-left':     { x: pad,       y: fontSize + pad,  anchor: 'start'  },
+    'top-center':   { x: w / 2,     y: fontSize + pad,  anchor: 'middle' },
+    'top-right':    { x: w - pad,   y: fontSize + pad,  anchor: 'end'    },
+    'middle-left':  { x: pad,       y: h / 2,           anchor: 'start'  },
+    'center':       { x: w / 2,     y: h / 2,           anchor: 'middle' },
+    'middle-right': { x: w - pad,   y: h / 2,           anchor: 'end'    },
+    'bottom-left':  { x: pad,       y: h - pad,         anchor: 'start'  },
+    'bottom-center':{ x: w / 2,     y: h - pad,         anchor: 'middle' },
+    'bottom-right': { x: w - pad,   y: h - pad,         anchor: 'end'    },
   }
   const p = positions[position] || positions['bottom-right']
-  return `<text x="${p.x}" y="${p.y}" text-anchor="${p.anchor}">${escapeXml(text)}</text>`
+  return `<text x="${p.x}" y="${p.y}" text-anchor="${p.anchor}" dominant-baseline="auto">${escapeXml(text)}</text>`
 }
 
 function escapeXml(str) {
