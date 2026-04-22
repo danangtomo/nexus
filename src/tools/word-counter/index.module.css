@@ -1,8 +1,305 @@
-.placeholder {
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+/* ── Toolbar ── */
+.toolbar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 300px;
+  gap: var(--sp-2);
+}
+
+.loadingToolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.loadingText {
+  font-size: var(--text-caption1);
   color: var(--text-muted);
-  font-size: 16px;
+}
+
+.loadingPct {
+  font-size: var(--text-caption1);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Shared content area wrapper ── */
+.textareaWrap {
+  position: relative;
+  min-height: 260px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.textareaWrap:focus-within {
+  border-color: var(--accent);
+}
+
+.dragOver {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ── Textarea (manual input) ── */
+.textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  padding: var(--sp-4);
+  background: var(--color-bg-secondary);
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: var(--text-footnote);
+  line-height: 1.65;
+  border: none;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── TXT/MD preview — exact as-is ── */
+.preView {
+  width: 100%;
+  min-height: 260px;
+  max-height: 520px;
+  padding: var(--sp-4);
+  margin: 0;
+  background: var(--color-bg-secondary);
+  color: var(--color-label);
+  font-family: var(--font-mono);
+  font-size: var(--text-footnote);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* ── PDF viewer — rendered pages stacked ── */
+.pdfViewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  max-height: 600px;
+  overflow-y: auto;
+  padding: var(--sp-3);
+  background: #525659;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.pdfPage {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  user-select: none;
+}
+
+/* ── Loading ── */
+.loadingArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-height: 260px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--fill-2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.spinnerSm {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--fill-2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingHint {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.progressBar {
+  width: 200px;
+  height: 3px;
+  background: var(--fill-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+/* ── Error ── */
+.error {
+  font-size: var(--text-footnote);
+  color: var(--danger);
+  margin: 0;
+}
+
+/* ── Stat cards ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-3);
+}
+
+@media (max-width: 720px) {
+  .stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-4) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.cardValue {
+  font-size: var(--text-title2);
+  font-weight: 600;
+  color: var(--color-label);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardLabel {
+  font-size: var(--text-caption2);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Reading time section ── */
+.readSection {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.readHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.readTitle {
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.badges {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.contentBadge {
+  font-size: var(--text-caption2);
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px var(--sp-2);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.scriptBadge {
+  font-size: var(--text-caption2);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--fill-3);
+  padding: 2px var(--sp-2);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.readGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.readRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--sp-4);
+  align-items: center;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--fill-4);
+  border-radius: var(--radius-sm);
+}
+
+.readLabel {
+  font-size: var(--text-footnote);
+  color: var(--text-secondary);
+}
+
+.readWpm {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.readValue {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  min-width: 56px;
 }
