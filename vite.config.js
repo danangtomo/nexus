@@ -14,6 +14,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['@imgly/background-removal', 'onnxruntime-web'],
+  },
   server: {
     port: 5173,
   },
