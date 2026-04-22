@@ -93,6 +93,16 @@ contextBridge.exposeInMainWorld('nexus', {
     compress: (opts) => ipcRenderer.invoke('archive:compress', opts),
   },
 
+  // Binary file write (for DOCX, etc.)
+  writeFileBinary: (filePath, base64Data) =>
+    ipcRenderer.invoke('fs:writeFileBinary', filePath, base64Data),
+
+  // Markdown PDF export
+  markdown: {
+    exportPDF: (htmlContent, outputPath) =>
+      ipcRenderer.invoke('markdown:export-pdf', htmlContent, outputPath),
+  },
+
   // Shell / system
   openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
   showItemInFolder: (filePath) =>

@@ -27,3 +27,27 @@ export function getValueType(value) {
   if (Array.isArray(value)) return 'array'
   return typeof value
 }
+
+export function getStats(parsed) {
+  let strings = 0, numbers = 0, booleans = 0, nulls = 0, arrays = 0, objects = 0, keys = 0
+  let maxDepth = 0
+
+  function walk(node, depth) {
+    if (depth > maxDepth) maxDepth = depth
+    if (Array.isArray(node)) {
+      arrays++
+      node.forEach(v => walk(v, depth + 1))
+    } else if (node !== null && typeof node === 'object') {
+      objects++
+      const entries = Object.entries(node)
+      keys += entries.length
+      entries.forEach(([, v]) => walk(v, depth + 1))
+    } else if (typeof node === 'string') strings++
+    else if (typeof node === 'number') numbers++
+    else if (typeof node === 'boolean') booleans++
+    else if (node === null) nulls++
+  }
+
+  walk(parsed, 0)
+  return { strings, numbers, booleans, nulls, arrays, objects, keys, maxDepth }
+}

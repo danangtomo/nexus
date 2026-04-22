@@ -267,6 +267,39 @@ ipcMain.handle('pomodoro:getSessions', (_e, limit = 100) =>
     .all(limit)
 )
 
+// ── Binary file write ─────────────────────────────────────────────────────────
+
+ipcMain.handle('fs:writeFileBinary', async (_e, filePath, base64Data) => {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true })
+  fs.writeFileSync(filePath, Buffer.from(base64Data, 'base64'))
+  return true
+})
+
+// ── Markdown PDF export ───────────────────────────────────────────────────────
+
+ipcMain.handle('markdown:export-pdf', async (_e, htmlContent, outputPath) => {
+  const os = require('os')
+  const tempPath = path.join(os.tmpdir(), `nexus-md-${Date.now()}.html`)
+  fs.writeFileSync(tempPath, htmlContent, 'utf8')
+
+  const win = new BrowserWindow({
+    show: false,
+    webPreferences: { nodeIntegration: false, contextIsolation: true },
+  })
+  await win.loadFile(tempPath)
+
+  const pdfBuf = await win.webContents.printToPDF({
+    pageSize: 'A4',
+    printBackground: true,
+    margins: { marginType: 'custom', top: 1, bottom: 1, left: 1.5, right: 1.5 },
+  })
+
+  win.close()
+  try { fs.unlinkSync(tempPath) } catch {}
+  fs.writeFileSync(outputPath, pdfBuf)
+  return true
+})
+
 // ── Shell handlers ────────────────────────────────────────────────────────────
 
 ipcMain.handle('shell:openExternal', (_e, url) => shell.openExternal(url))
