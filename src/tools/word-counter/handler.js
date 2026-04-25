@@ -267,4 +267,4 @@ export function analyse(text) {
   })
 
   return { words, chars, charsNoSpaces, sentences, paragraphs, contentType, scriptLabel, readingTimes }
-}
+} 
