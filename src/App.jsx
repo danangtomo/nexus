@@ -78,9 +78,9 @@ export default function App() {
           {/* Phase 4 */}
           <Route path="/rich-text-editor" element={<ToolLayout title="Rich Text Editor"><RichTextEditor /></ToolLayout>} />
           <Route path="/markdown-editor" element={<ToolLayout title="Markdown Editor" fill><MarkdownEditor /></ToolLayout>} />
-          <Route path="/csv-editor" element={<ToolLayout title="CSV Editor"><CsvEditor /></ToolLayout>} />
+          <Route path="/csv-editor" element={<ToolLayout title="CSV Editor" fill><CsvEditor /></ToolLayout>} />
           <Route path="/json-formatter" element={<ToolLayout title="JSON Formatter" fill><JsonFormatter /></ToolLayout>} />
-          <Route path="/diff-checker" element={<ToolLayout title="Diff Checker"><DiffChecker /></ToolLayout>} />
+          <Route path="/diff-checker" element={<ToolLayout title="Diff Checker" fill><DiffChecker /></ToolLayout>} />
           <Route path="/chart-builder" element={<ToolLayout title="Chart Builder"><ChartBuilder /></ToolLayout>} />
           <Route path="/sql-runner" element={<ToolLayout title="SQL Runner"><SqlRunner /></ToolLayout>} />
           <Route path="/formula-calculator" element={<ToolLayout title="Formula Calculator"><FormulaCalculator /></ToolLayout>} />
