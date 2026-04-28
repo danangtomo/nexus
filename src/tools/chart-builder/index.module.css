@@ -1,8 +1,552 @@
-.placeholder {
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.container {
+  display: flex;
+  height: 100%;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.sidebar {
+  width: 240px;
+  min-width: 200px;
+  flex-shrink: 0;
+  background: var(--color-bg-secondary);
+  border-right: 1px solid var(--separator);
+  overflow-y: auto;
+}
+
+.sideSection {
+  padding: var(--sp-3) var(--sp-3) var(--sp-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.dataSection {
+  /* no flex:1 — let textarea dictate its own height */
+}
+
+.sideLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sideLabel {
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  color: var(--color-label-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sideDivider {
+  height: 1px;
+  background: var(--separator);
+  flex-shrink: 0;
+}
+
+/* ── Recommendation banner ───────────────────────────────────────────────── */
+.recBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: rgba(10,132,255,0.1);
+  border: 1px solid rgba(10,132,255,0.3);
+  border-radius: var(--radius-sm);
+  padding: var(--sp-2) var(--sp-2);
+}
+
+.recText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.recLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.recType {
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  color: var(--color-label);
+}
+
+.recReason {
+  font-size: 10px;
+  color: var(--color-label-2);
+  line-height: 1.3;
+  white-space: normal;
+}
+
+.recApply {
+  flex-shrink: 0;
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  font-family: var(--font-sans);
+  padding: 3px var(--sp-2);
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius-xs);
+  background: var(--color-blue);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity var(--dur-fast);
+}
+
+.recApply:hover { opacity: 0.85; }
+
+.recMatch {
+  font-size: var(--text-caption2);
+  color: var(--color-green);
+  padding: 3px var(--sp-1);
+}
+
+/* ── Chart type grid ─────────────────────────────────────────────────────── */
+.typeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-1);
+}
+
+.typeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: var(--sp-2) var(--sp-1) var(--sp-1);
+  border: 1px solid var(--separator);
+  border-radius: var(--radius);
+  background: var(--fill-4);
+  cursor: pointer;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+
+.typeBtn:hover {
+  border-color: var(--color-blue);
+  background: rgba(10,132,255,0.08);
+}
+
+.typeBtnActive {
+  border-color: var(--color-blue) !important;
+  background: rgba(10,132,255,0.15) !important;
+}
+
+.typeBtnRec {
+  border-color: rgba(10,132,255,0.45) !important;
+}
+
+.recDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-blue);
+  flex-shrink: 0;
+}
+
+.typeIcon {
+  font-size: 15px;
+  color: var(--color-blue);
+  line-height: 1;
+}
+
+.typeLabel {
+  font-size: var(--text-caption2);
+  font-weight: 500;
+  color: var(--color-label);
+}
+
+/* ── Data actions ────────────────────────────────────────────────────────── */
+.dataActions {
+  display: flex;
+  gap: var(--sp-1);
+}
+
+.importBtn {
+  font-size: var(--text-caption2);
+  font-weight: 500;
+  color: var(--color-blue);
+  background: rgba(10,132,255,0.12);
+  border: 1px solid rgba(10,132,255,0.3);
+  cursor: pointer;
+  padding: 2px var(--sp-2);
+  border-radius: var(--radius-xs);
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+
+.importBtn:hover {
+  background: rgba(10,132,255,0.2);
+  border-color: var(--color-blue);
+}
+
+.resetBtn {
+  font-size: var(--text-caption2);
+  color: var(--color-label-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px var(--sp-1);
+  border-radius: var(--radius-xs);
+  transition: color var(--dur-fast), background var(--dur-fast);
+}
+
+.resetBtn:hover {
+  color: var(--color-label);
+  background: var(--fill-3);
+}
+
+/* ── Data textarea ───────────────────────────────────────────────────────── */
+.dataTextarea {
+  width: 100%;
+  height: 180px;
+  resize: vertical;
+  min-height: 100px;
+  font-size: var(--text-caption1);
+  font-family: var(--font-mono);
+  padding: var(--sp-2) var(--sp-2);
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-label);
+  line-height: 1.6;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+
+.dataTextarea:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+
+.dataTextareaDrag {
+  border-color: var(--color-blue) !important;
+  background: rgba(10,132,255,0.07) !important;
+}
+
+.dataHint {
+  font-size: var(--text-caption2);
+  color: var(--color-label-3);
+  margin: 0;
+}
+
+.fileStatusOk {
+  font-size: var(--text-caption2);
+  color: var(--color-green);
+  margin: 0;
+}
+
+.fileStatusErr {
+  font-size: var(--text-caption2);
+  color: var(--color-red);
+  margin: 0;
+}
+
+.warning {
+  font-size: var(--text-caption2);
+  color: var(--color-orange);
+  background: rgba(255,159,10,0.1);
+  border: 1px solid rgba(255,159,10,0.3);
+  border-radius: var(--radius-xs);
+  padding: var(--sp-1) var(--sp-2);
+  line-height: 1.4;
+}
+
+.themeNote {
+  font-size: var(--text-caption2);
+  color: var(--color-green);
+  margin: 0;
+}
+
+/* ── Settings ────────────────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.fieldLabel {
+  font-size: var(--text-caption2);
+  color: var(--color-label-2);
+  font-weight: 500;
+}
+
+.fieldInput {
+  font-size: var(--text-caption1);
+  font-family: var(--font-sans);
+  padding: 6px var(--sp-2);
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-label);
+  transition: border-color var(--dur-fast);
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+
+.fieldSelect {
+  font-size: var(--text-caption1);
+  font-family: var(--font-sans);
+  padding: 6px var(--sp-2);
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-label);
+  cursor: pointer;
+  transition: border-color var(--dur-fast);
+  color-scheme: light dark;
+}
+
+.fieldSelect:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+
+.fieldSelect option {
+  background: var(--color-bg);
+  color: var(--color-label);
+}
+
+.toggleRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-caption1);
+  color: var(--color-label);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggleLabel input[type="checkbox"] {
+  accent-color: var(--color-blue);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* ── Main (chart area) ───────────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-5);
+  border-bottom: 1px solid var(--separator);
+  flex-shrink: 0;
+}
+
+.toolbarTitle {
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  color: var(--color-label);
+}
+
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.helpBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--separator);
+  background: var(--fill-3);
+  color: var(--color-label-2);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  color: var(--text-muted);
-  font-size: 16px;
+  padding: 0;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+
+.helpBtn:hover {
+  background: var(--fill-2);
+  color: var(--color-label);
+}
+
+.downloadBtn {
+  padding: 6px var(--sp-3);
+  font-size: var(--text-caption1);
+  font-weight: 500;
+  font-family: var(--font-sans);
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius-sm);
+  background: var(--color-blue);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity var(--dur-fast);
+}
+
+.downloadBtn:hover { opacity: 0.88; }
+.downloadBtn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.chartWrap {
+  flex: 1;
+  position: relative;
+  padding: var(--sp-4);
+  overflow: hidden;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}
+
+.emptyState {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-footnote);
+  color: var(--color-label-3);
+  pointer-events: none;
+}
+
+/* ── Guide modal — matches csv-editor exactly ────────────────────────────── */
+.helpOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.helpPanel {
+  background: var(--color-bg);
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  width: 500px;
+  max-width: 92vw;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.helpHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--separator);
+  font-size: var(--text-callout);
+  font-weight: 600;
+  color: var(--color-label);
+  flex-shrink: 0;
+}
+
+.helpClose {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: var(--fill-3);
+  color: var(--color-label-2);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.helpClose:hover {
+  background: var(--fill-2);
+  color: var(--color-label);
+}
+
+.helpBody {
+  overflow-y: auto;
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.helpSection h4 {
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  color: var(--color-label-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--sp-2);
+}
+
+.helpTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.helpTable td {
+  padding: 5px 8px;
+  font-size: var(--text-caption1);
+  color: var(--color-label);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.helpTable td:first-child {
+  width: 50%;
+  padding-right: var(--sp-3);
+  color: var(--color-label-2);
+}
+
+.helpTable tr:nth-child(even) td {
+  background: var(--fill-4);
+}
+
+.inlineCode {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--fill-3);
+  border-radius: var(--radius-xs);
+  padding: 1px 4px;
+  color: var(--color-label);
+}
+
+/* Bold separator between logical groups */
+.helpGroupSep {
+  height: 1px;
+  background: var(--separator);
+  margin: var(--sp-3) 0;
+  flex-shrink: 0;
+}
+
+/* Subtle separator between individual sections */
+.helpSectionSep {
+  height: 1px;
+  background: var(--separator);
+  opacity: 0.35;
+  margin: var(--sp-1) 0;
+  flex-shrink: 0;
 }
