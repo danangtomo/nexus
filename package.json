@@ -1,6 +1,6 @@
 {
   "name": "nexus",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "NEXUS — All-in-one offline productivity desktop app",
   "main": "electron/main.js",
   "scripts": {
