@@ -28,11 +28,14 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            build_cmd: npm run build:win -- --publish always
+            build_cmd: npm run build:win -- --publish never
+            artifacts: out/NEXUS-Setup-*.exe out/NEXUS-Setup-*.exe.blockmap out/latest.yml
           - os: macos-latest
-            build_cmd: npm run build:mac -- --publish always
+            build_cmd: npm run build:mac -- --publish never
+            artifacts: out/NEXUS-*.dmg out/NEXUS-*.dmg.blockmap out/latest-mac.yml
           - os: ubuntu-latest
-            build_cmd: npm run build:linux -- --publish always
+            build_cmd: npm run build:linux -- --publish never
+            artifacts: out/NEXUS-*.AppImage out/nexus_*.deb out/latest-linux.yml
 
     runs-on: ${{ matrix.os }}
 
@@ -50,8 +53,13 @@ jobs:
       - name: Rebuild native modules
         run: npm run rebuild
 
-      - name: Build and publish
+      - name: Build
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
         run: ${{ matrix.build_cmd }}
+
+      - name: Upload to GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ github.ref_name }} ${{ matrix.artifacts }} --clobber --repo ${{ github.repository }}
