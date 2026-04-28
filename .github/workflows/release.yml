@@ -9,21 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  create-release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create GitHub Release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release create ${{ github.ref_name }} \
-            --repo ${{ github.repository }} \
-            --title "NEXUS ${{ github.ref_name }}" \
-            --notes "Release notes coming soon." \
-            --draft=false
-
   build:
-    needs: create-release
     strategy:
       matrix:
         include:
@@ -56,16 +42,15 @@ jobs:
         run: ${{ matrix.build_cmd }}
 
       - name: Upload to GitHub Release
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          find out -maxdepth 1 -type f \( \
-            -name "*.exe" -o -name "*.exe.blockmap" -o \
-            -name "*.dmg" -o -name "*.dmg.blockmap" -o \
-            -name "*.AppImage" -o -name "*.deb" -o \
-            -name "latest*.yml" \
-          \) | while IFS= read -r f; do
-            echo "Uploading $f"
-            gh release upload ${{ github.ref_name }} "$f" --clobber --repo ${{ github.repository }}
-          done
+        uses: softprops/action-gh-release@v2
+        with:
+          fail_on_unmatched_files: false
+          body: "Release notes coming soon."
+          files: |
+            out/*.exe
+            out/*.exe.blockmap
+            out/*.dmg
+            out/*.dmg.blockmap
+            out/*.AppImage
+            out/*.deb
+            out/latest*.yml
