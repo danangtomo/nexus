@@ -16,6 +16,12 @@ extraResources:
     to: ghostscript
     filter:
       - "**/*"
+  - from: build
+    to: icons
+    filter:
+      - "icon.ico"
+      - "icon.icns"
+      - "icon.png"
 win:
   target: nsis
   icon: build/icon.ico

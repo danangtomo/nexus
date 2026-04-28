@@ -16,7 +16,9 @@ const isDev = process.env.NODE_ENV === 'development'
 let mainWindow
 
 function getIconPath() {
-  const base = path.join(__dirname, '../build')
+  const base = isDev
+    ? path.join(__dirname, '../build')
+    : path.join(process.resourcesPath, 'icons')
   if (process.platform === 'win32')  return path.join(base, 'icon.ico')
   if (process.platform === 'darwin') return path.join(base, 'icon.icns')
   return path.join(base, 'icon.png')
