@@ -29,13 +29,10 @@ jobs:
         include:
           - os: windows-latest
             build_cmd: npm run build:win -- --publish never
-            artifacts: out/NEXUS-Setup-*.exe out/NEXUS-Setup-*.exe.blockmap out/latest.yml
           - os: macos-latest
             build_cmd: npm run build:mac -- --publish never
-            artifacts: out/NEXUS-*.dmg out/NEXUS-*.dmg.blockmap out/latest-mac.yml
           - os: ubuntu-latest
             build_cmd: npm run build:linux -- --publish never
-            artifacts: out/NEXUS-*.AppImage out/nexus_*.deb out/latest-linux.yml
 
     runs-on: ${{ matrix.os }}
 
@@ -62,4 +59,9 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ github.ref_name }} ${{ matrix.artifacts }} --clobber --repo ${{ github.repository }}
+        run: |
+          for f in out/NEXUS-Setup-*.exe out/NEXUS-Setup-*.exe.blockmap out/latest.yml \
+                    out/NEXUS-*.dmg out/NEXUS-*.dmg.blockmap out/latest-mac.yml \
+                    out/NEXUS-*.AppImage out/nexus_*.deb out/latest-linux.yml; do
+            [ -f "$f" ] && gh release upload ${{ github.ref_name }} "$f" --clobber --repo ${{ github.repository }}
+          done
