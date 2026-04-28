@@ -60,8 +60,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          for f in out/NEXUS-Setup-*.exe out/NEXUS-Setup-*.exe.blockmap out/latest.yml \
-                    out/NEXUS-*.dmg out/NEXUS-*.dmg.blockmap out/latest-mac.yml \
-                    out/NEXUS-*.AppImage out/nexus_*.deb out/latest-linux.yml; do
-            [ -f "$f" ] && gh release upload ${{ github.ref_name }} "$f" --clobber --repo ${{ github.repository }}
+          find out -maxdepth 1 -type f \( \
+            -name "*.exe" -o -name "*.exe.blockmap" -o \
+            -name "*.dmg" -o -name "*.dmg.blockmap" -o \
+            -name "*.AppImage" -o -name "*.deb" -o \
+            -name "latest*.yml" \
+          \) | while IFS= read -r f; do
+            echo "Uploading $f"
+            gh release upload ${{ github.ref_name }} "$f" --clobber --repo ${{ github.repository }}
           done
