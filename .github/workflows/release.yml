@@ -45,7 +45,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           fail_on_unmatched_files: false
-          body: "Release notes coming soon."
           files: |
             out/*.exe
             out/*.exe.blockmap
