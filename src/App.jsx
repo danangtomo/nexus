@@ -32,7 +32,6 @@ import JsonFormatter from './tools/json-formatter'
 import DiffChecker from './tools/diff-checker'
 import ChartBuilder from './tools/chart-builder'
 import SqlRunner from './tools/sql-runner'
-import FormulaCalculator from './tools/formula-calculator'
 import KanbanBoard from './tools/kanban-board'
 import PomodoroTimer from './tools/pomodoro-timer'
 import GanttChart from './tools/gantt-chart'
@@ -82,8 +81,7 @@ export default function App() {
           <Route path="/json-formatter" element={<ToolLayout title="JSON Formatter" fill><JsonFormatter /></ToolLayout>} />
           <Route path="/diff-checker" element={<ToolLayout title="Diff Checker" fill><DiffChecker /></ToolLayout>} />
           <Route path="/chart-builder" element={<ToolLayout title="Chart Builder"><ChartBuilder /></ToolLayout>} />
-          <Route path="/sql-runner" element={<ToolLayout title="SQL Runner"><SqlRunner /></ToolLayout>} />
-          <Route path="/formula-calculator" element={<ToolLayout title="Formula Calculator"><FormulaCalculator /></ToolLayout>} />
+          <Route path="/sql-runner" element={<ToolLayout title="SQL Runner" fill><SqlRunner /></ToolLayout>} />
           <Route path="/kanban-board" element={<ToolLayout title="Kanban Board"><KanbanBoard /></ToolLayout>} />
           <Route path="/pomodoro-timer" element={<ToolLayout title="Pomodoro Timer"><PomodoroTimer /></ToolLayout>} />
           <Route path="/gantt-chart" element={<ToolLayout title="Gantt Chart"><GanttChart /></ToolLayout>} />

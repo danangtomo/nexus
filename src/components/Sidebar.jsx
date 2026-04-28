@@ -69,7 +69,6 @@ const categories = [
       { path: '/pomodoro-timer', label: 'Pomodoro Timer' },
       { path: '/gantt-chart', label: 'Gantt Chart' },
       { path: '/sql-runner', label: 'SQL Runner' },
-      { path: '/formula-calculator', label: 'Formula Calculator' },
       { path: '/timezone-converter', label: 'Timezone Converter' },
     ],
   },

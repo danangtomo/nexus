@@ -103,6 +103,18 @@ contextBridge.exposeInMainWorld('nexus', {
       ipcRenderer.invoke('markdown:export-pdf', htmlContent, outputPath),
   },
 
+  // DB connections (PostgreSQL, MySQL, MariaDB, MSSQL)
+  dbconn: {
+    test:       (config)         => ipcRenderer.invoke('dbconn:test', config),
+    connect:    (config)         => ipcRenderer.invoke('dbconn:connect', config),
+    disconnect: (connId)         => ipcRenderer.invoke('dbconn:disconnect', connId),
+    query:      (connId, sql)    => ipcRenderer.invoke('dbconn:query', connId, sql),
+    schema:      (connId)              => ipcRenderer.invoke('dbconn:schema', connId),
+    databases:   (connId)              => ipcRenderer.invoke('dbconn:databases', connId),
+    indexes:     (connId, tableName)   => ipcRenderer.invoke('dbconn:indexes', connId, tableName),
+    foreignkeys: (connId)              => ipcRenderer.invoke('dbconn:foreignkeys', connId),
+  },
+
   // Shell / system
   openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
   showItemInFolder: (filePath) =>
