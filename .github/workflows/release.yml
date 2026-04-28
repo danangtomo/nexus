@@ -19,7 +19,7 @@ jobs:
           gh release create ${{ github.ref_name }} \
             --repo ${{ github.repository }} \
             --title "NEXUS ${{ github.ref_name }}" \
-            --notes "Release ${{ github.ref_name }}" \
+            --notes "Release notes coming soon." \
             --draft=false
 
   build:
