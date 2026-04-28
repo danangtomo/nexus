@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import ToolLayout from './components/ToolLayout'
 import Welcome from './components/Welcome'
 import Settings from './components/Settings'
+import UpdateNotification from './components/UpdateNotification'
 import styles from './App.module.css'
 
 // Phase 3 — File & image conversion
@@ -52,6 +53,7 @@ export default function App() {
     <div className={styles.app}>
       <Sidebar />
       <main className={styles.main}>
+        <UpdateNotification />
         <Routes>
           <Route path="/" element={<Welcome />} />
 

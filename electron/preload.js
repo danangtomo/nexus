@@ -121,4 +121,27 @@ contextBridge.exposeInMainWorld('nexus', {
     ipcRenderer.invoke('shell:showItemInFolder', filePath),
   getAppVersion: () => ipcRenderer.invoke('app:getVersion'),
   getPlatform: () => process.platform,
+
+  // Auto-updater
+  updater: {
+    check: () => ipcRenderer.invoke('updater:check'),
+    download: () => ipcRenderer.invoke('updater:download'),
+    install: () => ipcRenderer.invoke('updater:install'),
+    onAvailable: (cb) => {
+      ipcRenderer.on('updater:available', (_e, info) => cb(info))
+      return () => ipcRenderer.removeAllListeners('updater:available')
+    },
+    onProgress: (cb) => {
+      ipcRenderer.on('updater:download-progress', (_e, p) => cb(p))
+      return () => ipcRenderer.removeAllListeners('updater:download-progress')
+    },
+    onDownloaded: (cb) => {
+      ipcRenderer.on('updater:downloaded', (_e, info) => cb(info))
+      return () => ipcRenderer.removeAllListeners('updater:downloaded')
+    },
+    onError: (cb) => {
+      ipcRenderer.on('updater:error', (_e, msg) => cb(msg))
+      return () => ipcRenderer.removeAllListeners('updater:error')
+    },
+  },
 })

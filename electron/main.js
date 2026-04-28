@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
 const path = require('path')
 const fs = require('fs')
 const { getDb } = require('./db')
+const { autoUpdater } = require('electron-updater')
 
 // Engine IPC handlers (registered when required)
 require('./handlers/sharp')
@@ -51,9 +52,36 @@ function createWindow() {
   })
 }
 
+function setupAutoUpdater() {
+  autoUpdater.autoDownload = false
+  autoUpdater.autoInstallOnAppQuit = true
+
+  autoUpdater.on('update-available', (info) => {
+    mainWindow?.webContents.send('updater:available', info)
+  })
+  autoUpdater.on('update-not-available', (info) => {
+    mainWindow?.webContents.send('updater:not-available', info)
+  })
+  autoUpdater.on('error', (err) => {
+    mainWindow?.webContents.send('updater:error', err.message)
+  })
+  autoUpdater.on('download-progress', (progress) => {
+    mainWindow?.webContents.send('updater:download-progress', progress)
+  })
+  autoUpdater.on('update-downloaded', (info) => {
+    mainWindow?.webContents.send('updater:downloaded', info)
+  })
+}
+
 app.whenReady().then(() => {
   getDb() // initialize database
   createWindow()
+
+  if (!isDev) {
+    setupAutoUpdater()
+    // Check for updates 3 seconds after launch so the window is ready
+    setTimeout(() => autoUpdater.checkForUpdates(), 3000)
+  }
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
@@ -308,3 +336,9 @@ ipcMain.handle('shell:showItemInFolder', (_e, filePath) =>
   shell.showItemInFolder(filePath)
 )
 ipcMain.handle('app:getVersion', () => app.getVersion())
+
+// ── Auto-updater handlers ─────────────────────────────────────────────────────
+
+ipcMain.handle('updater:check', () => autoUpdater.checkForUpdates())
+ipcMain.handle('updater:download', () => autoUpdater.downloadUpdate())
+ipcMain.handle('updater:install', () => autoUpdater.quitAndInstall())
