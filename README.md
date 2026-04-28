@@ -6,7 +6,7 @@
 
 **All-in-one offline productivity desktop app**
 
-[![Version](https://img.shields.io/badge/version-0.14.2-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
+[![Version](https://img.shields.io/badge/version-0.14.3-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
 [![License](https://img.shields.io/badge/license-AGPL--3.0-blueviolet?style=flat-square)](LICENSE)
 [![Electron](https://img.shields.io/badge/Electron-41-47848F?style=flat-square&logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
