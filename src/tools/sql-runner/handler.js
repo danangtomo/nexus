@@ -143,29 +143,37 @@ export function buildChartOption(results, chartType) {
     color: PALETTE,
   }
 
-  if ((chartType === 'bar' || chartType === 'line') && textCols.length >= 1 && numCols.length >= 1) {
-    const cats = rows.map(r => String(r[textCols[0]] ?? '')).slice(0, 500)
+  if ((chartType === 'bar' || chartType === 'line' || chartType === 'area') && textCols.length >= 1 && numCols.length >= 1) {
+    const cats   = rows.map(r => String(r[textCols[0]] ?? '')).slice(0, 500)
     const rotate = cats.length > 12 ? 35 : 0
+    const serType = chartType === 'bar' ? 'bar' : 'line'
     return {
       ...base,
-      legend: cats.length > 1 && numCols.length > 1 ? { textStyle: { color: textClr } } : undefined,
+      legend: numCols.length > 1 ? { textStyle: { color: textClr } } : undefined,
       xAxis: { type: 'category', data: cats, axisLabel: { color: textClr, rotate }, axisLine: { lineStyle: { color: gridClr } } },
       yAxis: { type: 'value', axisLabel: { color: textClr }, splitLine: { lineStyle: { color: gridClr } } },
-      series: numCols.slice(0, 4).map((c, i) => ({
-        name: c, type: chartType, data: rows.slice(0, 500).map(r => parseFloat(r[c]) || 0),
-        smooth: chartType === 'line', color: PALETTE[i],
+      series: numCols.slice(0, 6).map((c, i) => ({
+        name: c, type: serType,
+        data: rows.slice(0, 500).map(r => parseFloat(r[c]) || 0),
+        smooth: serType === 'line',
+        areaStyle: chartType === 'area' ? { opacity: 0.25 } : undefined,
+        color: PALETTE[i],
         barMaxWidth: 60,
       })),
     }
   }
 
-  if (chartType === 'pie' && textCols.length >= 1 && numCols.length >= 1) {
+  if ((chartType === 'pie' || chartType === 'doughnut') && textCols.length >= 1 && numCols.length >= 1) {
+    const radius = chartType === 'doughnut' ? ['38%', '65%'] : '60%'
     return {
       ...base,
       grid: undefined,
       tooltip: { trigger: 'item' },
-      series: [{ type: 'pie', radius: ['38%', '65%'],
-        data: rows.slice(0, 30).map(r => ({ name: String(r[textCols[0]] ?? ''), value: parseFloat(r[numCols[0]]) || 0 })),
+      series: [{
+        type: 'pie', radius,
+        data: rows.slice(0, 30)
+          .map(r => ({ name: String(r[textCols[0]] ?? ''), value: parseFloat(r[numCols[0]]) || 0 }))
+          .sort((a, b) => b.value - a.value),
         label: { color: textClr }, emphasis: { itemStyle: { shadowBlur: 10 } },
       }],
     }
@@ -178,6 +186,53 @@ export function buildChartOption(results, chartType) {
       xAxis: { type: 'value', name: numCols[0], nameTextStyle: { color: textClr }, axisLabel: { color: textClr }, splitLine: { lineStyle: { color: gridClr } } },
       yAxis: { type: 'value', name: numCols[1], nameTextStyle: { color: textClr }, axisLabel: { color: textClr }, splitLine: { lineStyle: { color: gridClr } } },
       series: [{ type: 'scatter', data: rows.slice(0, 2000).map(r => [parseFloat(r[numCols[0]]) || 0, parseFloat(r[numCols[1]]) || 0]), symbolSize: 5 }],
+    }
+  }
+
+  if (chartType === 'radar' && numCols.length >= 2) {
+    const indicators = numCols.slice(0, 8).map(c => {
+      const vals = rows.map(r => parseFloat(r[c]) || 0)
+      return { name: c, max: Math.max(...vals) * 1.2 || 1 }
+    })
+    const labelCol = textCols[0]
+    return {
+      ...base,
+      grid: undefined,
+      legend: labelCol ? { textStyle: { color: textClr } } : undefined,
+      radar: { indicator: indicators, axisName: { color: textClr }, splitLine: { lineStyle: { color: gridClr } } },
+      series: [{
+        type: 'radar',
+        data: rows.slice(0, 8).map((r, i) => ({
+          name: labelCol ? String(r[labelCol] ?? `Row ${i + 1}`) : `Row ${i + 1}`,
+          value: numCols.slice(0, 8).map(c => parseFloat(r[c]) || 0),
+        })),
+      }],
+    }
+  }
+
+  if (chartType === 'treemap' && numCols.length >= 1) {
+    let data
+    if (textCols.length >= 2) {
+      // parent / child / value structure
+      const parents = [...new Set(rows.map(r => String(r[textCols[0]] ?? '')))]
+      data = parents.map(p => ({
+        name: p,
+        children: rows
+          .filter(r => String(r[textCols[0]] ?? '') === p)
+          .map(r => ({ name: String(r[textCols[1]] ?? ''), value: parseFloat(r[numCols[0]]) || 0 })),
+      }))
+    } else {
+      // flat: text col = name, num col = value
+      data = rows.slice(0, 200).map(r => ({
+        name: String(r[textCols[0] ?? columns[0]] ?? ''),
+        value: parseFloat(r[numCols[0]]) || 0,
+      }))
+    }
+    return {
+      ...base,
+      grid: undefined,
+      tooltip: { trigger: 'item', formatter: p => `${p.name}: ${p.value}` },
+      series: [{ type: 'treemap', data, label: { color: '#fff', fontSize: 11 }, itemStyle: { borderColor: isDark ? '#111' : '#fff', borderWidth: 2 } }],
     }
   }
 

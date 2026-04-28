@@ -511,9 +511,10 @@ function ChartPanel({ results }) {
   const chartRef = useRef(null)
   const option   = useMemo(() => buildChartOption(results, type), [results, type])
 
-  // Add inside dataZoom (mouse-wheel zoom + drag-to-pan) for non-pie charts
+  // dataZoom only for axis-based charts (pie/doughnut/radar/treemap have no axes)
+  const noZoomTypes = new Set(['pie', 'doughnut', 'radar', 'treemap'])
   const optWithZoom = useMemo(() => {
-    if (!option || type === 'pie') return option
+    if (!option || noZoomTypes.has(type)) return option
     return {
       ...option,
       dataZoom: [
@@ -542,7 +543,7 @@ function ChartPanel({ results }) {
   return (
     <div className={styles.chartPanel}>
       <div className={styles.chartTypes}>
-        {['bar','line','pie','scatter'].map(t => (
+        {['bar','line','area','pie','doughnut','scatter','radar','treemap'].map(t => (
           <button key={t} className={type === t ? styles.chartTypeActive : styles.chartTypeBtn}
             onClick={() => setType(t)}>{t}</button>
         ))}
