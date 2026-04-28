@@ -35,3 +35,4 @@ publish:
   provider: github
   owner: danangtomo
   repo: nexus
+  releaseType: release
