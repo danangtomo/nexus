@@ -6,7 +6,7 @@
 
 **All-in-one offline productivity desktop app**
 
-[![Version](https://img.shields.io/badge/version-0.13.1-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
+[![Version](https://img.shields.io/badge/version-0.14.0-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
 [![License](https://img.shields.io/badge/license-AGPL--3.0-blueviolet?style=flat-square)](LICENSE)
 [![Electron](https://img.shields.io/badge/Electron-41-47848F?style=flat-square&logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
@@ -165,6 +165,16 @@ npm run build:linux  # Linux (.AppImage / .deb)
 ## Download
 
 Pre-built installers are available on the [Releases](https://github.com/danangtomo/nexus/releases) page.
+
+### Windows SmartScreen warning
+
+When you run the installer on Windows, you may see a blue screen saying **"Windows protected your PC"**. This is expected — NEXUS is not malicious. The warning appears because the app is not signed with a paid code-signing certificate (these cost ~$200–500/year and are not practical for a free open-source project).
+
+**How to install anyway:**
+1. Click **"More info"** on the SmartScreen dialog
+2. Click **"Run anyway"**
+
+That's it. The warning will not appear again after the first install. The source code is fully open and auditable at this repository.
 
 ---
 
