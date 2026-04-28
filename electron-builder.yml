@@ -35,8 +35,8 @@ linux:
     - deb
   icon: build/icon.png
 nsis:
-  oneClick: false
-  allowToChangeInstallationDirectory: true
+  oneClick: true
+  perMachine: false
 publish:
   provider: github
   owner: danangtomo
