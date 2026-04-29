@@ -77,7 +77,7 @@ export default function App() {
           <Route path="/metadata-remover" element={<ToolLayout title="Metadata Remover"><MetadataRemover /></ToolLayout>} />
 
           {/* Phase 4 */}
-          <Route path="/rich-text-editor" element={<ToolLayout title="Rich Text Editor"><RichTextEditor /></ToolLayout>} />
+          <Route path="/rich-text-editor" element={<ToolLayout title="Rich Text Editor" fill><RichTextEditor /></ToolLayout>} />
           <Route path="/markdown-editor" element={<ToolLayout title="Markdown Editor" fill><MarkdownEditor /></ToolLayout>} />
           <Route path="/csv-editor" element={<ToolLayout title="CSV Editor" fill><CsvEditor /></ToolLayout>} />
           <Route path="/json-formatter" element={<ToolLayout title="JSON Formatter" fill><JsonFormatter /></ToolLayout>} />
