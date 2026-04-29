@@ -31,7 +31,7 @@
   text-overflow: ellipsis;
 }
 
-/* ── Before / After preview ── */
+/* ── Two-panel preview grid ── */
 .preview {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -53,6 +53,7 @@
   margin: 0;
 }
 
+/* ── Original image / placeholder wrapper ── */
 .imgWrap {
   position: relative;
   background: var(--color-bg-secondary);
@@ -65,7 +66,204 @@
   justify-content: center;
 }
 
-/* Checkerboard for transparent result — light neutral tones */
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.placeholder {
+  font-size: var(--text-caption1);
+  color: var(--text-muted);
+  margin: 0;
+  padding: var(--sp-6);
+  text-align: center;
+}
+
+/* ── Sparkle processing overlay ── */
+.sparkleWrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  min-height: 220px;
+}
+
+.sparkleImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sparkleOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-200%); }
+  100% { transform: translateX(200%); }
+}
+
+.sparkleShimmer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sparkleShimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 65%
+  );
+  animation: shimmerSweep 2.2s ease-in-out infinite;
+}
+
+@keyframes starPop {
+  0%   { opacity: 0; transform: scale(0)   rotate(0deg);   }
+  25%  { opacity: 1; transform: scale(1.3) rotate(45deg);  }
+  60%  { opacity: 0.85; transform: scale(1) rotate(90deg); }
+  85%  { opacity: 1; transform: scale(1.2) rotate(135deg); }
+  100% { opacity: 0; transform: scale(0)   rotate(180deg); }
+}
+
+.sparkleStar {
+  position: absolute;
+  top:  var(--top);
+  left: var(--left);
+  width: 10px;
+  height: 10px;
+  animation: starPop 1.9s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.24s);
+  pointer-events: none;
+}
+
+/* 4-pointed star shape via two rectangles */
+.sparkleStar::before,
+.sparkleStar::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.75);
+}
+
+.sparkleStar::before {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.sparkleStar::after {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.sparkleLabel {
+  position: relative;
+  font-size: var(--text-caption1);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Before/After compare slider ── */
+.slider {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sliderImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.sliderResultWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.sliderResultWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sliderDivider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%);
+  cursor: col-resize;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.sliderHandle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: box-shadow 0.15s;
+}
+
+.sliderHandle:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sliderLabelBefore,
+.sliderLabelAfter {
+  position: absolute;
+  bottom: var(--sp-3);
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.sliderLabelBefore { left:  var(--sp-3); }
+.sliderLabelAfter  { right: var(--sp-3); }
+
+/* Checkerboard pattern (for transparent PNG result) */
 .checker {
   background-image:
     linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
@@ -107,14 +305,8 @@
   outline: none;
 }
 
-.bgSwatch:hover {
-  transform: scale(1.15);
-}
-
-.bgSwatchActive {
-  border-color: var(--accent);
-  transform: scale(1.15);
-}
+.bgSwatch:hover    { transform: scale(1.15); }
+.bgSwatchActive    { border-color: var(--accent); transform: scale(1.15); }
 
 .bgSwatchChecker {
   background-image:
@@ -140,61 +332,8 @@
   transition: border-color 0.15s, transform 0.1s;
 }
 
-.bgColorInput:hover {
-  transform: scale(1.15);
-}
-
-.bgColorInputActive {
-  border-color: var(--accent);
-  transform: scale(1.15);
-}
-
-.img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ── Busy state ── */
-.busyState {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--sp-3);
-  padding: var(--sp-6);
-  width: 100%;
-}
-
-.progressBar {
-  width: 100%;
-  max-width: 200px;
-  height: 4px;
-  background: var(--fill-3);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.progressFill {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.stageText {
-  font-size: var(--text-caption1);
-  color: var(--text-secondary);
-  margin: 0;
-  text-align: center;
-}
-
-.placeholder {
-  font-size: var(--text-caption1);
-  color: var(--text-muted);
-  margin: 0;
-  padding: var(--sp-6);
-  text-align: center;
-}
+.bgColorInput:hover       { transform: scale(1.15); }
+.bgColorInputActive       { border-color: var(--accent); transform: scale(1.15); }
 
 /* ── Error ── */
 .error {
