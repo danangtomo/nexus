@@ -14,7 +14,9 @@
     "build:linux": "npm run build && electron-builder --linux",
     "rebuild": "electron-builder install-app-deps",
     "bundle-gs": "node scripts/bundle-ghostscript.js",
-    "build-icons": "node scripts/build-icons.js"
+    "build-icons": "node scripts/build-icons.js",
+    "build:licenses": "license-checker --production --json > dist/licenses.json",
+    "postbuild": "npm run build:licenses"
   },
   "keywords": [],
   "author": {

@@ -1,0 +1,4184 @@
+{
+  "@antfu/install-pkg@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/antfu/install-pkg",
+    "publisher": "Anthony Fu",
+    "email": "anthonyfu117@hotmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@antfu\\install-pkg",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@antfu\\install-pkg\\LICENSE"
+  },
+  "@azure-rest/core-client@2.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure-rest\\core-client",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure-rest\\core-client\\LICENSE"
+  },
+  "@azure/abort-controller@2.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\abort-controller",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\abort-controller\\LICENSE"
+  },
+  "@azure/core-auth@1.10.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-auth",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-auth\\LICENSE"
+  },
+  "@azure/core-client@1.10.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-client",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-client\\LICENSE"
+  },
+  "@azure/core-http-compat@2.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-http-compat",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-http-compat\\LICENSE"
+  },
+  "@azure/core-lro@2.7.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-lro",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-lro\\LICENSE"
+  },
+  "@azure/core-paging@1.6.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-paging",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-paging\\LICENSE"
+  },
+  "@azure/core-rest-pipeline@1.23.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-rest-pipeline",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-rest-pipeline\\LICENSE"
+  },
+  "@azure/core-tracing@1.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-tracing",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-tracing\\LICENSE"
+  },
+  "@azure/core-util@1.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\core-util",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\core-util\\LICENSE"
+  },
+  "@azure/identity@4.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\identity",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\identity\\LICENSE"
+  },
+  "@azure/keyvault-common@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\keyvault-common",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\keyvault-common\\LICENSE"
+  },
+  "@azure/keyvault-keys@4.10.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\keyvault-keys",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\keyvault-keys\\LICENSE"
+  },
+  "@azure/logger@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\logger",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\logger\\LICENSE"
+  },
+  "@azure/msal-browser@5.8.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/AzureAD/microsoft-authentication-library-for-js",
+    "publisher": "Microsoft",
+    "email": "nugetaad@microsoft.com",
+    "url": "https://www.microsoft.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\msal-browser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\msal-browser\\LICENSE"
+  },
+  "@azure/msal-common@16.5.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/AzureAD/microsoft-authentication-library-for-js",
+    "publisher": "Microsoft",
+    "email": "nugetaad@microsoft.com",
+    "url": "https://www.microsoft.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\msal-common",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\msal-common\\LICENSE"
+  },
+  "@azure/msal-node@5.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/AzureAD/microsoft-authentication-library-for-js",
+    "publisher": "Microsoft",
+    "email": "nugetaad@microsoft.com",
+    "url": "https://www.microsoft.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\msal-node",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\msal-node\\LICENSE"
+  },
+  "@braintree/sanitize-url@7.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/braintree/sanitize-url",
+    "path": "C:\\projects\\nexus\\node_modules\\@braintree\\sanitize-url",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@braintree\\sanitize-url\\LICENSE"
+  },
+  "@chevrotain/cst-dts-gen@12.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "path": "C:\\projects\\nexus\\node_modules\\@chevrotain\\cst-dts-gen",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@chevrotain\\cst-dts-gen\\LICENSE.txt"
+  },
+  "@chevrotain/gast@12.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "path": "C:\\projects\\nexus\\node_modules\\@chevrotain\\gast",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@chevrotain\\gast\\LICENSE.txt"
+  },
+  "@chevrotain/regexp-to-ast@12.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "path": "C:\\projects\\nexus\\node_modules\\@chevrotain\\regexp-to-ast",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@chevrotain\\regexp-to-ast\\LICENSE.txt"
+  },
+  "@chevrotain/types@12.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "publisher": "Shahar Soel",
+    "path": "C:\\projects\\nexus\\node_modules\\@chevrotain\\types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@chevrotain\\types\\LICENSE.txt"
+  },
+  "@chevrotain/utils@12.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "publisher": "Shahar Soel",
+    "path": "C:\\projects\\nexus\\node_modules\\@chevrotain\\utils",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@chevrotain\\utils\\LICENSE.txt"
+  },
+  "@derhuerst/http-basic@8.2.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/derhuerst/http-basic",
+    "publisher": "ForbesLindesay",
+    "path": "C:\\projects\\nexus\\node_modules\\@derhuerst\\http-basic",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@derhuerst\\http-basic\\LICENSE"
+  },
+  "@floating-ui/core@1.7.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/floating-ui/floating-ui",
+    "publisher": "atomiks",
+    "path": "C:\\projects\\nexus\\node_modules\\@floating-ui\\core",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@floating-ui\\core\\LICENSE"
+  },
+  "@floating-ui/dom@1.7.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/floating-ui/floating-ui",
+    "publisher": "atomiks",
+    "path": "C:\\projects\\nexus\\node_modules\\@floating-ui\\dom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@floating-ui\\dom\\LICENSE"
+  },
+  "@floating-ui/utils@0.2.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/floating-ui/floating-ui",
+    "publisher": "atomiks",
+    "path": "C:\\projects\\nexus\\node_modules\\@floating-ui\\utils",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@floating-ui\\utils\\LICENSE"
+  },
+  "@huggingface/jinja@0.5.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/huggingface/huggingface.js",
+    "publisher": "Hugging Face",
+    "path": "C:\\projects\\nexus\\node_modules\\@huggingface\\jinja",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@huggingface\\jinja\\LICENSE"
+  },
+  "@huggingface/tokenizers@0.1.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/huggingface/tokenizers.js",
+    "publisher": "Hugging Face",
+    "path": "C:\\projects\\nexus\\node_modules\\@huggingface\\tokenizers",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@huggingface\\tokenizers\\LICENSE"
+  },
+  "@huggingface/transformers@4.1.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/huggingface/transformers.js",
+    "publisher": "Hugging Face",
+    "path": "C:\\projects\\nexus\\node_modules\\@huggingface\\transformers",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@huggingface\\transformers\\LICENSE"
+  },
+  "@iconify/types@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iconify/iconify",
+    "publisher": "Vjacheslav Trushkin",
+    "path": "C:\\projects\\nexus\\node_modules\\@iconify\\types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@iconify\\types\\license.txt"
+  },
+  "@iconify/utils@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iconify/iconify",
+    "publisher": "Vjacheslav Trushkin",
+    "path": "C:\\projects\\nexus\\node_modules\\@iconify\\utils",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@iconify\\utils\\license.txt"
+  },
+  "@img/colour@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lovell/colour",
+    "path": "C:\\projects\\nexus\\node_modules\\@img\\colour",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@img\\colour\\LICENSE.md"
+  },
+  "@img/sharp-win32-x64@0.34.5": {
+    "licenses": "Apache-2.0 AND LGPL-3.0-or-later",
+    "repository": "https://github.com/lovell/sharp",
+    "publisher": "Lovell Fuller",
+    "email": "npm@lovell.info",
+    "path": "C:\\projects\\nexus\\node_modules\\@img\\sharp-win32-x64",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@img\\sharp-win32-x64\\LICENSE"
+  },
+  "@isaacs/cliui@8.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/cliui",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\LICENSE.txt"
+  },
+  "@js-joda/core@5.7.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/js-joda/js-joda",
+    "publisher": "pithu",
+    "path": "C:\\projects\\nexus\\node_modules\\@js-joda\\core",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@js-joda\\core\\LICENSE"
+  },
+  "@mermaid-js/parser@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mermaid-js/mermaid",
+    "publisher": "Yokozuna59",
+    "path": "C:\\projects\\nexus\\node_modules\\@mermaid-js\\parser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@mermaid-js\\parser\\LICENSE"
+  },
+  "@mixmark-io/domino@2.2.0": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/mixmark-io/domino",
+    "publisher": "Felix Gnass",
+    "email": "fgnass@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@mixmark-io\\domino",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@mixmark-io\\domino\\LICENSE"
+  },
+  "@napi-rs/canvas-win32-x64-msvc@0.1.99": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Brooooooklyn/canvas",
+    "path": "C:\\projects\\nexus\\node_modules\\@napi-rs\\canvas-win32-x64-msvc",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@napi-rs\\canvas-win32-x64-msvc\\README.md"
+  },
+  "@napi-rs/canvas@0.1.99": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Brooooooklyn/canvas",
+    "path": "C:\\projects\\nexus\\node_modules\\@napi-rs\\canvas",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@napi-rs\\canvas\\LICENSE"
+  },
+  "@pdf-lib/standard-fonts@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Hopding/standard-fonts",
+    "publisher": "Andrew Dillon",
+    "email": "andrew.dillon.j@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@pdf-lib\\standard-fonts",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@pdf-lib\\standard-fonts\\LICENSE.md"
+  },
+  "@pdf-lib/upng@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Hopding/upng",
+    "publisher": "photopea",
+    "url": "https://github.com/photopea",
+    "path": "C:\\projects\\nexus\\node_modules\\@pdf-lib\\upng",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@pdf-lib\\upng\\LICENSE"
+  },
+  "@pkgjs/parseargs@0.11.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pkgjs/parseargs",
+    "path": "C:\\projects\\nexus\\node_modules\\@pkgjs\\parseargs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@pkgjs\\parseargs\\LICENSE"
+  },
+  "@protobufjs/aspromise@1.1.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\aspromise",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\aspromise\\LICENSE"
+  },
+  "@protobufjs/base64@1.1.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\base64",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\base64\\LICENSE"
+  },
+  "@protobufjs/codegen@2.0.4": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\codegen",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\codegen\\LICENSE"
+  },
+  "@protobufjs/eventemitter@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\eventemitter",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\eventemitter\\LICENSE"
+  },
+  "@protobufjs/fetch@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\fetch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\fetch\\LICENSE"
+  },
+  "@protobufjs/float@1.0.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\float",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\float\\LICENSE"
+  },
+  "@protobufjs/inquire@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\inquire",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\inquire\\LICENSE"
+  },
+  "@protobufjs/path@1.1.2": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\path\\LICENSE"
+  },
+  "@protobufjs/pool@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\pool",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\pool\\LICENSE"
+  },
+  "@protobufjs/utf8@1.1.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/dcodeIO/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\@protobufjs\\utf8",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@protobufjs\\utf8\\LICENSE"
+  },
+  "@tediousjs/connection-string@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tediousjs/connection-string",
+    "publisher": "Dan Hensby",
+    "email": "git@hens.by",
+    "path": "C:\\projects\\nexus\\node_modules\\@tediousjs\\connection-string",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tediousjs\\connection-string\\LICENSE"
+  },
+  "@tiptap/core@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\core",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\core\\LICENSE.md"
+  },
+  "@tiptap/extension-blockquote@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-blockquote",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-blockquote\\LICENSE.md"
+  },
+  "@tiptap/extension-bold@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-bold",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-bold\\LICENSE.md"
+  },
+  "@tiptap/extension-bubble-menu@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-bubble-menu",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-bubble-menu\\LICENSE.md"
+  },
+  "@tiptap/extension-bullet-list@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-bullet-list",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-bullet-list\\LICENSE.md"
+  },
+  "@tiptap/extension-character-count@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-character-count",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-character-count\\LICENSE.md"
+  },
+  "@tiptap/extension-code-block@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-code-block",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-code-block\\LICENSE.md"
+  },
+  "@tiptap/extension-code@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-code",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-code\\LICENSE.md"
+  },
+  "@tiptap/extension-color@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-color",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-color\\LICENSE.md"
+  },
+  "@tiptap/extension-document@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-document",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-document\\LICENSE.md"
+  },
+  "@tiptap/extension-dropcursor@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-dropcursor",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-dropcursor\\LICENSE.md"
+  },
+  "@tiptap/extension-floating-menu@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-floating-menu",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-floating-menu\\LICENSE.md"
+  },
+  "@tiptap/extension-gapcursor@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-gapcursor",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-gapcursor\\LICENSE.md"
+  },
+  "@tiptap/extension-hard-break@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-hard-break",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-hard-break\\LICENSE.md"
+  },
+  "@tiptap/extension-heading@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-heading",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-heading\\LICENSE.md"
+  },
+  "@tiptap/extension-highlight@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-highlight",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-highlight\\LICENSE.md"
+  },
+  "@tiptap/extension-horizontal-rule@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-horizontal-rule",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-horizontal-rule\\LICENSE.md"
+  },
+  "@tiptap/extension-image@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-image",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-image\\LICENSE.md"
+  },
+  "@tiptap/extension-italic@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-italic",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-italic\\LICENSE.md"
+  },
+  "@tiptap/extension-link@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-link",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-link\\LICENSE.md"
+  },
+  "@tiptap/extension-list-item@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-list-item",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-list-item\\LICENSE.md"
+  },
+  "@tiptap/extension-list-keymap@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-list-keymap",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-list-keymap\\LICENSE.md"
+  },
+  "@tiptap/extension-list@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-list",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-list\\LICENSE.md"
+  },
+  "@tiptap/extension-ordered-list@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-ordered-list",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-ordered-list\\LICENSE.md"
+  },
+  "@tiptap/extension-paragraph@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-paragraph",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-paragraph\\LICENSE.md"
+  },
+  "@tiptap/extension-placeholder@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-placeholder",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-placeholder\\LICENSE.md"
+  },
+  "@tiptap/extension-strike@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-strike",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-strike\\LICENSE.md"
+  },
+  "@tiptap/extension-subscript@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-subscript",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-subscript\\LICENSE.md"
+  },
+  "@tiptap/extension-superscript@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-superscript",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-superscript\\LICENSE.md"
+  },
+  "@tiptap/extension-table-cell@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table-cell",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table-cell\\LICENSE.md"
+  },
+  "@tiptap/extension-table-header@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table-header",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table-header\\LICENSE.md"
+  },
+  "@tiptap/extension-table-row@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table-row",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table-row\\LICENSE.md"
+  },
+  "@tiptap/extension-table@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-table\\LICENSE.md"
+  },
+  "@tiptap/extension-task-item@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-task-item",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-task-item\\LICENSE.md"
+  },
+  "@tiptap/extension-task-list@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-task-list",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-task-list\\LICENSE.md"
+  },
+  "@tiptap/extension-text-align@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-text-align",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-text-align\\LICENSE.md"
+  },
+  "@tiptap/extension-text-style@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-text-style",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-text-style\\LICENSE.md"
+  },
+  "@tiptap/extension-text@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-text",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-text\\LICENSE.md"
+  },
+  "@tiptap/extension-underline@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-underline",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extension-underline\\LICENSE.md"
+  },
+  "@tiptap/extensions@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\extensions",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\extensions\\LICENSE.md"
+  },
+  "@tiptap/pm@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\pm",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\pm\\LICENSE.md"
+  },
+  "@tiptap/react@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\react",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\react\\LICENSE.md"
+  },
+  "@tiptap/starter-kit@3.22.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ueberdosis/tiptap",
+    "path": "C:\\projects\\nexus\\node_modules\\@tiptap\\starter-kit",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@tiptap\\starter-kit\\LICENSE.md"
+  },
+  "@types/d3-array@3.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-array",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-array\\LICENSE"
+  },
+  "@types/d3-axis@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-axis",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-axis\\LICENSE"
+  },
+  "@types/d3-brush@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-brush",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-brush\\LICENSE"
+  },
+  "@types/d3-chord@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-chord",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-chord\\LICENSE"
+  },
+  "@types/d3-color@3.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-color",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-color\\LICENSE"
+  },
+  "@types/d3-contour@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-contour",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-contour\\LICENSE"
+  },
+  "@types/d3-delaunay@6.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-delaunay",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-delaunay\\LICENSE"
+  },
+  "@types/d3-dispatch@3.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-dispatch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-dispatch\\LICENSE"
+  },
+  "@types/d3-drag@3.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-drag",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-drag\\LICENSE"
+  },
+  "@types/d3-dsv@3.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-dsv",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-dsv\\LICENSE"
+  },
+  "@types/d3-ease@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-ease",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-ease\\LICENSE"
+  },
+  "@types/d3-fetch@3.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-fetch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-fetch\\LICENSE"
+  },
+  "@types/d3-force@3.0.10": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-force",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-force\\LICENSE"
+  },
+  "@types/d3-format@3.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-format",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-format\\LICENSE"
+  },
+  "@types/d3-geo@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-geo",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-geo\\LICENSE"
+  },
+  "@types/d3-hierarchy@3.1.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-hierarchy",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-hierarchy\\LICENSE"
+  },
+  "@types/d3-interpolate@3.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-interpolate",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-interpolate\\LICENSE"
+  },
+  "@types/d3-path@3.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-path\\LICENSE"
+  },
+  "@types/d3-polygon@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-polygon",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-polygon\\LICENSE"
+  },
+  "@types/d3-quadtree@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-quadtree",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-quadtree\\LICENSE"
+  },
+  "@types/d3-random@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-random",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-random\\LICENSE"
+  },
+  "@types/d3-scale-chromatic@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-scale-chromatic",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-scale-chromatic\\LICENSE"
+  },
+  "@types/d3-scale@4.0.9": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-scale",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-scale\\LICENSE"
+  },
+  "@types/d3-selection@3.0.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-selection",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-selection\\LICENSE"
+  },
+  "@types/d3-shape@3.1.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-shape",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-shape\\LICENSE"
+  },
+  "@types/d3-time-format@4.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-time-format",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-time-format\\LICENSE"
+  },
+  "@types/d3-time@3.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-time",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-time\\LICENSE"
+  },
+  "@types/d3-timer@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-timer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-timer\\LICENSE"
+  },
+  "@types/d3-transition@3.0.9": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-transition",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-transition\\LICENSE"
+  },
+  "@types/d3-zoom@3.0.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3-zoom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3-zoom\\LICENSE"
+  },
+  "@types/d3@7.4.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\d3",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\d3\\LICENSE"
+  },
+  "@types/geojson@7946.0.16": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\geojson",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\geojson\\LICENSE"
+  },
+  "@types/node@10.17.60": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\http-response-object\\node_modules\\@types\\node",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\http-response-object\\node_modules\\@types\\node\\LICENSE"
+  },
+  "@types/node@25.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\node",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\node\\LICENSE"
+  },
+  "@types/react-dom@19.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\react-dom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\react-dom\\LICENSE"
+  },
+  "@types/react@19.2.14": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\react",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\react\\LICENSE"
+  },
+  "@types/readable-stream@4.0.23": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\readable-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\readable-stream\\LICENSE"
+  },
+  "@types/trusted-types@2.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\trusted-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\trusted-types\\LICENSE"
+  },
+  "@types/use-sync-external-store@0.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\projects\\nexus\\node_modules\\@types\\use-sync-external-store",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@types\\use-sync-external-store\\LICENSE"
+  },
+  "@typespec/ts-http-runtime@0.3.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Azure/azure-sdk-for-js",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\@typespec\\ts-http-runtime",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@typespec\\ts-http-runtime\\LICENSE"
+  },
+  "@upsetjs/venn.js@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/upsetjs/venn.js",
+    "publisher": "Ben Frederickson",
+    "email": "ben@benfrederickson.com",
+    "url": "https://www.benfrederickson.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@upsetjs\\venn.js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@upsetjs\\venn.js\\LICENSE"
+  },
+  "@xmldom/xmldom@0.8.13": {
+    "licenses": "MIT",
+    "repository": "https://github.com/xmldom/xmldom",
+    "path": "C:\\projects\\nexus\\node_modules\\@xmldom\\xmldom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@xmldom\\xmldom\\LICENSE"
+  },
+  "abort-controller@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysticatea/abort-controller",
+    "publisher": "Toru Nagashima",
+    "url": "https://github.com/mysticatea",
+    "path": "C:\\projects\\nexus\\node_modules\\abort-controller",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\abort-controller\\LICENSE"
+  },
+  "acorn@8.16.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/acornjs/acorn",
+    "path": "C:\\projects\\nexus\\node_modules\\acorn",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\acorn\\LICENSE"
+  },
+  "adler-32@1.3.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/js-adler32",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\adler-32",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\adler-32\\LICENSE"
+  },
+  "adm-zip@0.5.17": {
+    "licenses": "MIT",
+    "repository": "https://github.com/cthackers/adm-zip",
+    "publisher": "Nasca Iacob",
+    "email": "sy@another-d-mention.ro",
+    "url": "https://github.com/cthackers",
+    "path": "C:\\projects\\nexus\\node_modules\\adm-zip",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\adm-zip\\LICENSE"
+  },
+  "ag-charts-types@13.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ag-grid/ag-charts",
+    "publisher": "AG Grid",
+    "email": "info@ag-grid.com",
+    "path": "C:\\projects\\nexus\\node_modules\\ag-charts-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ag-charts-types\\LICENSE.txt"
+  },
+  "ag-grid-community@35.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ag-grid/ag-grid",
+    "publisher": "Sean Landsman",
+    "email": "sean@thelandsmans.com",
+    "path": "C:\\projects\\nexus\\node_modules\\ag-grid-community",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ag-grid-community\\LICENSE.txt"
+  },
+  "ag-grid-react@35.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ag-grid/ag-grid",
+    "publisher": "Niall Crosby",
+    "email": "niall.crosby@ag-grid.com",
+    "path": "C:\\projects\\nexus\\node_modules\\ag-grid-react",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ag-grid-react\\LICENSE.txt"
+  },
+  "agent-base@6.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/node-agent-base",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\ffmpeg-static\\node_modules\\agent-base",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ffmpeg-static\\node_modules\\agent-base\\README.md"
+  },
+  "agent-base@7.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/proxy-agents",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\agent-base",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\agent-base\\LICENSE"
+  },
+  "ansi-regex@5.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/ansi-regex",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\ansi-regex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ansi-regex\\license"
+  },
+  "ansi-regex@6.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/ansi-regex",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\ansi-regex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\ansi-regex\\license"
+  },
+  "ansi-styles@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/ansi-styles",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\ansi-styles",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ansi-styles\\license"
+  },
+  "ansi-styles@6.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/ansi-styles",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\ansi-styles",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\ansi-styles\\license"
+  },
+  "archiver-utils@5.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/archiverjs/archiver-utils",
+    "publisher": "Chris Talkington",
+    "url": "http://christalkington.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\LICENSE"
+  },
+  "archiver@7.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/archiverjs/node-archiver",
+    "publisher": "Chris Talkington",
+    "url": "http://christalkington.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver\\LICENSE"
+  },
+  "argparse@1.0.10": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodeca/argparse",
+    "path": "C:\\projects\\nexus\\node_modules\\mammoth\\node_modules\\argparse",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mammoth\\node_modules\\argparse\\LICENSE"
+  },
+  "argparse@2.0.1": {
+    "licenses": "Python-2.0",
+    "repository": "https://github.com/nodeca/argparse",
+    "path": "C:\\projects\\nexus\\node_modules\\argparse",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\argparse\\LICENSE"
+  },
+  "async@3.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/caolan/async",
+    "publisher": "Caolan McMahon",
+    "path": "C:\\projects\\nexus\\node_modules\\async",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\async\\LICENSE"
+  },
+  "aws-ssl-profiles@1.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysqljs/aws-ssl-profiles",
+    "publisher": "https://github.com/wellwelwel",
+    "path": "C:\\projects\\nexus\\node_modules\\aws-ssl-profiles",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\aws-ssl-profiles\\LICENSE"
+  },
+  "b4a@1.8.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/b4a",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\b4a",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\b4a\\LICENSE"
+  },
+  "bahttext@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jojoee/bahttext",
+    "publisher": "Nathachai Thongniran",
+    "email": "inid3a@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\bahttext",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bahttext\\LICENSE"
+  },
+  "balanced-match@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/juliangruber/balanced-match",
+    "publisher": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\balanced-match",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\balanced-match\\LICENSE.md"
+  },
+  "bare-events@2.8.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/bare-events",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\bare-events",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bare-events\\LICENSE"
+  },
+  "bare-fs@4.7.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/bare-fs",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\bare-fs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bare-fs\\LICENSE"
+  },
+  "bare-os@3.8.7": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/bare-os",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\bare-os",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bare-os\\LICENSE"
+  },
+  "bare-path@3.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/bare-path",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\bare-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bare-path\\LICENSE",
+    "noticeFile": "C:\\projects\\nexus\\node_modules\\bare-path\\NOTICE"
+  },
+  "bare-stream@2.13.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/bare-stream",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\bare-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bare-stream\\LICENSE"
+  },
+  "bare-url@2.4.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/bare-url",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\bare-url",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bare-url\\LICENSE"
+  },
+  "base64-js@1.5.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/beatgammit/base64-js",
+    "publisher": "T. Jameson Little",
+    "email": "t.jameson.little@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\base64-js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\base64-js\\LICENSE"
+  },
+  "bessel@1.0.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/bessel",
+    "publisher": "SheetJS",
+    "path": "C:\\projects\\nexus\\node_modules\\bessel",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bessel\\LICENSE"
+  },
+  "better-sqlite3@12.9.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/WiseLibs/better-sqlite3",
+    "publisher": "Joshua Wise",
+    "email": "joshuathomaswise@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\better-sqlite3",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\better-sqlite3\\LICENSE"
+  },
+  "bindings@1.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/node-bindings",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://tootallnate.net",
+    "path": "C:\\projects\\nexus\\node_modules\\bindings",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bindings\\LICENSE.md"
+  },
+  "bl@4.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/rvagg/bl",
+    "path": "C:\\projects\\nexus\\node_modules\\bl",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bl\\LICENSE.md"
+  },
+  "bl@6.1.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/rvagg/bl",
+    "path": "C:\\projects\\nexus\\node_modules\\tedious\\node_modules\\bl",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tedious\\node_modules\\bl\\LICENSE.md"
+  },
+  "bluebird@3.4.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/petkaantonov/bluebird",
+    "publisher": "Petka Antonov",
+    "email": "petka_antonov@hotmail.com",
+    "url": "http://github.com/petkaantonov/",
+    "path": "C:\\projects\\nexus\\node_modules\\bluebird",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bluebird\\LICENSE"
+  },
+  "bmp-js@0.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/shaozilee/bmp-js",
+    "publisher": "shaozilee",
+    "email": "shaozilee@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\bmp-js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bmp-js\\LICENSE"
+  },
+  "boolean@3.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/thenativeweb/boolean",
+    "path": "C:\\projects\\nexus\\node_modules\\boolean",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\boolean\\LICENSE.txt"
+  },
+  "brace-expansion@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/juliangruber/brace-expansion",
+    "publisher": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\brace-expansion",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\brace-expansion\\LICENSE"
+  },
+  "buffer-crc32@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/buffer-crc32",
+    "publisher": "Brian J. Brennan",
+    "email": "brianloveswords@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver\\node_modules\\buffer-crc32",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver\\node_modules\\buffer-crc32\\LICENSE"
+  },
+  "buffer-equal-constant-time@1.0.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/goinstant/buffer-equal-constant-time",
+    "publisher": "GoInstant Inc., a salesforce.com company",
+    "path": "C:\\projects\\nexus\\node_modules\\buffer-equal-constant-time",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\buffer-equal-constant-time\\LICENSE.txt"
+  },
+  "buffer-from@1.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/LinusU/buffer-from",
+    "path": "C:\\projects\\nexus\\node_modules\\buffer-from",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\buffer-from\\LICENSE"
+  },
+  "buffer@5.7.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/buffer",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\buffer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\buffer\\LICENSE"
+  },
+  "buffer@6.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/buffer",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\buffer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\buffer\\LICENSE"
+  },
+  "builder-util-runtime@9.5.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/electron-userland/electron-builder",
+    "publisher": "Vladimir Krivosheev",
+    "path": "C:\\projects\\nexus\\node_modules\\builder-util-runtime",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\builder-util-runtime\\LICENSE"
+  },
+  "bundle-name@4.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/bundle-name",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\bundle-name",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\bundle-name\\license"
+  },
+  "camelcase@5.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/camelcase",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\camelcase",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\camelcase\\license"
+  },
+  "caseless@0.12.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/mikeal/caseless",
+    "publisher": "Mikeal Rogers",
+    "email": "mikeal.rogers@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\caseless",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\caseless\\LICENSE"
+  },
+  "cfb@1.2.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/js-cfb",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\cfb",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cfb\\LICENSE"
+  },
+  "chevrotain-allstar@0.4.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/langium/chevrotain-allstar",
+    "publisher": "TypeFox",
+    "url": "https://www.typefox.io",
+    "path": "C:\\projects\\nexus\\node_modules\\chevrotain-allstar",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\chevrotain-allstar\\LICENSE"
+  },
+  "chevrotain@12.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "publisher": "Shahar Soel",
+    "path": "C:\\projects\\nexus\\node_modules\\chevrotain",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\chevrotain\\LICENSE.txt"
+  },
+  "chevrotain@7.1.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Chevrotain/chevrotain",
+    "publisher": "Shahar Soel",
+    "path": "C:\\projects\\nexus\\node_modules\\fast-formula-parser\\node_modules\\chevrotain",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\fast-formula-parser\\node_modules\\chevrotain\\LICENSE.txt"
+  },
+  "chownr@1.1.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/chownr",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\tar-fs\\node_modules\\chownr",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tar-fs\\node_modules\\chownr\\LICENSE"
+  },
+  "cliui@6.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/cliui",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\cliui",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\cliui\\LICENSE.txt"
+  },
+  "codepage@1.15.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/js-codepage",
+    "publisher": "SheetJS",
+    "path": "C:\\projects\\nexus\\node_modules\\codepage",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\codepage\\LICENSE"
+  },
+  "color-convert@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Qix-/color-convert",
+    "publisher": "Heather Arthur",
+    "email": "fayearthur@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\color-convert",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\color-convert\\LICENSE"
+  },
+  "color-name@1.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/colorjs/color-name",
+    "publisher": "DY",
+    "email": "dfcreative@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\color-name",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\color-name\\LICENSE"
+  },
+  "commander@11.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tj/commander.js",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "C:\\projects\\nexus\\node_modules\\mssql\\node_modules\\commander",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mssql\\node_modules\\commander\\LICENSE"
+  },
+  "commander@7.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tj/commander.js",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-dsv\\node_modules\\commander",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-dsv\\node_modules\\commander\\LICENSE"
+  },
+  "commander@8.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tj/commander.js",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "C:\\projects\\nexus\\node_modules\\katex\\node_modules\\commander",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\katex\\node_modules\\commander\\LICENSE"
+  },
+  "compress-commons@6.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/archiverjs/node-compress-commons",
+    "publisher": "Chris Talkington",
+    "url": "http://christalkington.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\compress-commons",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\compress-commons\\LICENSE"
+  },
+  "concat-stream@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/maxogden/concat-stream",
+    "publisher": "Max Ogden",
+    "email": "max@maxogden.com",
+    "path": "C:\\projects\\nexus\\node_modules\\concat-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\concat-stream\\LICENSE"
+  },
+  "confbox@0.1.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/unjs/confbox",
+    "path": "C:\\projects\\nexus\\node_modules\\confbox",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\confbox\\LICENSE"
+  },
+  "cookie@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jshttp/cookie",
+    "publisher": "Roman Shtylman",
+    "email": "shtylman@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\cookie",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cookie\\LICENSE"
+  },
+  "core-util-is@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/isaacs/core-util-is",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\core-util-is",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\core-util-is\\LICENSE"
+  },
+  "cose-base@1.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iVis-at-Bilkent/cose-base",
+    "path": "C:\\projects\\nexus\\node_modules\\cose-base",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cose-base\\LICENSE"
+  },
+  "cose-base@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iVis-at-Bilkent/cose-base",
+    "path": "C:\\projects\\nexus\\node_modules\\cytoscape-fcose\\node_modules\\cose-base",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cytoscape-fcose\\node_modules\\cose-base\\LICENSE"
+  },
+  "crc-32@1.2.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/js-crc32",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\crc-32",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\crc-32\\LICENSE"
+  },
+  "crc32-stream@6.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/archiverjs/node-crc32-stream",
+    "publisher": "Chris Talkington",
+    "url": "http://christalkington.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\crc32-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\crc32-stream\\LICENSE"
+  },
+  "cross-spawn@7.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/moxystudio/node-cross-spawn",
+    "publisher": "André Cruz",
+    "email": "andre@moxy.studio",
+    "path": "C:\\projects\\nexus\\node_modules\\cross-spawn",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cross-spawn\\LICENSE"
+  },
+  "csstype@3.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/frenic/csstype",
+    "publisher": "Fredrik Nicol",
+    "email": "fredrik.nicol@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\csstype",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\csstype\\LICENSE"
+  },
+  "cytoscape-cose-bilkent@4.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/cytoscape/cytoscape.js-cose-bilkent",
+    "path": "C:\\projects\\nexus\\node_modules\\cytoscape-cose-bilkent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cytoscape-cose-bilkent\\LICENSE"
+  },
+  "cytoscape-fcose@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iVis-at-Bilkent/cytoscape.js-fcose",
+    "publisher": "iVis-at-Bilkent",
+    "path": "C:\\projects\\nexus\\node_modules\\cytoscape-fcose",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cytoscape-fcose\\LICENSE"
+  },
+  "cytoscape@3.33.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/cytoscape/cytoscape.js",
+    "path": "C:\\projects\\nexus\\node_modules\\cytoscape",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cytoscape\\LICENSE"
+  },
+  "d3-array@2.12.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/d3/d3-array",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\d3-array",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\d3-array\\LICENSE"
+  },
+  "d3-array@3.2.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-array",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-array",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-array\\LICENSE"
+  },
+  "d3-axis@3.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-axis",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-axis",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-axis\\LICENSE"
+  },
+  "d3-brush@3.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-brush",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-brush",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-brush\\LICENSE"
+  },
+  "d3-chord@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-chord",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-chord",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-chord\\LICENSE"
+  },
+  "d3-color@3.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-color",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-color",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-color\\LICENSE"
+  },
+  "d3-contour@4.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-contour",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-contour",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-contour\\LICENSE"
+  },
+  "d3-delaunay@6.0.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-delaunay",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-delaunay",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-delaunay\\LICENSE"
+  },
+  "d3-dispatch@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-dispatch",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-dispatch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-dispatch\\LICENSE"
+  },
+  "d3-drag@3.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-drag",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-drag",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-drag\\LICENSE"
+  },
+  "d3-dsv@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-dsv",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-dsv",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-dsv\\LICENSE"
+  },
+  "d3-ease@3.0.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/d3/d3-ease",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-ease",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-ease\\LICENSE"
+  },
+  "d3-fetch@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-fetch",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-fetch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-fetch\\LICENSE"
+  },
+  "d3-force@3.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-force",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-force",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-force\\LICENSE"
+  },
+  "d3-format@3.1.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-format",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-format",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-format\\LICENSE"
+  },
+  "d3-geo@3.1.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-geo",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-geo",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-geo\\LICENSE"
+  },
+  "d3-hierarchy@3.1.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-hierarchy",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-hierarchy",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-hierarchy\\LICENSE"
+  },
+  "d3-interpolate@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-interpolate",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-interpolate",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-interpolate\\LICENSE"
+  },
+  "d3-path@1.0.9": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/d3/d3-path",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\d3-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\d3-path\\LICENSE"
+  },
+  "d3-path@3.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-path",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-path\\LICENSE"
+  },
+  "d3-polygon@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-polygon",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-polygon",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-polygon\\LICENSE"
+  },
+  "d3-quadtree@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-quadtree",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-quadtree",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-quadtree\\LICENSE"
+  },
+  "d3-random@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-random",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-random",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-random\\LICENSE"
+  },
+  "d3-sankey@0.12.3": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/d3/d3-sankey",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike/",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-sankey",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-sankey\\LICENSE"
+  },
+  "d3-scale-chromatic@3.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-scale-chromatic",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-scale-chromatic",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-scale-chromatic\\LICENSE"
+  },
+  "d3-scale@4.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-scale",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-scale",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-scale\\LICENSE"
+  },
+  "d3-selection@3.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-selection",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-selection",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-selection\\LICENSE"
+  },
+  "d3-shape@1.3.7": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/d3/d3-shape",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\d3-shape",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\d3-shape\\LICENSE"
+  },
+  "d3-shape@3.2.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-shape",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-shape",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-shape\\LICENSE"
+  },
+  "d3-time-format@4.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-time-format",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-time-format",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-time-format\\LICENSE"
+  },
+  "d3-time@3.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-time",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-time",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-time\\LICENSE"
+  },
+  "d3-timer@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-timer",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-timer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-timer\\LICENSE"
+  },
+  "d3-transition@3.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-transition",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-transition",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-transition\\LICENSE"
+  },
+  "d3-zoom@3.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3-zoom",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-zoom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-zoom\\LICENSE"
+  },
+  "d3@7.9.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/d3/d3",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3\\LICENSE"
+  },
+  "dagre-d3-es@7.0.14": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tbo47/dagre-es",
+    "path": "C:\\projects\\nexus\\node_modules\\dagre-d3-es",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\dagre-d3-es\\LICENSE.md"
+  },
+  "dayjs@1.11.20": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iamkun/dayjs",
+    "publisher": "iamkun",
+    "path": "C:\\projects\\nexus\\node_modules\\dayjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\dayjs\\LICENSE"
+  },
+  "debug@4.4.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/debug-js/debug",
+    "publisher": "Josh Junon",
+    "url": "https://github.com/qix-",
+    "path": "C:\\projects\\nexus\\node_modules\\debug",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\debug\\LICENSE"
+  },
+  "decamelize@1.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/decamelize",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\decamelize",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\decamelize\\license"
+  },
+  "decompress-response@6.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/decompress-response",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\decompress-response",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\decompress-response\\license"
+  },
+  "deep-extend@0.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/unclechu/node-deep-extend",
+    "publisher": "Viacheslav Lotsmanov",
+    "email": "lotsmanov89@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\deep-extend",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\deep-extend\\LICENSE"
+  },
+  "default-browser-id@5.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/default-browser-id",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\default-browser-id",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\default-browser-id\\license"
+  },
+  "default-browser@5.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/default-browser",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\default-browser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\default-browser\\license"
+  },
+  "define-data-property@1.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/define-data-property",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\define-data-property",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\define-data-property\\LICENSE"
+  },
+  "define-lazy-prop@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/define-lazy-prop",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\define-lazy-prop",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\define-lazy-prop\\license"
+  },
+  "define-properties@1.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/define-properties",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\define-properties",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\define-properties\\LICENSE"
+  },
+  "delaunator@5.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/mapbox/delaunator",
+    "publisher": "Vladimir Agafonkin",
+    "path": "C:\\projects\\nexus\\node_modules\\delaunator",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\delaunator\\LICENSE"
+  },
+  "denque@2.1.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/invertase/denque",
+    "publisher": "Invertase",
+    "email": "oss@invertase.io",
+    "url": "http://github.com/invertase/",
+    "path": "C:\\projects\\nexus\\node_modules\\denque",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\denque\\LICENSE"
+  },
+  "detect-libc@2.1.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/lovell/detect-libc",
+    "publisher": "Lovell Fuller",
+    "email": "npm@lovell.info",
+    "path": "C:\\projects\\nexus\\node_modules\\detect-libc",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\detect-libc\\LICENSE"
+  },
+  "detect-node@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iliakan/detect-node",
+    "publisher": "Ilya Kantor",
+    "path": "C:\\projects\\nexus\\node_modules\\detect-node",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\detect-node\\LICENSE"
+  },
+  "diff@9.0.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/kpdecker/jsdiff",
+    "path": "C:\\projects\\nexus\\node_modules\\diff",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\diff\\LICENSE"
+  },
+  "dijkstrajs@1.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tcort/dijkstrajs",
+    "path": "C:\\projects\\nexus\\node_modules\\dijkstrajs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\dijkstrajs\\LICENSE.md"
+  },
+  "dingbat-to-unicode@1.0.1": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/mwilliamson/dingbat-to-unicode",
+    "publisher": "Michael Williamson",
+    "email": "mike@zwobble.org",
+    "path": "C:\\projects\\nexus\\node_modules\\dingbat-to-unicode",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\dingbat-to-unicode\\README.md"
+  },
+  "dompurify@3.4.1": {
+    "licenses": "(MPL-2.0 OR Apache-2.0)",
+    "repository": "https://github.com/cure53/DOMPurify",
+    "publisher": "Dr.-Ing. Mario Heiderich, Cure53",
+    "email": "mario@cure53.de",
+    "url": "https://cure53.de/",
+    "path": "C:\\projects\\nexus\\node_modules\\dompurify",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\dompurify\\LICENSE"
+  },
+  "duck@0.1.12": {
+    "licenses": "BSD*",
+    "repository": "https://github.com/mwilliamson/duck.js",
+    "publisher": "Michael Williamson",
+    "email": "mike@zwobble.org",
+    "path": "C:\\projects\\nexus\\node_modules\\duck",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\duck\\LICENSE"
+  },
+  "eastasianwidth@0.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/komagata/eastasianwidth",
+    "publisher": "Masaki Komagata",
+    "path": "C:\\projects\\nexus\\node_modules\\eastasianwidth",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\eastasianwidth\\README.md"
+  },
+  "ecdsa-sig-formatter@1.0.11": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Brightspace/node-ecdsa-sig-formatter",
+    "publisher": "D2L Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\ecdsa-sig-formatter",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ecdsa-sig-formatter\\LICENSE"
+  },
+  "echarts@6.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/apache/echarts",
+    "path": "C:\\projects\\nexus\\node_modules\\echarts",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\echarts\\LICENSE",
+    "noticeFile": "C:\\projects\\nexus\\node_modules\\echarts\\NOTICE"
+  },
+  "electron-updater@6.8.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/electron-userland/electron-builder",
+    "publisher": "Vladimir Krivosheev",
+    "path": "C:\\projects\\nexus\\node_modules\\electron-updater",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\electron-updater\\LICENSE"
+  },
+  "emoji-regex@8.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mathiasbynens/emoji-regex",
+    "publisher": "Mathias Bynens",
+    "url": "https://mathiasbynens.be/",
+    "path": "C:\\projects\\nexus\\node_modules\\emoji-regex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\emoji-regex\\LICENSE-MIT.txt"
+  },
+  "emoji-regex@9.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mathiasbynens/emoji-regex",
+    "publisher": "Mathias Bynens",
+    "url": "https://mathiasbynens.be/",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\emoji-regex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\emoji-regex\\LICENSE-MIT.txt"
+  },
+  "encoding@0.1.13": {
+    "licenses": "MIT",
+    "repository": "https://github.com/andris9/encoding",
+    "publisher": "Andris Reinman",
+    "path": "C:\\projects\\nexus\\node_modules\\encoding",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\encoding\\LICENSE"
+  },
+  "end-of-stream@1.4.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/end-of-stream",
+    "publisher": "Mathias Buus",
+    "email": "mathiasbuus@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\end-of-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\end-of-stream\\LICENSE"
+  },
+  "env-paths@2.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/env-paths",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\env-paths",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\env-paths\\license"
+  },
+  "es-define-property@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/es-define-property",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\es-define-property",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\es-define-property\\LICENSE"
+  },
+  "es-errors@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/es-errors",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\es-errors",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\es-errors\\LICENSE"
+  },
+  "es6-error@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bjyoungblood/es6-error",
+    "publisher": "Ben Youngblood",
+    "path": "C:\\projects\\nexus\\node_modules\\es6-error",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\es6-error\\LICENSE.md"
+  },
+  "escape-string-regexp@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/escape-string-regexp",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\escape-string-regexp",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\escape-string-regexp\\license"
+  },
+  "event-target-shim@5.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysticatea/event-target-shim",
+    "publisher": "Toru Nagashima",
+    "path": "C:\\projects\\nexus\\node_modules\\event-target-shim",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\event-target-shim\\LICENSE"
+  },
+  "events-universal@1.0.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/events-universal",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\events-universal",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\events-universal\\LICENSE"
+  },
+  "events@3.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Gozala/events",
+    "publisher": "Irakli Gozalishvili",
+    "email": "rfobic@gmail.com",
+    "url": "http://jeditoolkit.com",
+    "path": "C:\\projects\\nexus\\node_modules\\events",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\events\\LICENSE"
+  },
+  "expand-template@2.0.3": {
+    "licenses": "(MIT OR WTFPL)",
+    "repository": "https://github.com/ralphtheninja/expand-template",
+    "publisher": "LM",
+    "email": "ralphtheninja@riseup.net",
+    "path": "C:\\projects\\nexus\\node_modules\\expand-template",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\expand-template\\LICENSE"
+  },
+  "fast-equals@5.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/planttheidea/fast-equals",
+    "publisher": "tony_quetano@planttheidea.com",
+    "path": "C:\\projects\\nexus\\node_modules\\fast-equals",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\fast-equals\\LICENSE"
+  },
+  "fast-fifo@1.3.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/fast-fifo",
+    "publisher": "Mathias Buus",
+    "url": "@mafintosh",
+    "path": "C:\\projects\\nexus\\node_modules\\fast-fifo",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\fast-fifo\\LICENSE"
+  },
+  "fast-formula-parser@1.0.19": {
+    "licenses": "MIT",
+    "repository": "https://github.com/LesterLyu/fast-formula-parser",
+    "publisher": "Lester",
+    "url": "Dishu",
+    "path": "C:\\projects\\nexus\\node_modules\\fast-formula-parser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\fast-formula-parser\\LICENSE"
+  },
+  "ffmpeg-static@5.3.0": {
+    "licenses": "GPL-3.0-or-later",
+    "repository": "https://github.com/eugeneware/ffmpeg-static",
+    "path": "C:\\projects\\nexus\\node_modules\\ffmpeg-static",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ffmpeg-static\\LICENSE"
+  },
+  "file-uri-to-path@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/file-uri-to-path",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\file-uri-to-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\file-uri-to-path\\LICENSE"
+  },
+  "find-up@4.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/find-up",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\find-up",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\find-up\\license"
+  },
+  "flatbuffers@25.9.23": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/google/flatbuffers",
+    "publisher": "The FlatBuffers project",
+    "path": "C:\\projects\\nexus\\node_modules\\flatbuffers",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\flatbuffers\\LICENSE"
+  },
+  "foreground-child@3.3.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/tapjs/foreground-child",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\foreground-child",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\foreground-child\\LICENSE"
+  },
+  "frac@1.1.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/frac",
+    "publisher": "SheetJS",
+    "path": "C:\\projects\\nexus\\node_modules\\frac",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\frac\\LICENSE"
+  },
+  "fs-constants@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/fs-constants",
+    "publisher": "Mathias Buus",
+    "url": "@mafintosh",
+    "path": "C:\\projects\\nexus\\node_modules\\fs-constants",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\fs-constants\\LICENSE"
+  },
+  "fs-extra@10.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jprichardson/node-fs-extra",
+    "publisher": "JP Richardson",
+    "email": "jprichardson@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\fs-extra",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\fs-extra\\LICENSE"
+  },
+  "generate-function@2.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/generate-function",
+    "publisher": "Mathias Buus",
+    "path": "C:\\projects\\nexus\\node_modules\\generate-function",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\generate-function\\LICENSE"
+  },
+  "get-caller-file@2.0.5": {
+    "licenses": "ISC",
+    "repository": "https://github.com/stefanpenner/get-caller-file",
+    "publisher": "Stefan Penner",
+    "path": "C:\\projects\\nexus\\node_modules\\get-caller-file",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\get-caller-file\\LICENSE.md"
+  },
+  "github-from-package@0.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/substack/github-from-package",
+    "publisher": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net",
+    "path": "C:\\projects\\nexus\\node_modules\\github-from-package",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\github-from-package\\LICENSE"
+  },
+  "glob@10.5.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-glob",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "https://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\glob",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\glob\\LICENSE"
+  },
+  "global-agent@3.0.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/gajus/global-agent",
+    "publisher": "Gajus Kuizinas",
+    "email": "gajus@gajus.com",
+    "url": "http://gajus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\global-agent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\global-agent\\LICENSE"
+  },
+  "globalthis@1.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/System.global",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\globalthis",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\globalthis\\LICENSE"
+  },
+  "gopd@1.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/gopd",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\gopd",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\gopd\\LICENSE"
+  },
+  "graceful-fs@4.2.11": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-graceful-fs",
+    "path": "C:\\projects\\nexus\\node_modules\\graceful-fs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\graceful-fs\\LICENSE"
+  },
+  "guid-typescript@1.0.9": {
+    "licenses": "ISC",
+    "repository": "https://github.com/NicolasDeveloper/guid-typescript",
+    "publisher": "nicolas",
+    "path": "C:\\projects\\nexus\\node_modules\\guid-typescript",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\guid-typescript\\README.md"
+  },
+  "hachure-fill@0.5.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pshihn/hachure-fill",
+    "publisher": "Preet Shihn",
+    "path": "C:\\projects\\nexus\\node_modules\\hachure-fill",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\hachure-fill\\LICENSE"
+  },
+  "has-property-descriptors@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/inspect-js/has-property-descriptors",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\has-property-descriptors",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\has-property-descriptors\\LICENSE"
+  },
+  "http-proxy-agent@7.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/proxy-agents",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\http-proxy-agent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\http-proxy-agent\\LICENSE"
+  },
+  "http-response-object@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ForbesLindesay/http-response-object",
+    "publisher": "ForbesLindesay",
+    "path": "C:\\projects\\nexus\\node_modules\\http-response-object",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\http-response-object\\LICENSE"
+  },
+  "https-proxy-agent@5.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/node-https-proxy-agent",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\ffmpeg-static\\node_modules\\https-proxy-agent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ffmpeg-static\\node_modules\\https-proxy-agent\\README.md"
+  },
+  "https-proxy-agent@7.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/proxy-agents",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\https-proxy-agent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\https-proxy-agent\\LICENSE"
+  },
+  "iconv-lite@0.6.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ashtuchkin/iconv-lite",
+    "publisher": "Alexander Shtuchkin",
+    "email": "ashtuchkin@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\iconv-lite",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\iconv-lite\\LICENSE"
+  },
+  "iconv-lite@0.7.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pillarjs/iconv-lite",
+    "publisher": "Alexander Shtuchkin",
+    "email": "ashtuchkin@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\tedious\\node_modules\\iconv-lite",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tedious\\node_modules\\iconv-lite\\LICENSE"
+  },
+  "idb-keyval@6.2.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/jakearchibald/idb-keyval",
+    "publisher": "Jake Archibald",
+    "path": "C:\\projects\\nexus\\node_modules\\idb-keyval",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\idb-keyval\\LICENCE"
+  },
+  "ieee754@1.2.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/feross/ieee754",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\ieee754",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ieee754\\LICENSE"
+  },
+  "immediate@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/calvinmetcalf/immediate",
+    "path": "C:\\projects\\nexus\\node_modules\\immediate",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\immediate\\LICENSE.txt"
+  },
+  "inherits@2.0.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/inherits",
+    "path": "C:\\projects\\nexus\\node_modules\\inherits",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\inherits\\LICENSE"
+  },
+  "ini@1.3.8": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/ini",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\ini",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ini\\LICENSE"
+  },
+  "internmap@1.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/mbostock/internmap",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\internmap",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\d3-sankey\\node_modules\\internmap\\LICENSE"
+  },
+  "internmap@2.0.3": {
+    "licenses": "ISC",
+    "repository": "https://github.com/mbostock/internmap",
+    "publisher": "Mike Bostock",
+    "url": "https://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\internmap",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\internmap\\LICENSE"
+  },
+  "is-docker@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-docker",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\is-docker",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-docker\\license"
+  },
+  "is-fullwidth-code-point@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-fullwidth-code-point",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\is-fullwidth-code-point",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-fullwidth-code-point\\license"
+  },
+  "is-inside-container@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-inside-container",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\is-inside-container",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-inside-container\\license"
+  },
+  "is-property@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mikolalysenko/is-property",
+    "publisher": "Mikola Lysenko",
+    "path": "C:\\projects\\nexus\\node_modules\\is-property",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-property\\LICENSE"
+  },
+  "is-stream@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-stream",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\is-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-stream\\license"
+  },
+  "is-url@1.2.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/segmentio/is-url",
+    "path": "C:\\projects\\nexus\\node_modules\\is-url",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-url\\LICENSE-MIT"
+  },
+  "is-wsl@3.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-wsl",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\is-wsl",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\is-wsl\\license"
+  },
+  "isarray@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/juliangruber/isarray",
+    "publisher": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com",
+    "path": "C:\\projects\\nexus\\node_modules\\isarray",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\isarray\\README.md"
+  },
+  "isexe@2.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/isexe",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\cross-spawn\\node_modules\\isexe",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cross-spawn\\node_modules\\isexe\\LICENSE"
+  },
+  "jackspeak@3.4.3": {
+    "licenses": "BlueOak-1.0.0",
+    "repository": "https://github.com/isaacs/jackspeak",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\jackspeak",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jackspeak\\LICENSE.md"
+  },
+  "js-md4@0.3.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/emn178/js-md4",
+    "publisher": "Chen, Yi-Cyuan",
+    "email": "emn178@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\js-md4",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\js-md4\\LICENSE.txt"
+  },
+  "js-tokens@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lydell/js-tokens",
+    "publisher": "Simon Lydell",
+    "path": "C:\\projects\\nexus\\node_modules\\js-tokens",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\js-tokens\\LICENSE"
+  },
+  "js-yaml@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodeca/js-yaml",
+    "publisher": "Vladimir Zapparov",
+    "email": "dervus.grim@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\js-yaml",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\js-yaml\\LICENSE"
+  },
+  "jsbarcode@3.12.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lindell/JsBarcode",
+    "publisher": "Johan Lindell",
+    "path": "C:\\projects\\nexus\\node_modules\\jsbarcode",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jsbarcode\\README.md"
+  },
+  "json-stringify-safe@5.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/json-stringify-safe",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\json-stringify-safe",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\json-stringify-safe\\LICENSE"
+  },
+  "jsonfile@6.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jprichardson/node-jsonfile",
+    "publisher": "JP Richardson",
+    "email": "jprichardson@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\jsonfile",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jsonfile\\LICENSE"
+  },
+  "jsonwebtoken@9.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/auth0/node-jsonwebtoken",
+    "publisher": "auth0",
+    "path": "C:\\projects\\nexus\\node_modules\\jsonwebtoken",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jsonwebtoken\\LICENSE"
+  },
+  "jstat@1.9.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jstat/jstat",
+    "publisher": "Trevor Norris",
+    "email": "trev.norris@gmail.com",
+    "url": "http://trevorjnorris.com",
+    "path": "C:\\projects\\nexus\\node_modules\\jstat",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jstat\\LICENSE"
+  },
+  "jszip@3.10.1": {
+    "licenses": "(MIT OR GPL-3.0-or-later)",
+    "repository": "https://github.com/Stuk/jszip",
+    "publisher": "Stuart Knightley",
+    "email": "stuart@stuartk.com",
+    "path": "C:\\projects\\nexus\\node_modules\\jszip",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jszip\\LICENSE.markdown"
+  },
+  "jwa@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jwa",
+    "publisher": "Brian J. Brennan",
+    "email": "brianloveswords@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\jwa",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jwa\\LICENSE"
+  },
+  "jws@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jws",
+    "publisher": "Brian J Brennan",
+    "path": "C:\\projects\\nexus\\node_modules\\jws",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\jws\\LICENSE"
+  },
+  "katex@0.16.45": {
+    "licenses": "MIT",
+    "repository": "https://github.com/KaTeX/KaTeX",
+    "path": "C:\\projects\\nexus\\node_modules\\katex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\katex\\LICENSE"
+  },
+  "khroma@2.1.0": {
+    "licenses": "MIT*",
+    "repository": "https://github.com/fabiospampinato/khroma",
+    "path": "C:\\projects\\nexus\\node_modules\\khroma",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\khroma\\license"
+  },
+  "langium@4.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/eclipse-langium/langium",
+    "publisher": "TypeFox",
+    "url": "https://www.typefox.io",
+    "path": "C:\\projects\\nexus\\node_modules\\langium",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\langium\\LICENSE"
+  },
+  "layout-base@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iVis-at-Bilkent/layout-base",
+    "path": "C:\\projects\\nexus\\node_modules\\layout-base",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\layout-base\\LICENSE"
+  },
+  "layout-base@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/iVis-at-Bilkent/layout-base",
+    "path": "C:\\projects\\nexus\\node_modules\\cytoscape-fcose\\node_modules\\layout-base",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cytoscape-fcose\\node_modules\\layout-base\\LICENSE"
+  },
+  "lazy-val@1.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/develar/lazy-val",
+    "publisher": "Vladimir Krivosheev",
+    "path": "C:\\projects\\nexus\\node_modules\\lazy-val",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lazy-val\\readme.md"
+  },
+  "lazystream@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jpommerening/node-lazystream",
+    "publisher": "Jonas Pommerening",
+    "email": "jonas.pommerening@gmail.com",
+    "url": "https://npmjs.org/~jpommerening",
+    "path": "C:\\projects\\nexus\\node_modules\\lazystream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lazystream\\LICENSE"
+  },
+  "lie@3.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/calvinmetcalf/lie",
+    "path": "C:\\projects\\nexus\\node_modules\\lie",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lie\\license.md"
+  },
+  "linkifyjs@4.3.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nfrasser/linkifyjs",
+    "publisher": "Nick Frasser",
+    "url": "https://nfrasser.com",
+    "path": "C:\\projects\\nexus\\node_modules\\linkifyjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\linkifyjs\\LICENSE"
+  },
+  "locate-path@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/locate-path",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\locate-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\locate-path\\license"
+  },
+  "lodash-es@4.18.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash-es",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash-es\\LICENSE"
+  },
+  "lodash.escaperegexp@4.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.escaperegexp",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.escaperegexp\\LICENSE"
+  },
+  "lodash.includes@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.includes",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.includes\\LICENSE"
+  },
+  "lodash.isboolean@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.isboolean",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.isboolean\\LICENSE"
+  },
+  "lodash.isequal@4.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.isequal",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.isequal\\LICENSE"
+  },
+  "lodash.isinteger@4.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.isinteger",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.isinteger\\LICENSE"
+  },
+  "lodash.isnumber@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.isnumber",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.isnumber\\LICENSE"
+  },
+  "lodash.isplainobject@4.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.isplainobject",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.isplainobject\\LICENSE"
+  },
+  "lodash.isstring@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.isstring",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.isstring\\LICENSE"
+  },
+  "lodash.once@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash.once",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash.once\\LICENSE"
+  },
+  "lodash@4.18.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\lodash",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lodash\\LICENSE"
+  },
+  "long@5.3.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/dcodeIO/long.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\long",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\long\\LICENSE"
+  },
+  "loose-envify@1.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/zertosh/loose-envify",
+    "publisher": "Andres Suarez",
+    "email": "zertosh@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\loose-envify",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\loose-envify\\LICENSE"
+  },
+  "lop@0.4.2": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/mwilliamson/lop",
+    "publisher": "Michael Williamson",
+    "email": "mike@zwobble.org",
+    "path": "C:\\projects\\nexus\\node_modules\\lop",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lop\\LICENSE"
+  },
+  "lru-cache@10.4.3": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-lru-cache",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\path-scurry\\node_modules\\lru-cache",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\path-scurry\\node_modules\\lru-cache\\LICENSE"
+  },
+  "lru.min@1.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/wellwelwel/lru.min",
+    "publisher": "https://github.com/wellwelwel",
+    "path": "C:\\projects\\nexus\\node_modules\\lru.min",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lru.min\\LICENSE"
+  },
+  "mammoth@1.12.0": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/mwilliamson/mammoth.js",
+    "publisher": "Michael Williamson",
+    "email": "mike@zwobble.org",
+    "path": "C:\\projects\\nexus\\node_modules\\mammoth",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mammoth\\LICENSE"
+  },
+  "marked@16.4.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/markedjs/marked",
+    "publisher": "Christopher Jeffrey",
+    "path": "C:\\projects\\nexus\\node_modules\\mermaid\\node_modules\\marked",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mermaid\\node_modules\\marked\\LICENSE.md"
+  },
+  "marked@18.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/markedjs/marked",
+    "publisher": "Christopher Jeffrey",
+    "path": "C:\\projects\\nexus\\node_modules\\marked",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\marked\\LICENSE.md"
+  },
+  "matcher@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/matcher",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\matcher",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\matcher\\license"
+  },
+  "mermaid@11.14.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mermaid-js/mermaid",
+    "publisher": "Knut Sveidqvist",
+    "path": "C:\\projects\\nexus\\node_modules\\mermaid",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mermaid\\LICENSE"
+  },
+  "mimic-response@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/mimic-response",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\decompress-response\\node_modules\\mimic-response",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\decompress-response\\node_modules\\mimic-response\\license"
+  },
+  "minimatch@5.1.9": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/minimatch",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\readdir-glob\\node_modules\\minimatch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\readdir-glob\\node_modules\\minimatch\\LICENSE"
+  },
+  "minimatch@9.0.9": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/minimatch",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\minimatch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\minimatch\\LICENSE"
+  },
+  "minimist@1.2.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/minimistjs/minimist",
+    "publisher": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net",
+    "path": "C:\\projects\\nexus\\node_modules\\minimist",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\minimist\\LICENSE"
+  },
+  "minipass@7.1.3": {
+    "licenses": "BlueOak-1.0.0",
+    "repository": "https://github.com/isaacs/minipass",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\minipass",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\minipass\\LICENSE.md"
+  },
+  "mkdirp-classic@0.5.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/mkdirp-classic",
+    "publisher": "Mathias Buus",
+    "url": "@mafintosh",
+    "path": "C:\\projects\\nexus\\node_modules\\mkdirp-classic",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mkdirp-classic\\LICENSE"
+  },
+  "mlly@1.8.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/unjs/mlly",
+    "path": "C:\\projects\\nexus\\node_modules\\mlly",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mlly\\LICENSE"
+  },
+  "ms@2.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/ms",
+    "path": "C:\\projects\\nexus\\node_modules\\ms",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ms\\license.md"
+  },
+  "mssql@12.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tediousjs/node-mssql",
+    "publisher": "Patrik Simek",
+    "url": "https://patriksimek.cz",
+    "path": "C:\\projects\\nexus\\node_modules\\mssql",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mssql\\LICENSE.md"
+  },
+  "mysql2@3.22.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sidorares/node-mysql2",
+    "publisher": "Andrey Sidorov",
+    "email": "andrey.sidorov@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\mysql2",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mysql2\\License"
+  },
+  "named-placeholders@1.1.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysqljs/named-placeholders",
+    "publisher": "Andrey Sidorov",
+    "email": "sidorares@yandex.com",
+    "path": "C:\\projects\\nexus\\node_modules\\named-placeholders",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\named-placeholders\\LICENSE"
+  },
+  "napi-build-utils@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/inspiredware/napi-build-utils",
+    "publisher": "Jim Schlight",
+    "path": "C:\\projects\\nexus\\node_modules\\napi-build-utils",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\napi-build-utils\\LICENSE"
+  },
+  "native-duplexpair@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tediousjs/native-duplexpair",
+    "publisher": "Anna Henningsen",
+    "email": "anna@addaleax.net",
+    "path": "C:\\projects\\nexus\\node_modules\\native-duplexpair",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\native-duplexpair\\LICENSE"
+  },
+  "nexus@0.14.3": {
+    "licenses": "AGPL-3.0",
+    "publisher": "danangtomo",
+    "email": "ajidanang9@gmail.com",
+    "path": "C:\\projects\\nexus",
+    "licenseFile": "C:\\projects\\nexus\\README.md"
+  },
+  "node-abi@3.89.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/electron/node-abi",
+    "publisher": "Lukas Geiger",
+    "path": "C:\\projects\\nexus\\node_modules\\node-abi",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\node-abi\\LICENSE"
+  },
+  "node-fetch@2.7.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bitinn/node-fetch",
+    "publisher": "David Frank",
+    "path": "C:\\projects\\nexus\\node_modules\\node-fetch",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\node-fetch\\LICENSE.md"
+  },
+  "node-readable-to-web-readable-stream@0.4.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Borewit/node-readable-to-web-readable-stream",
+    "publisher": "Borewit",
+    "url": "https://github.com/Borewit",
+    "path": "C:\\projects\\nexus\\node_modules\\node-readable-to-web-readable-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\node-readable-to-web-readable-stream\\LICENSE.txt"
+  },
+  "normalize-path@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jonschlinkert/normalize-path",
+    "publisher": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert",
+    "path": "C:\\projects\\nexus\\node_modules\\normalize-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\normalize-path\\LICENSE"
+  },
+  "object-assign@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/object-assign",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\object-assign",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\object-assign\\license"
+  },
+  "object-keys@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ljharb/object-keys",
+    "publisher": "Jordan Harband",
+    "email": "ljharb@gmail.com",
+    "url": "http://ljharb.codes",
+    "path": "C:\\projects\\nexus\\node_modules\\object-keys",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\object-keys\\LICENSE"
+  },
+  "once@1.4.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/once",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\once",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\once\\LICENSE"
+  },
+  "onnxruntime-common@1.24.0-dev.20251116-b39e144322": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/onnxruntime",
+    "publisher": "fs-eire",
+    "path": "C:\\projects\\nexus\\node_modules\\@huggingface\\transformers\\node_modules\\onnxruntime-common",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@huggingface\\transformers\\node_modules\\onnxruntime-common\\README.md"
+  },
+  "onnxruntime-common@1.24.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/onnxruntime",
+    "publisher": "fs-eire",
+    "path": "C:\\projects\\nexus\\node_modules\\onnxruntime-node\\node_modules\\onnxruntime-common",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\onnxruntime-node\\node_modules\\onnxruntime-common\\README.md"
+  },
+  "onnxruntime-node@1.24.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/onnxruntime",
+    "publisher": "fs-eire",
+    "path": "C:\\projects\\nexus\\node_modules\\onnxruntime-node",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\onnxruntime-node\\README.md"
+  },
+  "onnxruntime-web@1.26.0-dev.20260410-5e55544225": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/onnxruntime",
+    "publisher": "fs-eire",
+    "path": "C:\\projects\\nexus\\node_modules\\@huggingface\\transformers\\node_modules\\onnxruntime-web",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@huggingface\\transformers\\node_modules\\onnxruntime-web\\README.md"
+  },
+  "open@10.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/open",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\open",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\open\\license"
+  },
+  "opencollective-postinstall@2.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/opencollective/opencollective-postinstall",
+    "publisher": "Xavier Damman",
+    "url": "@xdamman",
+    "path": "C:\\projects\\nexus\\node_modules\\opencollective-postinstall",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\opencollective-postinstall\\LICENSE"
+  },
+  "option@0.2.4": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/mwilliamson/node-options",
+    "publisher": "Michael Williamson",
+    "email": "mike@zwobble.org",
+    "path": "C:\\projects\\nexus\\node_modules\\option",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\option\\LICENSE"
+  },
+  "orderedmap@2.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/marijnh/orderedmap",
+    "publisher": "Marijn Haverbeke",
+    "email": "marijn@haverbeke.berlin",
+    "path": "C:\\projects\\nexus\\node_modules\\orderedmap",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\orderedmap\\LICENSE"
+  },
+  "p-limit@2.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/p-limit",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\p-locate\\node_modules\\p-limit",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\p-locate\\node_modules\\p-limit\\license"
+  },
+  "p-locate@4.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/p-locate",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\p-locate",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\p-locate\\license"
+  },
+  "p-try@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/p-try",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\p-try",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\p-try\\license"
+  },
+  "package-json-from-dist@1.0.1": {
+    "licenses": "BlueOak-1.0.0",
+    "repository": "https://github.com/isaacs/package-json-from-dist",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "https://izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\package-json-from-dist",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\package-json-from-dist\\LICENSE.md"
+  },
+  "package-manager-detector@1.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/antfu-collective/package-manager-detector",
+    "publisher": "Anthony Fu",
+    "email": "anthonyfu117@hotmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\package-manager-detector",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\package-manager-detector\\LICENSE"
+  },
+  "pako@1.0.11": {
+    "licenses": "(MIT AND Zlib)",
+    "repository": "https://github.com/nodeca/pako",
+    "path": "C:\\projects\\nexus\\node_modules\\pako",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pako\\LICENSE"
+  },
+  "papaparse@5.5.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mholt/PapaParse",
+    "publisher": "Matthew Holt",
+    "url": "https://twitter.com/mholt6",
+    "path": "C:\\projects\\nexus\\node_modules\\papaparse",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\papaparse\\LICENSE"
+  },
+  "parse-cache-control@1.0.1": {
+    "licenses": "BSD",
+    "repository": "https://github.com/roryf/parse-cache-control",
+    "path": "C:\\projects\\nexus\\node_modules\\parse-cache-control",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\parse-cache-control\\LICENSE"
+  },
+  "path-data-parser@0.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pshihn/path-data-parser",
+    "publisher": "Preet Shihn",
+    "path": "C:\\projects\\nexus\\node_modules\\path-data-parser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\path-data-parser\\LICENSE"
+  },
+  "path-exists@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/path-exists",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\path-exists",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\path-exists\\license"
+  },
+  "path-is-absolute@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/path-is-absolute",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\path-is-absolute",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\path-is-absolute\\license"
+  },
+  "path-key@3.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/path-key",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\path-key",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\path-key\\license"
+  },
+  "path-scurry@1.11.1": {
+    "licenses": "BlueOak-1.0.0",
+    "repository": "https://github.com/isaacs/path-scurry",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "https://blog.izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\path-scurry",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\path-scurry\\LICENSE.md"
+  },
+  "pathe@2.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/unjs/pathe",
+    "path": "C:\\projects\\nexus\\node_modules\\pathe",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pathe\\LICENSE"
+  },
+  "pdf-lib@1.17.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Hopding/pdf-lib",
+    "publisher": "Andrew Dillon",
+    "email": "andrew.dillon.j@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\pdf-lib",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pdf-lib\\LICENSE.md"
+  },
+  "pdfjs-dist@5.6.205": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/mozilla/pdf.js",
+    "path": "C:\\projects\\nexus\\node_modules\\pdfjs-dist",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pdfjs-dist\\LICENSE"
+  },
+  "pg-cloudflare@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianc/node-postgres",
+    "path": "C:\\projects\\nexus\\node_modules\\pg-cloudflare",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg-cloudflare\\LICENSE"
+  },
+  "pg-connection-string@2.12.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianc/node-postgres",
+    "publisher": "Blaine Bublitz",
+    "email": "blaine@iceddev.com",
+    "url": "http://iceddev.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\pg-connection-string",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg-connection-string\\LICENSE"
+  },
+  "pg-int8@1.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/charmander/pg-int8",
+    "path": "C:\\projects\\nexus\\node_modules\\pg-int8",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg-int8\\LICENSE"
+  },
+  "pg-pool@3.13.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianc/node-postgres",
+    "publisher": "Brian M. Carlson",
+    "path": "C:\\projects\\nexus\\node_modules\\pg-pool",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg-pool\\LICENSE"
+  },
+  "pg-protocol@1.13.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianc/node-postgres",
+    "path": "C:\\projects\\nexus\\node_modules\\pg-protocol",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg-protocol\\LICENSE"
+  },
+  "pg-types@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianc/node-pg-types",
+    "publisher": "Brian M. Carlson",
+    "path": "C:\\projects\\nexus\\node_modules\\pg-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg-types\\README.md"
+  },
+  "pg@8.20.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianc/node-postgres",
+    "publisher": "Brian Carlson",
+    "email": "brian.m.carlson@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\pg",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pg\\LICENSE"
+  },
+  "pgpass@1.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/hoegaarden/pgpass",
+    "publisher": "Hannes Hörl",
+    "email": "hannes.hoerl+pgpass@snowreporter.com",
+    "path": "C:\\projects\\nexus\\node_modules\\pgpass",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pgpass\\README.md"
+  },
+  "pkg-types@1.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/unjs/pkg-types",
+    "path": "C:\\projects\\nexus\\node_modules\\pkg-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pkg-types\\LICENSE"
+  },
+  "platform@1.3.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bestiejs/platform.js",
+    "publisher": "Benjamin Tan",
+    "email": "demoneaux@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\platform",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\platform\\LICENSE"
+  },
+  "pngjs@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lukeapage/pngjs",
+    "path": "C:\\projects\\nexus\\node_modules\\pngjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pngjs\\LICENSE"
+  },
+  "points-on-curve@0.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pshihn/bezier-points",
+    "publisher": "Preet Shihn",
+    "path": "C:\\projects\\nexus\\node_modules\\points-on-curve",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\points-on-curve\\LICENSE"
+  },
+  "points-on-path@0.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pshihn/points-on-path",
+    "publisher": "Preet Shihn",
+    "path": "C:\\projects\\nexus\\node_modules\\points-on-path",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\points-on-path\\LICENSE"
+  },
+  "postgres-array@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bendrucker/postgres-array",
+    "publisher": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me",
+    "path": "C:\\projects\\nexus\\node_modules\\postgres-array",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\postgres-array\\license"
+  },
+  "postgres-bytea@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bendrucker/postgres-bytea",
+    "publisher": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me",
+    "path": "C:\\projects\\nexus\\node_modules\\postgres-bytea",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\postgres-bytea\\license"
+  },
+  "postgres-date@1.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bendrucker/postgres-date",
+    "publisher": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me",
+    "path": "C:\\projects\\nexus\\node_modules\\postgres-date",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\postgres-date\\license"
+  },
+  "postgres-interval@1.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bendrucker/postgres-interval",
+    "publisher": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me",
+    "path": "C:\\projects\\nexus\\node_modules\\postgres-interval",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\postgres-interval\\license"
+  },
+  "prebuild-install@7.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prebuild/prebuild-install",
+    "publisher": "Mathias Buus",
+    "url": "@mafintosh",
+    "path": "C:\\projects\\nexus\\node_modules\\prebuild-install",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prebuild-install\\LICENSE"
+  },
+  "process-nextick-args@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/calvinmetcalf/process-nextick-args",
+    "path": "C:\\projects\\nexus\\node_modules\\process-nextick-args",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\process-nextick-args\\license.md"
+  },
+  "process@0.11.10": {
+    "licenses": "MIT",
+    "repository": "https://github.com/shtylman/node-process",
+    "publisher": "Roman Shtylman",
+    "email": "shtylman@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\process",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\process\\LICENSE"
+  },
+  "progress@2.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/visionmedia/node-progress",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "C:\\projects\\nexus\\node_modules\\progress",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\progress\\LICENSE"
+  },
+  "prop-types@15.8.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/prop-types",
+    "path": "C:\\projects\\nexus\\node_modules\\prop-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prop-types\\LICENSE"
+  },
+  "prosemirror-changeset@2.4.1": {
+    "licenses": "MIT",
+    "repository": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-changeset",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-changeset",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-changeset\\LICENSE"
+  },
+  "prosemirror-commands@1.7.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-commands",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-commands",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-commands\\LICENSE"
+  },
+  "prosemirror-dropcursor@1.8.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-dropcursor",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-dropcursor",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-dropcursor\\LICENSE"
+  },
+  "prosemirror-gapcursor@1.4.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-gapcursor",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-gapcursor",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-gapcursor\\LICENSE"
+  },
+  "prosemirror-history@1.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-history",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-history",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-history\\LICENSE"
+  },
+  "prosemirror-keymap@1.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-keymap",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-keymap",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-keymap\\LICENSE"
+  },
+  "prosemirror-model@1.25.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-model",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-model",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-model\\LICENSE"
+  },
+  "prosemirror-schema-list@1.5.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-schema-list",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-schema-list",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-schema-list\\LICENSE"
+  },
+  "prosemirror-state@1.4.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-state",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-state",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-state\\LICENSE"
+  },
+  "prosemirror-tables@1.8.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ProseMirror/prosemirror-tables",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-tables",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-tables\\LICENSE"
+  },
+  "prosemirror-transform@1.12.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/prosemirror/prosemirror-transform",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-transform",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-transform\\LICENSE"
+  },
+  "prosemirror-view@1.41.8": {
+    "licenses": "MIT",
+    "repository": "git+https://code.haverbeke.berlin/prosemirror/prosemirror-view",
+    "path": "C:\\projects\\nexus\\node_modules\\prosemirror-view",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\prosemirror-view\\LICENSE"
+  },
+  "protobufjs@7.5.5": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/protobufjs/protobuf.js",
+    "publisher": "Daniel Wirtz",
+    "email": "dcode+protobufjs@dcode.io",
+    "path": "C:\\projects\\nexus\\node_modules\\protobufjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\protobufjs\\LICENSE"
+  },
+  "pump@3.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/pump",
+    "publisher": "Mathias Buus Madsen",
+    "email": "mathiasbuus@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\pump",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pump\\LICENSE"
+  },
+  "qrcode@1.5.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/soldair/node-qrcode",
+    "publisher": "Ryan Day",
+    "email": "soldair@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\qrcode",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\qrcode\\license"
+  },
+  "rc@1.2.8": {
+    "licenses": "(BSD-2-Clause OR MIT OR Apache-2.0)",
+    "repository": "https://github.com/dominictarr/rc",
+    "publisher": "Dominic Tarr",
+    "email": "dominic.tarr@gmail.com",
+    "url": "dominictarr.com",
+    "path": "C:\\projects\\nexus\\node_modules\\rc",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\rc\\LICENSE.APACHE2"
+  },
+  "react-dom@19.2.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\projects\\nexus\\node_modules\\react-dom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\react-dom\\LICENSE"
+  },
+  "react-is@16.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\projects\\nexus\\node_modules\\react-is",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\react-is\\LICENSE"
+  },
+  "react-router-dom@7.14.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/remix-run/react-router",
+    "publisher": "Remix Software",
+    "email": "hello@remix.run",
+    "path": "C:\\projects\\nexus\\node_modules\\react-router-dom",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\react-router-dom\\LICENSE.md"
+  },
+  "react-router@7.14.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/remix-run/react-router",
+    "publisher": "Remix Software",
+    "email": "hello@remix.run",
+    "path": "C:\\projects\\nexus\\node_modules\\react-router",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\react-router\\LICENSE.md"
+  },
+  "react@19.2.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\projects\\nexus\\node_modules\\react",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\react\\LICENSE"
+  },
+  "readable-stream@2.3.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/readable-stream",
+    "path": "C:\\projects\\nexus\\node_modules\\lazystream\\node_modules\\readable-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lazystream\\node_modules\\readable-stream\\LICENSE"
+  },
+  "readable-stream@3.6.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/readable-stream",
+    "path": "C:\\projects\\nexus\\node_modules\\readable-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\readable-stream\\LICENSE"
+  },
+  "readable-stream@4.7.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/readable-stream",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\readable-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver-utils\\node_modules\\readable-stream\\LICENSE"
+  },
+  "readdir-glob@1.1.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Yqnn/node-readdir-glob",
+    "publisher": "Yann Armelin",
+    "path": "C:\\projects\\nexus\\node_modules\\readdir-glob",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\readdir-glob\\LICENSE"
+  },
+  "regenerator-runtime@0.13.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/regenerator/tree/main/packages/runtime",
+    "publisher": "Ben Newman",
+    "email": "bn@cs.stanford.edu",
+    "path": "C:\\projects\\nexus\\node_modules\\regenerator-runtime",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\regenerator-runtime\\LICENSE"
+  },
+  "regexp-to-ast@0.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bd82/regexp-to-ast",
+    "publisher": "Shahar Soel",
+    "path": "C:\\projects\\nexus\\node_modules\\regexp-to-ast",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\regexp-to-ast\\LICENSE"
+  },
+  "require-directory@2.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/troygoode/node-require-directory",
+    "publisher": "Troy Goode",
+    "email": "troygoode@gmail.com",
+    "url": "http://github.com/troygoode/",
+    "path": "C:\\projects\\nexus\\node_modules\\require-directory",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\require-directory\\LICENSE"
+  },
+  "require-main-filename@2.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/require-main-filename",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\require-main-filename",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\require-main-filename\\LICENSE.txt"
+  },
+  "roarr@2.15.4": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/gajus/roarr",
+    "publisher": "Gajus Kuizinas",
+    "email": "gajus@gajus.com",
+    "url": "http://gajus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\roarr",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\roarr\\LICENSE"
+  },
+  "robust-predicates@3.0.3": {
+    "licenses": "Unlicense",
+    "repository": "https://github.com/mourner/robust-predicates",
+    "publisher": "Vladimir Agafonkin",
+    "path": "C:\\projects\\nexus\\node_modules\\robust-predicates",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\robust-predicates\\LICENSE"
+  },
+  "rope-sequence@1.3.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/marijnh/rope-sequence",
+    "publisher": "Marijn Haverbeke",
+    "email": "marijn@haverbeke.berlin",
+    "path": "C:\\projects\\nexus\\node_modules\\rope-sequence",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\rope-sequence\\LICENSE"
+  },
+  "roughjs@4.6.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pshihn/rough",
+    "publisher": "Preet Shihn",
+    "email": "preetshihn@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\roughjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\roughjs\\LICENSE"
+  },
+  "run-applescript@7.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/run-applescript",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\run-applescript",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\run-applescript\\license"
+  },
+  "rw@1.3.3": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/mbostock/rw",
+    "publisher": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike",
+    "path": "C:\\projects\\nexus\\node_modules\\rw",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\rw\\LICENSE"
+  },
+  "safe-buffer@5.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/safe-buffer",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "http://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\lazystream\\node_modules\\safe-buffer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lazystream\\node_modules\\safe-buffer\\LICENSE"
+  },
+  "safe-buffer@5.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/safe-buffer",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\safe-buffer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\safe-buffer\\LICENSE"
+  },
+  "safer-buffer@2.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ChALkeR/safer-buffer",
+    "publisher": "Nikita Skovoroda",
+    "email": "chalkerx@gmail.com",
+    "url": "https://github.com/ChALkeR",
+    "path": "C:\\projects\\nexus\\node_modules\\safer-buffer",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\safer-buffer\\LICENSE"
+  },
+  "sax@1.6.0": {
+    "licenses": "BlueOak-1.0.0",
+    "repository": "https://github.com/isaacs/sax-js",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\sax",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\sax\\LICENSE.md"
+  },
+  "scheduler@0.27.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\projects\\nexus\\node_modules\\scheduler",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\scheduler\\LICENSE"
+  },
+  "semver-compare@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/substack/semver-compare",
+    "publisher": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net",
+    "path": "C:\\projects\\nexus\\node_modules\\semver-compare",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\semver-compare\\LICENSE"
+  },
+  "semver@7.7.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/node-semver",
+    "publisher": "GitHub Inc.",
+    "path": "C:\\projects\\nexus\\node_modules\\semver",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\semver\\LICENSE"
+  },
+  "serialize-error@7.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/serialize-error",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\serialize-error",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\serialize-error\\license"
+  },
+  "set-blocking@2.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/set-blocking",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\set-blocking",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\set-blocking\\LICENSE.txt"
+  },
+  "set-cookie-parser@2.7.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nfriedly/set-cookie-parser",
+    "publisher": "Nathan Friedly",
+    "url": "http://nfriedly.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\set-cookie-parser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\set-cookie-parser\\LICENSE"
+  },
+  "setimmediate@1.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/YuzuJS/setImmediate",
+    "publisher": "YuzuJS",
+    "path": "C:\\projects\\nexus\\node_modules\\setimmediate",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\setimmediate\\LICENSE.txt"
+  },
+  "sharp@0.34.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/lovell/sharp",
+    "publisher": "Lovell Fuller",
+    "email": "npm@lovell.info",
+    "path": "C:\\projects\\nexus\\node_modules\\sharp",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\sharp\\LICENSE"
+  },
+  "shebang-command@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/kevva/shebang-command",
+    "publisher": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "github.com/kevva",
+    "path": "C:\\projects\\nexus\\node_modules\\shebang-command",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\shebang-command\\license"
+  },
+  "shebang-regex@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/shebang-regex",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\shebang-regex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\shebang-regex\\license"
+  },
+  "signal-exit@4.1.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/tapjs/signal-exit",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\foreground-child\\node_modules\\signal-exit",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\foreground-child\\node_modules\\signal-exit\\LICENSE.txt"
+  },
+  "simple-concat@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/simple-concat",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\simple-concat",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\simple-concat\\LICENSE"
+  },
+  "simple-get@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/simple-get",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\projects\\nexus\\node_modules\\simple-get",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\simple-get\\LICENSE"
+  },
+  "split2@4.2.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/mcollina/split2",
+    "publisher": "Matteo Collina",
+    "email": "hello@matteocollina.com",
+    "path": "C:\\projects\\nexus\\node_modules\\split2",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\split2\\LICENSE"
+  },
+  "sprintf-js@1.0.3": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/alexei/sprintf.js",
+    "publisher": "Alexandru Marasteanu",
+    "email": "hello@alexei.ro",
+    "url": "http://alexei.ro/",
+    "path": "C:\\projects\\nexus\\node_modules\\mammoth\\node_modules\\sprintf-js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mammoth\\node_modules\\sprintf-js\\LICENSE"
+  },
+  "sprintf-js@1.1.3": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/alexei/sprintf.js",
+    "publisher": "Alexandru Mărășteanu",
+    "email": "hello@alexei.ro",
+    "path": "C:\\projects\\nexus\\node_modules\\sprintf-js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\sprintf-js\\LICENSE"
+  },
+  "sql-escaper@1.3.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mysqljs/sql-escaper",
+    "publisher": "https://github.com/mysqljs",
+    "path": "C:\\projects\\nexus\\node_modules\\sql-escaper",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\sql-escaper\\LICENSE"
+  },
+  "sql.js@1.14.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sql-js/sql.js",
+    "path": "C:\\projects\\nexus\\node_modules\\sql.js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\sql.js\\LICENSE"
+  },
+  "ssf@0.11.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/ssf",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\ssf",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ssf\\LICENSE"
+  },
+  "streamx@2.25.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/streamx",
+    "publisher": "Mathias Buus",
+    "url": "@mafintosh",
+    "path": "C:\\projects\\nexus\\node_modules\\streamx",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\streamx\\LICENSE"
+  },
+  "string-width@4.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/string-width",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\string-width-cjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\string-width-cjs\\license"
+  },
+  "string-width@5.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/string-width",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\string-width",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\string-width\\license"
+  },
+  "string_decoder@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/string_decoder",
+    "path": "C:\\projects\\nexus\\node_modules\\lazystream\\node_modules\\string_decoder",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\lazystream\\node_modules\\string_decoder\\LICENSE"
+  },
+  "string_decoder@1.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/string_decoder",
+    "path": "C:\\projects\\nexus\\node_modules\\string_decoder",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\string_decoder\\LICENSE"
+  },
+  "strip-ansi@6.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/strip-ansi",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\strip-ansi",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\strip-ansi\\license"
+  },
+  "strip-ansi@7.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/strip-ansi",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\strip-ansi",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\strip-ansi\\license"
+  },
+  "strip-json-comments@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/strip-json-comments",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\strip-json-comments",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\strip-json-comments\\license"
+  },
+  "stylis@4.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/thysultan/stylis.js",
+    "publisher": "Sultan Tarimo",
+    "email": "sultantarimo@me.com",
+    "path": "C:\\projects\\nexus\\node_modules\\stylis",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\stylis\\LICENSE"
+  },
+  "tar-fs@2.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/tar-fs",
+    "publisher": "Mathias Buus",
+    "path": "C:\\projects\\nexus\\node_modules\\tar-fs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tar-fs\\LICENSE"
+  },
+  "tar-stream@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/tar-stream",
+    "publisher": "Mathias Buus",
+    "email": "mathiasbuus@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\tar-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tar-stream\\LICENSE"
+  },
+  "tar-stream@3.1.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/tar-stream",
+    "publisher": "Mathias Buus",
+    "email": "mathiasbuus@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\archiver\\node_modules\\tar-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\archiver\\node_modules\\tar-stream\\LICENSE"
+  },
+  "tarn@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vincit/tarn.js",
+    "publisher": "Sami Koskimäki",
+    "email": "sami.koskimaki@vincit.com",
+    "url": "https://github.com/koskimas",
+    "path": "C:\\projects\\nexus\\node_modules\\tarn",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tarn\\LICENSE"
+  },
+  "tedious@19.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tediousjs/tedious",
+    "publisher": "Mike D Pilsbury",
+    "email": "mike.pilsbury@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\tedious",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tedious\\LICENSE"
+  },
+  "teex@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mafintosh/teex",
+    "publisher": "Mathias Buus",
+    "url": "@mafintosh",
+    "path": "C:\\projects\\nexus\\node_modules\\teex",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\teex\\LICENSE"
+  },
+  "tesseract.js-core@7.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/naptha/tesseract.js-core",
+    "publisher": "antimatter15",
+    "path": "C:\\projects\\nexus\\node_modules\\tesseract.js-core",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tesseract.js-core\\LICENSE"
+  },
+  "tesseract.js@7.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/naptha/tesseract.js",
+    "path": "C:\\projects\\nexus\\node_modules\\tesseract.js",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tesseract.js\\LICENSE.md"
+  },
+  "text-decoder@1.2.7": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/holepunchto/text-decoder",
+    "publisher": "Holepunch",
+    "path": "C:\\projects\\nexus\\node_modules\\text-decoder",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\text-decoder\\LICENSE"
+  },
+  "tiny-typed-emitter@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/binier/tiny-typed-emitter",
+    "publisher": "Zurab Benashvili",
+    "email": "zura.benashvili@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\tiny-typed-emitter",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tiny-typed-emitter\\LICENSE"
+  },
+  "tinyexec@1.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tinylibs/tinyexec",
+    "publisher": "James Garbutt",
+    "url": "https://github.com/43081j",
+    "path": "C:\\projects\\nexus\\node_modules\\tinyexec",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tinyexec\\LICENSE"
+  },
+  "tr46@0.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Sebmaster/tr46.js",
+    "publisher": "Sebastian Mayr",
+    "email": "npm@smayr.name",
+    "path": "C:\\projects\\nexus\\node_modules\\tr46"
+  },
+  "ts-dedent@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tamino-martinius/node-ts-dedent",
+    "publisher": "Tamino Martinius",
+    "email": "dev@zaku.eu",
+    "path": "C:\\projects\\nexus\\node_modules\\ts-dedent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ts-dedent\\LICENSE"
+  },
+  "tslib@1.14.1": {
+    "licenses": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "publisher": "Microsoft Corp.",
+    "path": "C:\\projects\\nexus\\node_modules\\pdf-lib\\node_modules\\tslib",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\pdf-lib\\node_modules\\tslib\\LICENSE.txt"
+  },
+  "tslib@2.3.0": {
+    "licenses": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "publisher": "Microsoft Corp.",
+    "path": "C:\\projects\\nexus\\node_modules\\echarts\\node_modules\\tslib",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\echarts\\node_modules\\tslib\\LICENSE.txt"
+  },
+  "tslib@2.8.1": {
+    "licenses": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "publisher": "Microsoft Corp.",
+    "path": "C:\\projects\\nexus\\node_modules\\tslib",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tslib\\LICENSE.txt"
+  },
+  "tunnel-agent@0.6.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/mikeal/tunnel-agent",
+    "publisher": "Mikeal Rogers",
+    "email": "mikeal.rogers@gmail.com",
+    "url": "http://www.futurealoof.com",
+    "path": "C:\\projects\\nexus\\node_modules\\tunnel-agent",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\tunnel-agent\\LICENSE"
+  },
+  "turndown@7.2.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mixmark-io/turndown",
+    "publisher": "Dom Christie",
+    "path": "C:\\projects\\nexus\\node_modules\\turndown",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\turndown\\LICENSE"
+  },
+  "type-fest@0.13.1": {
+    "licenses": "(MIT OR CC0-1.0)",
+    "repository": "https://github.com/sindresorhus/type-fest",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\type-fest",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\type-fest\\license"
+  },
+  "typedarray@0.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/substack/typedarray",
+    "publisher": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net",
+    "path": "C:\\projects\\nexus\\node_modules\\typedarray",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\typedarray\\LICENSE"
+  },
+  "ufo@1.6.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/unjs/ufo",
+    "path": "C:\\projects\\nexus\\node_modules\\ufo",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\ufo\\LICENSE"
+  },
+  "underscore@1.13.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jashkenas/underscore",
+    "publisher": "Jeremy Ashkenas",
+    "email": "jeremy@documentcloud.org",
+    "path": "C:\\projects\\nexus\\node_modules\\underscore",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\underscore\\LICENSE"
+  },
+  "undici-types@7.19.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/undici",
+    "path": "C:\\projects\\nexus\\node_modules\\undici-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\undici-types\\LICENSE"
+  },
+  "universalify@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/RyanZim/universalify",
+    "publisher": "Ryan Zimmerman",
+    "email": "opensrc@ryanzim.com",
+    "path": "C:\\projects\\nexus\\node_modules\\universalify",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\universalify\\LICENSE"
+  },
+  "use-sync-external-store@1.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\projects\\nexus\\node_modules\\use-sync-external-store",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\use-sync-external-store\\LICENSE"
+  },
+  "util-deprecate@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/util-deprecate",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\projects\\nexus\\node_modules\\util-deprecate",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\util-deprecate\\LICENSE"
+  },
+  "uuid@11.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/uuidjs/uuid",
+    "path": "C:\\projects\\nexus\\node_modules\\uuid",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\uuid\\LICENSE.md"
+  },
+  "uuid@8.3.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/uuidjs/uuid",
+    "path": "C:\\projects\\nexus\\node_modules\\@azure\\msal-node\\node_modules\\uuid",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@azure\\msal-node\\node_modules\\uuid\\LICENSE.md"
+  },
+  "vscode-jsonrpc@8.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/vscode-languageserver-node",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\vscode-jsonrpc",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\vscode-jsonrpc\\License.txt"
+  },
+  "vscode-languageserver-protocol@3.17.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/vscode-languageserver-node",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\vscode-languageserver-protocol",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\vscode-languageserver-protocol\\License.txt"
+  },
+  "vscode-languageserver-textdocument@1.0.12": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/vscode-languageserver-node",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\vscode-languageserver-textdocument",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\vscode-languageserver-textdocument\\License.txt"
+  },
+  "vscode-languageserver-types@3.17.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/vscode-languageserver-node",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\vscode-languageserver-types",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\vscode-languageserver-types\\License.txt"
+  },
+  "vscode-languageserver@9.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Microsoft/vscode-languageserver-node",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\projects\\nexus\\node_modules\\vscode-languageserver",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\vscode-languageserver\\License.txt"
+  },
+  "vscode-uri@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/microsoft/vscode-uri",
+    "publisher": "Microsoft",
+    "path": "C:\\projects\\nexus\\node_modules\\vscode-uri",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\vscode-uri\\LICENSE.md"
+  },
+  "w3c-keyname@2.2.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/marijnh/w3c-keyname",
+    "publisher": "Marijn Haverbeke",
+    "email": "marijn@haverbeke.berlin",
+    "path": "C:\\projects\\nexus\\node_modules\\w3c-keyname",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\w3c-keyname\\LICENSE"
+  },
+  "wasm-feature-detect@1.8.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/GoogleChromeLabs/wasm-feature-detect",
+    "publisher": "Surma",
+    "email": "surma@surma.link",
+    "path": "C:\\projects\\nexus\\node_modules\\wasm-feature-detect",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\wasm-feature-detect\\LICENSE"
+  },
+  "webidl-conversions@3.0.1": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/jsdom/webidl-conversions",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\webidl-conversions",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\webidl-conversions\\LICENSE.md"
+  },
+  "whatwg-url@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/whatwg-url",
+    "publisher": "Sebastian Mayr",
+    "email": "github@smayr.name",
+    "path": "C:\\projects\\nexus\\node_modules\\whatwg-url",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\whatwg-url\\LICENSE.txt"
+  },
+  "which-module@2.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/nexdrew/which-module",
+    "publisher": "nexdrew",
+    "path": "C:\\projects\\nexus\\node_modules\\which-module",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\which-module\\LICENSE"
+  },
+  "which@2.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-which",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me",
+    "path": "C:\\projects\\nexus\\node_modules\\cross-spawn\\node_modules\\which",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\cross-spawn\\node_modules\\which\\LICENSE"
+  },
+  "wmf@1.0.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/js-wmf",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\wmf",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\wmf\\LICENSE"
+  },
+  "word@0.3.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/js-word",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\word",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\word\\LICENSE"
+  },
+  "wrap-ansi@6.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/wrap-ansi",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\wrap-ansi",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\wrap-ansi\\license"
+  },
+  "wrap-ansi@7.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/wrap-ansi",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\wrap-ansi-cjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\wrap-ansi-cjs\\license"
+  },
+  "wrap-ansi@8.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/wrap-ansi",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\wrap-ansi",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\@isaacs\\cliui\\node_modules\\wrap-ansi\\license"
+  },
+  "wrappy@1.0.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/wrappy",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "C:\\projects\\nexus\\node_modules\\wrappy",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\wrappy\\LICENSE"
+  },
+  "wsl-utils@0.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/wsl-utils",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\projects\\nexus\\node_modules\\wsl-utils",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\wsl-utils\\license"
+  },
+  "xlsx@0.18.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/SheetJS/sheetjs",
+    "publisher": "sheetjs",
+    "path": "C:\\projects\\nexus\\node_modules\\xlsx",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\xlsx\\LICENSE"
+  },
+  "xmlbuilder@10.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/oozcitak/xmlbuilder-js",
+    "publisher": "Ozgur Ozcitak",
+    "email": "oozcitak@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\mammoth\\node_modules\\xmlbuilder",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\mammoth\\node_modules\\xmlbuilder\\LICENSE"
+  },
+  "xtend@4.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Raynos/xtend",
+    "publisher": "Raynos",
+    "email": "raynos2@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\xtend",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\xtend\\LICENSE"
+  },
+  "y18n@4.0.3": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/y18n",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\y18n",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\y18n\\LICENSE"
+  },
+  "yargs-parser@18.1.3": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/yargs-parser",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\yargs-parser",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\yargs-parser\\LICENSE.txt"
+  },
+  "yargs@15.4.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/yargs/yargs",
+    "path": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\yargs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\qrcode\\node_modules\\yargs\\LICENSE"
+  },
+  "zip-stream@6.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/archiverjs/node-zip-stream",
+    "publisher": "Chris Talkington",
+    "url": "http://christalkington.com/",
+    "path": "C:\\projects\\nexus\\node_modules\\zip-stream",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\zip-stream\\LICENSE"
+  },
+  "zlibjs@0.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/imaya/zlib.js",
+    "publisher": "Yuta Imaya",
+    "email": "imaya.devel@gmail.com",
+    "path": "C:\\projects\\nexus\\node_modules\\zlibjs",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\zlibjs\\LICENSE"
+  },
+  "zrender@6.0.0": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/ecomfe/zrender",
+    "path": "C:\\projects\\nexus\\node_modules\\zrender",
+    "licenseFile": "C:\\projects\\nexus\\node_modules\\zrender\\LICENSE"
+  }
+}
+
