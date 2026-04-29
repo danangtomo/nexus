@@ -36,7 +36,7 @@ Built with an Apple HIG-inspired design system, supporting Light, Dark, and Auto
 | Image Converter    | Batch-convert images between JPG, PNG, WEBP, AVIF, and TIFF. Set output quality per format, choose an output folder, and convert an entire batch in one click. BMP files are accepted as input.                                                                                                                                                                            |
 | Image Resizer      | Resize images by exact pixel dimensions or by percentage. Aspect-ratio lock keeps proportions intact. Three fit modes — Contain, Cover, and Fill — control how the image fills the target frame. Processes entire batches at once and shows the calculated output dimensions before saving.                                                                                |
 | Image Compressor   | Compress images with a per-file quality slider. A live file-size preview shows before/after sizes and exact bytes saved, so you can tune the quality-vs-size tradeoff before committing.                                                                                                                                                                                   |
-| Background Remover | Remove image backgrounds entirely on-device using the RMBG-1.4 neural network model (local ONNX — no cloud, no API key, no internet required). Displays a side-by-side before/after panel. The background can be replaced with a checkerboard (transparent PNG) or any solid fill color. Applies sigmoid mask sharpening for crisp edges around subjects. Download as PNG. |
+| Background Remover | Remove image backgrounds entirely on-device using the BiRefNet neural network model (local ONNX — no cloud, no API key, no internet required). Displays a side-by-side before/after panel. The background can be replaced with a checkerboard (transparent PNG) or any solid fill color. Applies sigmoid mask sharpening for crisp edges around subjects. Download as PNG. |
 | Watermark Tool     | Stamp text watermarks onto images. Choose from 9 grid positions (top / middle / bottom × left / center / right). Sliders control font size, opacity, and color with a live canvas preview updating in real time. The watermark is applied via Sharp SVG overlay; the original file is never overwritten.                                                                   |
 | Metadata Remover   | Read and display an image's embedded metadata — EXIF camera and GPS data, ICC color profile, XMP rights and description, IPTC captions — in a structured table. Strip all metadata in one click and download a clean, privacy-safe copy.                                                                                                                                   |
 
@@ -210,7 +210,7 @@ Full npm dependency license details are available in [licenses.json](licenses.js
 - Tesseract.js — Apache 2.0
 - pdf.js (pdfjs-dist) — Apache 2.0
 - @huggingface/transformers — MIT
-- RMBG-1.4 (briaai/RMBG-1.4) — BRIA AI Non-Commercial Open Use License (commercial use requires a separate license from BRIA AI)
+- BiRefNet (onnx-community/BiRefNet-ONNX) — MIT
 - KaTeX — MIT
 - Mermaid — MIT
 - sharp (libvips) — LGPL-3.0-or-later

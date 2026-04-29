@@ -72,6 +72,16 @@ contextBridge.exposeInMainWorld('nexus', {
     getSessions: (limit) => ipcRenderer.invoke('pomodoro:getSessions', limit),
   },
 
+  // BiRefNet — background removal (onnxruntime-node in main process)
+  birefnet: {
+    removeBg: (imagePath) => ipcRenderer.invoke('birefnet:remove-bg', imagePath),
+    onProgress: (callback) => {
+      const handler = (_e, data) => callback(data)
+      ipcRenderer.on('birefnet:progress', handler)
+      return () => ipcRenderer.removeListener('birefnet:progress', handler)
+    },
+  },
+
   // Sharp — image processing
   sharp: {
     process: (opts) => ipcRenderer.invoke('sharp:process', opts),
