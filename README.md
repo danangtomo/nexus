@@ -36,7 +36,7 @@ Built with an Apple HIG-inspired design system, supporting Light, Dark, and Auto
 | Image Converter    | Batch-convert images between JPG, PNG, WEBP, AVIF, and TIFF. Set output quality per format, choose an output folder, and convert an entire batch in one click. BMP files are accepted as input.                                                                                                                                                                            |
 | Image Resizer      | Resize images by exact pixel dimensions or by percentage. Aspect-ratio lock keeps proportions intact. Three fit modes — Contain, Cover, and Fill — control how the image fills the target frame. Processes entire batches at once and shows the calculated output dimensions before saving.                                                                                |
 | Image Compressor   | Compress images with a per-file quality slider. A live file-size preview shows before/after sizes and exact bytes saved, so you can tune the quality-vs-size tradeoff before committing.                                                                                                                                                                                   |
-| Background Remover | Remove image backgrounds entirely on-device using the BiRefNet neural network model (local ONNX — no cloud, no API key, no internet required). Shows the original on the left and a draggable before/after compare slider on the right. Choose the result background (transparent checkerboard or any solid color) before or after processing. Download as PNG. |
+| Background Remover | Remove image backgrounds entirely on-device using the BiRefNet neural network (ONNX Runtime with INT8 quantization — no GPU, no cloud, no API key, no internet required after first model download). A Python sidecar launches automatically when you open the page and shuts down after processing to free memory. Shows the original on the left and a draggable before/after compare slider on the right. Choose the result background (transparent checkerboard or any solid color) before or after processing. Download as PNG. |
 | Watermark Tool     | Stamp text watermarks onto images. Choose from 9 grid positions (top / middle / bottom × left / center / right). Sliders control font size, opacity, and color with a live canvas preview updating in real time. The watermark is applied via Sharp SVG overlay; the original file is never overwritten.                                                                   |
 | Metadata Remover   | Read and display an image's embedded metadata — EXIF camera and GPS data, ICC color profile, XMP rights and description, IPTC captions — in a structured table. Strip all metadata in one click and download a clean, privacy-safe copy.                                                                                                                                   |
 
@@ -116,7 +116,7 @@ Built with an Apple HIG-inspired design system, supporting Light, Dark, and Auto
 | Formula engine         | [fast-formula-parser](https://github.com/LesterLyu/fast-formula-parser)                              |
 | DOCX parsing           | [mammoth.js](https://github.com/mwilliamson/mammoth.js)                                              |
 | Archives               | [JSZip](https://stuk.github.io/jszip/) + [archiver](https://github.com/archiverjs/node-archiver)     |
-| AI background removal  | [@huggingface/transformers](https://github.com/huggingface/transformers.js) (RMBG-1.4, local ONNX)   |
+| AI background removal  | [ONNX Runtime](https://onnxruntime.ai/) + [BiRefNet](https://github.com/ZhengPeng7/BiRefNet) (INT8 quantized, Python sidecar via PyInstaller) |
 | Markdown rendering     | [marked](https://marked.js.org/)                                                                     |
 | Math rendering         | [KaTeX](https://katex.org/)                                                                          |
 | Diagram rendering      | [Mermaid](https://mermaid.js.org/)                                                                   |
@@ -134,7 +134,7 @@ Built with an Apple HIG-inspired design system, supporting Light, Dark, and Auto
 
 ## Build from Source
 
-**Prerequisites:** Node.js 18+, Git
+**Prerequisites:** Node.js 18+, Python 3.10+, Git
 
 ```bash
 # Clone
@@ -153,6 +153,14 @@ npm run dev
 - Windows: `winget install ArtifexSoftware.GhostScript`
 - macOS: `brew install ghostscript`
 - Linux: `sudo apt install ghostscript`
+
+**For Background Remover** (Python sidecar — optional, only needed for development):
+
+```bash
+pip install -r python/requirements.txt
+```
+
+The release build bundles the sidecar automatically via PyInstaller (see `python/build_sidecar_ci.py`). End users do not need Python installed — the ONNX model downloads automatically on first use.
 
 **Build distributable:**
 
@@ -209,8 +217,13 @@ Full npm dependency license details are available in [licenses.json](licenses.js
 - Ghostscript — AGPL-3.0
 - Tesseract.js — Apache 2.0
 - pdf.js (pdfjs-dist) — Apache 2.0
-- @huggingface/transformers — MIT
 - BiRefNet (onnx-community/BiRefNet-ONNX) — MIT
+- ONNX Runtime — MIT
+- FastAPI — MIT
+- uvicorn — BSD-3-Clause
+- Pillow — HPND (Historical Permission Notice and Disclaimer)
+- NumPy — BSD-3-Clause
+- SciPy — BSD-3-Clause
 - KaTeX — MIT
 - Mermaid — MIT
 - sharp (libvips) — LGPL-3.0-or-later

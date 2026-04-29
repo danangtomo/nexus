@@ -14,11 +14,14 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            build_cmd: npm run build:win -- --publish never
+            build_cmd:    npm run build:win -- --publish never
+            sidecar_cmd:  python python/build_sidecar_ci.py
           - os: macos-latest
-            build_cmd: npm run build:mac -- --publish never
+            build_cmd:    npm run build:mac -- --publish never
+            sidecar_cmd:  python3 python/build_sidecar_ci.py
           - os: ubuntu-latest
-            build_cmd: npm run build:linux -- --publish never
+            build_cmd:    npm run build:linux -- --publish never
+            sidecar_cmd:  python3 python/build_sidecar_ci.py
 
     runs-on: ${{ matrix.os }}
 
@@ -30,13 +33,24 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install Node dependencies
         run: npm ci
 
       - name: Rebuild native modules
         run: npm run rebuild
 
-      - name: Build
+      - name: Install Python dependencies
+        run: pip install -r python/requirements.txt pyinstaller
+
+      - name: Build BiRefNet sidecar
+        run: ${{ matrix.sidecar_cmd }}
+
+      - name: Build Electron app
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: false
         run: ${{ matrix.build_cmd }}

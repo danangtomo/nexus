@@ -8,6 +8,11 @@ files:
   - electron/**/*
   - package.json
 extraResources:
+  - from: python/dist
+    to: sidecar
+    filter:
+      - "birefnet-server"
+      - "birefnet-server.exe"
   - from: node_modules/ffmpeg-static
     to: ffmpeg-static
     filter:

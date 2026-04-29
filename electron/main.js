@@ -19,47 +19,11 @@
 const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
 const path   = require('path')
 const fs     = require('fs')
-const { spawn } = require('child_process')
 const { getDb } = require('./db')
 const { autoUpdater } = require('electron-updater')
 
-// ── BiRefNet Python server ────────────────────────────────────────────────────
-
-let _birefnetProc = null
-
-function startBiRefNetServer() {
-  const py     = process.platform === 'win32' ? 'python' : 'python3'
-  const script = path.join(__dirname, '../python/server.py')
-
-  if (!fs.existsSync(script)) {
-    console.warn('[BiRefNet] python/server.py not found — background removal unavailable')
-    return
-  }
-
-  _birefnetProc = spawn(py, [script], {
-    env: {
-      ...process.env,
-      NEXUS_BIREFNET_PORT: '7862',
-      NEXUS_MODEL_DIR:     path.join(app.getPath('userData'), 'models'),
-    },
-    stdio: ['ignore', 'pipe', 'pipe'],
-  })
-
-  _birefnetProc.stdout.on('data', d => process.stdout.write('[BiRefNet] ' + d))
-  _birefnetProc.stderr.on('data', d => process.stderr.write('[BiRefNet] ' + d))
-  _birefnetProc.on('exit', (code) => {
-    if (code !== 0 && code !== null) {
-      console.error(`[BiRefNet] server exited with code ${code}`)
-    }
-    _birefnetProc = null
-  })
-}
-
-app.on('before-quit', () => {
-  if (_birefnetProc) { _birefnetProc.kill(); _birefnetProc = null }
-})
-
 // Engine IPC handlers (registered when required)
+// BiRefNet lifecycle (start/stop per page visit) is managed inside handlers/birefnet.js
 require('./handlers/sharp')
 require('./handlers/ffmpeg')
 require('./handlers/ghostscript')
@@ -133,7 +97,6 @@ function setupAutoUpdater() {
 
 app.whenReady().then(() => {
   getDb() // initialize database
-  startBiRefNetServer()
   createWindow()
 
   if (!isDev) {

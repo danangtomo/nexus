@@ -129,6 +129,12 @@ export default function BackgroundRemover() {
   const prevResult = useRef('')
   const prevOrig   = useRef('')
 
+  // Page-based lifecycle: spawn sidecar on mount, kill on unmount or navigation away
+  useEffect(() => {
+    window.nexus.birefnet.pageEnter()
+    return () => { window.nexus.birefnet.pageLeave() }
+  }, [])
+
   const handleFiles = useCallback(async (incoming) => {
     const raw  = incoming[0]
     const path = typeof raw === 'string' ? raw : (raw?.path ?? '')

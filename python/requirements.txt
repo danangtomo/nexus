@@ -1,3 +1,5 @@
+# NEXUS — Python dependencies for BiRefNet background removal sidecar
+# Copyright (C) 2026 Danang Estutomoaji — AGPL-3.0
 onnxruntime>=1.16.0
 fastapi>=0.104.0
 uvicorn[standard]>=0.24.0

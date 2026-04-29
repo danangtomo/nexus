@@ -72,13 +72,20 @@ contextBridge.exposeInMainWorld('nexus', {
     getSessions: (limit) => ipcRenderer.invoke('pomodoro:getSessions', limit),
   },
 
-  // BiRefNet — background removal (onnxruntime-node in main process)
+  // BiRefNet — background removal via Python sidecar (page-based lifecycle)
   birefnet: {
-    removeBg: (imagePath) => ipcRenderer.invoke('birefnet:remove-bg', imagePath),
+    pageEnter:  () => ipcRenderer.invoke('birefnet:page-enter'),
+    pageLeave:  () => ipcRenderer.invoke('birefnet:page-leave'),
+    removeBg:   (imagePath) => ipcRenderer.invoke('birefnet:remove-bg', imagePath),
     onProgress: (callback) => {
       const handler = (_e, data) => callback(data)
       ipcRenderer.on('birefnet:progress', handler)
       return () => ipcRenderer.removeListener('birefnet:progress', handler)
+    },
+    onEngineReady: (callback) => {
+      const handler = () => callback()
+      ipcRenderer.on('birefnet:engine-ready', handler)
+      return () => ipcRenderer.removeListener('birefnet:engine-ready', handler)
     },
   },
 
