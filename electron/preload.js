@@ -122,6 +122,15 @@ contextBridge.exposeInMainWorld('nexus', {
   getAppVersion: () => ipcRenderer.invoke('app:getVersion'),
   getPlatform: () => process.platform,
 
+  // Rich Text Editor documents
+  rte: {
+    list:   ()                    => ipcRenderer.invoke('rte:list'),
+    get:    (id)                  => ipcRenderer.invoke('rte:get', id),
+    create: ()                    => ipcRenderer.invoke('rte:create'),
+    save:   (id, title, content)  => ipcRenderer.invoke('rte:save', id, title, content),
+    delete: (id)                  => ipcRenderer.invoke('rte:delete', id),
+  },
+
   // Auto-updater
   updater: {
     check: () => ipcRenderer.invoke('updater:check'),

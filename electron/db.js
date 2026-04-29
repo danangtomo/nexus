@@ -61,6 +61,14 @@ function initSchema() {
       completed INTEGER DEFAULT 0,
       created_at INTEGER DEFAULT (strftime('%s', 'now'))
     );
+
+    CREATE TABLE IF NOT EXISTS rte_documents (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL DEFAULT 'Untitled',
+      content TEXT NOT NULL DEFAULT '',
+      updated_at INTEGER DEFAULT (strftime('%s', 'now')),
+      created_at INTEGER DEFAULT (strftime('%s', 'now'))
+    );
   `)
 
   // Default preferences

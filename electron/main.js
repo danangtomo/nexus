@@ -339,6 +339,35 @@ ipcMain.handle('shell:showItemInFolder', (_e, filePath) =>
 )
 ipcMain.handle('app:getVersion', () => app.getVersion())
 
+// ── Rich Text Editor document handlers ───────────────────────────────────────
+
+ipcMain.handle('rte:list', () =>
+  getDb().prepare('SELECT id, title, updated_at FROM rte_documents ORDER BY updated_at DESC').all()
+)
+
+ipcMain.handle('rte:get', (_e, id) =>
+  getDb().prepare('SELECT * FROM rte_documents WHERE id = ?').get(id)
+)
+
+ipcMain.handle('rte:create', () => {
+  const info = getDb().prepare(
+    'INSERT INTO rte_documents (title, content) VALUES (?, ?)'
+  ).run('Untitled', '')
+  return info.lastInsertRowid
+})
+
+ipcMain.handle('rte:save', (_e, id, title, content) => {
+  getDb().prepare(
+    'UPDATE rte_documents SET title = ?, content = ?, updated_at = strftime(\'%s\', \'now\') WHERE id = ?'
+  ).run(title, content, id)
+  return true
+})
+
+ipcMain.handle('rte:delete', (_e, id) => {
+  getDb().prepare('DELETE FROM rte_documents WHERE id = ?').run(id)
+  return true
+})
+
 // ── Auto-updater handlers ─────────────────────────────────────────────────────
 
 ipcMain.handle('updater:check', () => autoUpdater.checkForUpdates())
