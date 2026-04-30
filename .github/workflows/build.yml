@@ -3,8 +3,8 @@ name: Build & Release NEXUS
 on:
   push:
     branches: [main]
-    tags: ['v*']
-  workflow_dispatch:   # allows manual trigger from the Actions tab
+    tags: ["v*"]
+  workflow_dispatch: # allows manual trigger from the Actions tab
 
 # Needed to create GitHub Releases and upload assets
 permissions:
@@ -15,72 +15,93 @@ jobs:
     name: Build — ${{ matrix.name }}
     runs-on: ${{ matrix.runner }}
     strategy:
-      fail-fast: false   # don't cancel sibling jobs if one platform fails
+      fail-fast: false # don't cancel sibling jobs if one platform fails
       matrix:
         include:
           - name: Windows
             runner: windows-latest
             eb_flag: --win
+            py_cmd: python
 
           - name: macOS
             runner: macos-latest
             eb_flag: --mac
+            py_cmd: python3
 
           - name: Linux
             runner: ubuntu-latest
             eb_flag: --linux
+            py_cmd: python3
 
     steps:
       # ── 1. Source ─────────────────────────────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── 2. Node + npm cache ───────────────────────────────────────────────
+      # ── 2. Node ───────────────────────────────────────────────────────────
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'          # caches ~/.npm, keyed on package-lock.json
+          node-version: "20"
+          cache: "npm" # caches ~/.npm, keyed on package-lock.json
 
-      # ── 3. Linux system deps (fakeroot for .deb, rpm for future RPM) ─────
+      # ── 3. Python  ───────────────────────────────────────────────────
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      # ── 4. Linux deps ─────────────────────────────────────────────────────
       - name: Install Linux system dependencies
         if: matrix.runner == 'ubuntu-latest'
         run: sudo apt-get update -y && sudo apt-get install -y fakeroot rpm ghostscript
 
-      # ── 3b. Install Ghostscript — Windows ────────────────────────────────
+      # ── 5. Ghostscript ────────────────────────────────────────────────────
       - name: Install Ghostscript (Windows)
         if: matrix.runner == 'windows-latest'
         run: choco install ghostscript --yes
 
-      # ── 3c. Install Ghostscript — macOS ──────────────────────────────────
       - name: Install Ghostscript (macOS)
         if: matrix.runner == 'macos-latest'
         run: brew install ghostscript
 
-      # ── 4. Install JS dependencies ────────────────────────────────────────
-      # postinstall in package.json runs electron-builder install-app-deps automatically
+      # ── 6. Install JS deps ────────────────────────────────────────────────
       - name: Install dependencies
         run: npm ci
 
-      # ── 5. Bundle Ghostscript binary into resources/ ──────────────────────
+      # ── 7. Install Python deps ──────────────────────────────────────
+      - name: Install Python dependencies
+        run: |
+          pip install -r python/requirements.txt
+          pip install pyinstaller
+
+      # ── 8. Build Python sidecar ───────────────────────────────────
+      - name: Build BiRefNet sidecar
+        run: |
+          ${{ matrix.py_cmd }} python/build_sidecar_ci.py
+
+      # ── 9. Debug ───────────────────────────────────────────
+      - name: Debug python dist
+        run: |
+          dir python/dist || ls python/dist
+
+      # ── 10. Bundle Ghostscript ────────────────────────────────────────────
       - name: Bundle Ghostscript
         run: node scripts/bundle-ghostscript.js
 
-      # ── 6. Build renderer (Vite → dist/) ─────────────────────────────────
+      # ── 11. Build renderer ───────────────────────────────────────────────
       - name: Build renderer
         run: npm run build
 
-      # ── 7. Package with electron-builder (→ out/) ────────────────────────
+      # ── 12. Package ──────────────────────────────────────────────────────
       - name: Package app
         run: npx electron-builder ${{ matrix.eb_flag }}
         env:
-          # Skip macOS code signing — no certificate on CI
           CSC_IDENTITY_AUTO_DISCOVERY: false
-          # electron-builder uses GH_TOKEN to publish draft releases
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── 8. Upload installers as workflow artifacts (every push) ───────────
-      #       Downloadable from the Actions run page for 30 days
+      # ── 13. Upload artifacts ─────────────────────────────────────────────
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -92,8 +113,7 @@ jobs:
             out/*.AppImage
           if-no-files-found: warn
 
-      # ── 9. Publish to GitHub Release (only on version tags) ───────────────
-      #       Creates the release automatically from the tag, attaches files
+      # ── 14. Publish release ──────────────────────────────────────────────
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
