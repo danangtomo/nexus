@@ -1,17 +1,17 @@
 /**
  * Nexus - Offline productivity suite
  * Copyright (C) 2026 Danang Estutomoaji
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Affero General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
@@ -19,7 +19,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import ToolLayout from './components/ToolLayout'
-import Welcome from './components/Welcome'
+import IntentScreen from './components/IntentScreen'
 import Settings from './components/Settings'
 import UpdateNotification from './components/UpdateNotification'
 import styles from './App.module.css'
@@ -40,7 +40,6 @@ import SpreadsheetConverter from './tools/spreadsheet-converter'
 import VideoConverter from './tools/video-converter'
 import AudioConverter from './tools/audio-converter'
 import ArchiveManager from './tools/archive-manager'
-import QrBarcode from './tools/qr-barcode'
 import MetadataRemover from './tools/metadata-remover'
 
 // Phase 4 — Office productivity
@@ -54,16 +53,10 @@ import SqlRunner from './tools/sql-runner'
 import KanbanBoard from './tools/kanban-board'
 import PomodoroTimer from './tools/pomodoro-timer'
 import GanttChart from './tools/gantt-chart'
-import TimezoneConverter from './tools/timezone-converter'
 
-// Phase 5 — Security & utilities
-import PasswordGenerator from './tools/password-generator'
-import FileEncryptor from './tools/file-encryptor'
-import HashGenerator from './tools/hash-generator'
-import UnitConverter from './tools/unit-converter'
-import ColorConverter from './tools/color-converter'
-import Base64Encoder from './tools/base64-encoder'
-import RegexTester from './tools/regex-tester'
+// Quick Tools — accessible via ⌘K / URL but not in sidebar
+import QrBarcode from './tools/qr-barcode'
+import TimezoneConverter from './tools/timezone-converter'
 import WordCounter from './tools/word-counter'
 
 export default function App() {
@@ -73,7 +66,7 @@ export default function App() {
       <main className={styles.main}>
         <UpdateNotification />
         <Routes>
-          <Route path="/" element={<Welcome />} />
+          <Route path="/" element={<IntentScreen />} />
 
           {/* Phase 3 */}
           <Route path="/image-converter" element={<ToolLayout title="Image Converter"><ImageConverter /></ToolLayout>} />
@@ -91,7 +84,6 @@ export default function App() {
           <Route path="/video-converter" element={<ToolLayout title="Video Converter"><VideoConverter /></ToolLayout>} />
           <Route path="/audio-converter" element={<ToolLayout title="Audio Converter"><AudioConverter /></ToolLayout>} />
           <Route path="/archive-manager" element={<ToolLayout title="Archive Manager"><ArchiveManager /></ToolLayout>} />
-          <Route path="/qr-barcode" element={<ToolLayout title="QR & Barcode"><QrBarcode /></ToolLayout>} />
           <Route path="/metadata-remover" element={<ToolLayout title="Metadata Remover"><MetadataRemover /></ToolLayout>} />
 
           {/* Phase 4 */}
@@ -105,16 +97,10 @@ export default function App() {
           <Route path="/kanban-board" element={<ToolLayout title="Kanban Board"><KanbanBoard /></ToolLayout>} />
           <Route path="/pomodoro-timer" element={<ToolLayout title="Pomodoro Timer"><PomodoroTimer /></ToolLayout>} />
           <Route path="/gantt-chart" element={<ToolLayout title="Gantt Chart"><GanttChart /></ToolLayout>} />
-          <Route path="/timezone-converter" element={<ToolLayout title="Timezone Converter"><TimezoneConverter /></ToolLayout>} />
 
-          {/* Phase 5 */}
-          <Route path="/password-generator" element={<ToolLayout title="Password Generator"><PasswordGenerator /></ToolLayout>} />
-          <Route path="/file-encryptor" element={<ToolLayout title="File Encryptor"><FileEncryptor /></ToolLayout>} />
-          <Route path="/hash-generator" element={<ToolLayout title="Hash Generator"><HashGenerator /></ToolLayout>} />
-          <Route path="/unit-converter" element={<ToolLayout title="Unit Converter"><UnitConverter /></ToolLayout>} />
-          <Route path="/color-converter" element={<ToolLayout title="Color Converter"><ColorConverter /></ToolLayout>} />
-          <Route path="/base64-encoder" element={<ToolLayout title="Base64 Encoder"><Base64Encoder /></ToolLayout>} />
-          <Route path="/regex-tester" element={<ToolLayout title="Regex Tester"><RegexTester /></ToolLayout>} />
+          {/* Quick Tools — reachable via URL / ⌘K, not in sidebar */}
+          <Route path="/qr-barcode" element={<ToolLayout title="QR & Barcode"><QrBarcode /></ToolLayout>} />
+          <Route path="/timezone-converter" element={<ToolLayout title="Timezone Converter"><TimezoneConverter /></ToolLayout>} />
           <Route path="/word-counter" element={<ToolLayout title="Word Counter"><WordCounter /></ToolLayout>} />
 
           <Route path="/settings" element={<Settings />} />

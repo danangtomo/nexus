@@ -1,17 +1,17 @@
 /**
  * Nexus - Offline productivity suite
  * Copyright (C) 2026 Danang Estutomoaji
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU Affero General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
@@ -20,6 +20,27 @@ import { NavLink } from 'react-router-dom'
 import styles from './Sidebar.module.css'
 
 const categories = [
+  {
+    label: 'Data',
+    icon: '📊',
+    tools: [
+      { path: '/csv-editor', label: 'CSV Editor' },
+      { path: '/json-formatter', label: 'JSON Formatter' },
+      { path: '/chart-builder', label: 'Chart Builder' },
+      { path: '/sql-runner', label: 'SQL Runner' },
+    ],
+  },
+  {
+    label: 'Documents',
+    icon: '📝',
+    tools: [
+      { path: '/rich-text-editor', label: 'Rich Text Editor' },
+      { path: '/markdown-editor', label: 'Markdown Editor' },
+      { path: '/doc-converter', label: 'Doc Converter' },
+      { path: '/spreadsheet-converter', label: 'Spreadsheet Converter' },
+      { path: '/diff-checker', label: 'Diff Checker' },
+    ],
+  },
   {
     label: 'Images',
     icon: '🖼',
@@ -44,15 +65,6 @@ const categories = [
     ],
   },
   {
-    label: 'Documents',
-    icon: '📝',
-    tools: [
-      { path: '/doc-converter', label: 'Doc Converter' },
-      { path: '/spreadsheet-converter', label: 'Spreadsheet Converter' },
-      { path: '/archive-manager', label: 'Archive Manager' },
-    ],
-  },
-  {
     label: 'Media',
     icon: '🎬',
     tools: [
@@ -61,53 +73,19 @@ const categories = [
     ],
   },
   {
-    label: 'Generators',
-    icon: '✨',
+    label: 'Files',
+    icon: '🗂',
     tools: [
-      { path: '/qr-barcode', label: 'QR & Barcode' },
-      { path: '/chart-builder', label: 'Chart Builder' },
-    ],
-  },
-  {
-    label: 'Editors',
-    icon: '✏️',
-    tools: [
-      { path: '/rich-text-editor', label: 'Rich Text Editor' },
-      { path: '/markdown-editor', label: 'Markdown Editor' },
-      { path: '/csv-editor', label: 'CSV Editor' },
-      { path: '/json-formatter', label: 'JSON Formatter' },
-      { path: '/diff-checker', label: 'Diff Checker' },
+      { path: '/archive-manager', label: 'Archive Manager' },
     ],
   },
   {
     label: 'Productivity',
-    icon: '🗂',
+    icon: '⏱',
     tools: [
       { path: '/kanban-board', label: 'Kanban Board' },
       { path: '/pomodoro-timer', label: 'Pomodoro Timer' },
       { path: '/gantt-chart', label: 'Gantt Chart' },
-      { path: '/sql-runner', label: 'SQL Runner' },
-      { path: '/timezone-converter', label: 'Timezone Converter' },
-    ],
-  },
-  {
-    label: 'Security',
-    icon: '🔐',
-    tools: [
-      { path: '/password-generator', label: 'Password Generator' },
-      { path: '/file-encryptor', label: 'File Encryptor' },
-      { path: '/hash-generator', label: 'Hash Generator' },
-    ],
-  },
-  {
-    label: 'Utilities',
-    icon: '🔧',
-    tools: [
-      { path: '/unit-converter', label: 'Unit Converter' },
-      { path: '/color-converter', label: 'Color Converter' },
-      { path: '/base64-encoder', label: 'Base64 Encoder' },
-      { path: '/regex-tester', label: 'Regex Tester' },
-      { path: '/word-counter', label: 'Word Counter' },
     ],
   },
 ]
