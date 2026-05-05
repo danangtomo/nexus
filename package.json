@@ -1,7 +1,7 @@
 {
   "name": "nexus",
-  "version": "0.15.1",
-  "description": "NEXUS — All-in-one offline productivity desktop app",
+  "version": "0.16.0",
+  "description": "NEXUS — Intent-driven offline productivity workspace",
   "main": "electron/main.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
