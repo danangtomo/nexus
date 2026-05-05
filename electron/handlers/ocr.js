@@ -12,6 +12,7 @@
 
 const { ipcMain, app } = require('electron')
 const http             = require('http')
+const https            = require('https')
 const path             = require('path')
 const fs               = require('fs')
 const { spawn }        = require('child_process')
@@ -41,9 +42,17 @@ function _getSidecar() {
     const script     = path.join(sidecarDir, 'server.py')
     return { cmd: _getDevPython(sidecarDir), args: [script], checkPath: script }
   }
-  const bin = process.platform === 'win32' ? 'ocr-server.exe' : 'ocr-server'
-  const cmd = path.join(process.resourcesPath, 'sidecar', bin)
-  return { cmd, args: [], checkPath: cmd }
+
+  const bin         = process.platform === 'win32' ? 'ocr-server.exe' : 'ocr-server'
+  const downloadDir = path.join(app.getPath('userData'), 'ocr-engine', 'ocr-server')
+  const downloadCmd = path.join(downloadDir, bin)
+
+  if (fs.existsSync(downloadCmd)) {
+    return { cmd: downloadCmd, args: [], checkPath: downloadCmd }
+  }
+
+  // Not yet downloaded — caller checks checkPath and sends sidecar-unavailable
+  return { cmd: downloadCmd, args: [], checkPath: downloadCmd }
 }
 
 // ── Process lifecycle ─────────────────────────────────────────────────────────
@@ -54,17 +63,19 @@ function _spawnSidecar() {
   const { cmd, args, checkPath } = _getSidecar()
   if (!fs.existsSync(checkPath)) {
     console.warn('[OCR] sidecar not found at', checkPath)
+    if (_webContents && !_webContents.isDestroyed()) {
+      _webContents.send('ocr:sidecar-unavailable')
+    }
     return
   }
 
   _proc = spawn(cmd, args, {
     env: {
       ...process.env,
-      NEXUS_OCR_PORT:                  String(PORT),
-      NEXUS_MODEL_DIR:                 path.join(app.getPath('userData'), 'models'),
-      NEXUS_BUNDLED_MODELS_DIR:        path.join(process.resourcesPath, 'models', 'mineru'),
-      PYTHONUTF8:                      '1',
-      PYTHONIOENCODING:                'utf-8',
+      NEXUS_OCR_PORT:  String(PORT),
+      NEXUS_MODEL_DIR: path.join(app.getPath('userData'), 'models'),
+      PYTHONUTF8:      '1',
+      PYTHONIOENCODING: 'utf-8',
       HF_HUB_DISABLE_SYMLINKS_WARNING: '1',
     },
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -105,6 +116,132 @@ function _killSidecar() {
 
 app.on('before-quit', () => _killSidecar())
 
+// ── Download helpers ──────────────────────────────────────────────────────────
+
+function _httpGet(urlStr, onProgress) {
+  return new Promise((resolve, reject) => {
+    const follow = (u) => {
+      const mod = u.startsWith('https') ? https : http
+      mod.get(u, { headers: { 'User-Agent': 'NEXUS-App' } }, (res) => {
+        if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307) {
+          res.resume()
+          follow(res.headers.location)
+          return
+        }
+        resolve({ res, total: parseInt(res.headers['content-length'] || '0', 10) })
+      }).on('error', reject)
+    }
+    follow(urlStr)
+  })
+}
+
+async function _downloadFile(urlStr, destPath, onProgress) {
+  const { res, total } = await _httpGet(urlStr, onProgress)
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(destPath)
+    let downloaded = 0
+    res.on('data', (chunk) => {
+      downloaded += chunk.length
+      if (total > 0) onProgress(Math.floor(downloaded * 100 / total))
+    })
+    res.pipe(file)
+    file.on('finish', () => file.close(resolve))
+    file.on('error', (e) => { fs.unlink(destPath, () => {}); reject(e) })
+    res.on('error',  (e) => { fs.unlink(destPath, () => {}); reject(e) })
+  })
+}
+
+function _extractZip(zipPath, destDir) {
+  return new Promise((resolve, reject) => {
+    let cmd, args
+    if (process.platform === 'win32') {
+      cmd  = 'powershell'
+      args = ['-NoProfile', '-Command',
+        `Expand-Archive -Force -Path "${zipPath}" -DestinationPath "${destDir}"`]
+    } else {
+      cmd  = 'unzip'
+      args = ['-o', zipPath, '-d', destDir]
+    }
+    const proc = spawn(cmd, args, { stdio: 'inherit' })
+    proc.on('exit',  (code) => code === 0 ? resolve() : reject(new Error(`Extract failed (exit ${code})`)))
+    proc.on('error', reject)
+  })
+}
+
+function _fixPerms(engineDir) {
+  if (process.platform === 'win32') return
+  const bin = path.join(engineDir, 'ocr-server', 'ocr-server')
+  if (fs.existsSync(bin)) fs.chmodSync(bin, 0o755)
+}
+
+// ── IPC handlers ──────────────────────────────────────────────────────────────
+
+ipcMain.handle('ocr:page-enter', async (event) => {
+  _webContents = event.sender
+  if (_killPromise) await _killPromise
+  _spawnSidecar()
+})
+
+ipcMain.handle('ocr:page-leave', async () => {
+  _webContents = null
+  await _killSidecar()
+})
+
+ipcMain.handle('ocr:download-engine', async (event) => {
+  _webContents = event.sender
+
+  const version      = app.getVersion()
+  const platName     = process.platform === 'win32' ? 'win' : process.platform === 'darwin' ? 'mac' : 'linux'
+  const url          = `https://github.com/danangtomo/nexus/releases/download/v${version}/nexus-ocr-${platName}.zip`
+  const engineDir    = path.join(app.getPath('userData'), 'ocr-engine')
+  const zipPath      = path.join(engineDir, 'nexus-ocr.zip')
+
+  fs.mkdirSync(engineDir, { recursive: true })
+
+  const send = (phase, percent) => {
+    if (_webContents && !_webContents.isDestroyed()) {
+      _webContents.send('ocr:download-progress', { phase, percent })
+    }
+  }
+
+  try {
+    // 1 — Download
+    send('downloading', 0)
+    await _downloadFile(url, zipPath, (pct) => send('downloading', pct))
+
+    // 2 — Extract
+    send('extracting', 0)
+    await _extractZip(zipPath, engineDir)
+    _fixPerms(engineDir)
+    fs.unlinkSync(zipPath)
+
+    // 3 — Start sidecar
+    send('starting', 0)
+    _spawnSidecar()
+  } catch (err) {
+    if (fs.existsSync(zipPath)) fs.unlinkSync(zipPath)
+    throw err
+  }
+})
+
+ipcMain.handle('ocr:parse', async (event, filePath, lang, startPage, endPage, forceOcr, tableEnable, formulaEnable) => {
+  if (!_proc) {
+    if (_killPromise) await _killPromise
+    _webContents = event.sender
+    _spawnSidecar()
+  }
+  await _waitForServer()
+  return _post('/parse', {
+    file_path:      filePath,
+    lang:           lang      || 'ch',
+    start_page:     startPage ?? 0,
+    end_page:       endPage   ?? -1,
+    force_ocr:      forceOcr      ?? false,
+    table_enable:   tableEnable   ?? true,
+    formula_enable: formulaEnable ?? true,
+  })
+})
+
 // ── HTTP helpers ──────────────────────────────────────────────────────────────
 
 function _get(urlPath) {
@@ -112,9 +249,8 @@ function _get(urlPath) {
     const req = http.get(
       { hostname: '127.0.0.1', port: PORT, path: urlPath, timeout: 5_000 },
       (res) => {
-        let body = ''
-        res.on('data', (c) => (body += c))
-        res.on('end', () => resolve(res.statusCode))
+        res.resume()
+        resolve(res.statusCode)
       }
     )
     req.on('error', reject)
@@ -165,34 +301,3 @@ async function _waitForServer(maxMs = 180_000) {
   }
   throw new Error('OCR server did not become ready in time.')
 }
-
-// ── IPC handlers ──────────────────────────────────────────────────────────────
-
-ipcMain.handle('ocr:page-enter', async (event) => {
-  _webContents = event.sender
-  if (_killPromise) await _killPromise
-  _spawnSidecar()
-})
-
-ipcMain.handle('ocr:page-leave', async () => {
-  _webContents = null
-  await _killSidecar()
-})
-
-ipcMain.handle('ocr:parse', async (event, filePath, lang, startPage, endPage, forceOcr, tableEnable, formulaEnable) => {
-  if (!_proc) {
-    if (_killPromise) await _killPromise
-    _webContents = event.sender
-    _spawnSidecar()
-  }
-  await _waitForServer()
-  return _post('/parse', {
-    file_path:  filePath,
-    lang:       lang      || 'ch',
-    start_page: startPage ?? 0,
-    end_page:   endPage   ?? -1,
-    force_ocr:      forceOcr      ?? false,
-    table_enable:   tableEnable   ?? true,
-    formula_enable: formulaEnable ?? true,
-  })
-})

@@ -672,6 +672,69 @@
   animation: pulse 1.4s ease-in-out infinite;
 }
 
+.downloadWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: var(--sp-4);
+  padding: var(--sp-8);
+  text-align: center;
+}
+.downloadIcon  { font-size: 48px; line-height: 1; }
+.downloadTitle {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+.downloadDesc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  max-width: 360px;
+  line-height: 1.6;
+  margin: 0;
+}
+.downloadError {
+  font-size: var(--text-sm);
+  color: var(--color-error, #e05);
+  max-width: 360px;
+  margin: 0;
+}
+.downloadLabel {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 0;
+}
+.downloadBarWrap {
+  width: 320px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.downloadBarFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.downloadSub {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.firstRunHint {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
 /* ── Shared animations ── */
 @keyframes pulse {
   0%, 100% { opacity: 1;   }

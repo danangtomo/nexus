@@ -122,9 +122,14 @@ export default function OcrReader() {
   const [tableEnable,   setTableEnable]   = useState(true)
   const [formulaEnable, setFormulaEnable] = useState(true)
   const [forceOcr,      setForceOcr]      = useState(false)
-  const [copiedKey,     setCopiedKey]     = useState('')
-  const [engineReady,   setEngineReady]   = useState(false)
-  const [error,         setError]         = useState('')
+  const [copiedKey,          setCopiedKey]          = useState('')
+  const [engineReady,        setEngineReady]        = useState(false)
+  const [sidecarUnavailable, setSidecarUnavailable] = useState(false)
+  const [downloading,        setDownloading]        = useState(false)
+  const [downloadPhase,      setDownloadPhase]      = useState('')
+  const [downloadPercent,    setDownloadPercent]    = useState(0)
+  const [downloadError,      setDownloadError]      = useState('')
+  const [error,              setError]              = useState('')
 
   const activeResult = results[activeIdx]
   const currentFile  = queue[activeIdx]
@@ -143,8 +148,9 @@ export default function OcrReader() {
 
   useEffect(() => {
     window.nexus.ocr.pageEnter()
-    const unsub = window.nexus.ocr.onEngineReady(() => setEngineReady(true))
-    return () => { unsub(); window.nexus.ocr.pageLeave() }
+    const unsubReady = window.nexus.ocr.onEngineReady(() => setEngineReady(true))
+    const unsubNA    = window.nexus.ocr.onSidecarUnavailable(() => setSidecarUnavailable(true))
+    return () => { unsubReady(); unsubNA(); window.nexus.ocr.pageLeave() }
   }, [])
 
   useEffect(() => {
@@ -281,6 +287,68 @@ export default function OcrReader() {
 
   const reset      = () => { setQueue([]); setResults([]); setActiveIdx(0); setEditedBlocks({}); setError('') }
   const switchFile = (i) => { setActiveIdx(i) }
+
+  const handleDownloadEngine = async () => {
+    setDownloading(true)
+    setDownloadError('')
+    const unsub = window.nexus.ocr.onDownloadProgress(({ phase, percent }) => {
+      setDownloadPhase(phase)
+      if (phase === 'downloading') setDownloadPercent(percent)
+      if (phase === 'starting') {
+        unsub()
+        setSidecarUnavailable(false)
+        setDownloading(false)
+      }
+    })
+    try {
+      await window.nexus.ocr.downloadEngine()
+    } catch (err) {
+      unsub()
+      setDownloadError(`Download failed: ${err.message}. Check your connection and try again.`)
+      setDownloading(false)
+    }
+  }
+
+  const downloadLabel = downloadPhase === 'extracting' ? 'Extracting…'
+    : downloadPhase === 'starting'   ? 'Starting engine…'
+    : downloadPercent > 0            ? `Downloading… ${downloadPercent}%`
+    : 'Preparing download…'
+
+  // ── Sidecar unavailable — show download screen ────────────────────────────
+  if (sidecarUnavailable) {
+    return (
+      <div className={styles.page}>
+        <div className={styles.downloadWrap}>
+          {!downloading ? (
+            <>
+              <span className={styles.downloadIcon}>🔬</span>
+              <h2 className={styles.downloadTitle}>OCR Engine Required</h2>
+              <p className={styles.downloadDesc}>
+                The MinerU OCR engine (~500 MB) needs to be downloaded once.
+                After that, OCR works fully offline.
+              </p>
+              {downloadError && <p className={styles.downloadError}>{downloadError}</p>}
+              <button className="btn btn-primary" onClick={handleDownloadEngine}>
+                Download OCR Engine
+              </button>
+            </>
+          ) : (
+            <>
+              <span className={styles.downloadIcon}>🔬</span>
+              <p className={styles.downloadLabel}>{downloadLabel}</p>
+              <div className={styles.downloadBarWrap}>
+                <div
+                  className={styles.downloadBarFill}
+                  style={{ width: `${downloadPhase === 'downloading' ? downloadPercent : 100}%` }}
+                />
+              </div>
+              <p className={styles.downloadSub}>Please wait — this only happens once.</p>
+            </>
+          )}
+        </div>
+      </div>
+    )
+  }
 
   // ── Empty state ───────────────────────────────────────────────────────────
   if (!queue.length) {
@@ -538,7 +606,11 @@ export default function OcrReader() {
           ) : (
             <div className={styles.rightPlaceholder}>
               {busy
-                ? <><div className={styles.pulseDot} /><span>Extracting the content...</span></>
+                ? <>
+                    <div className={styles.pulseDot} />
+                    <span>Extracting content…</span>
+                    <span className={styles.firstRunHint}>First run downloads OCR models (~500 MB). This may take several minutes.</span>
+                  </>
                 : <span>Results will appear here after extraction</span>
               }
             </div>

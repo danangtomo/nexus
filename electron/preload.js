@@ -82,6 +82,17 @@ contextBridge.exposeInMainWorld('nexus', {
       ipcRenderer.on('ocr:engine-ready', handler)
       return () => ipcRenderer.removeListener('ocr:engine-ready', handler)
     },
+    onSidecarUnavailable: (callback) => {
+      const handler = () => callback()
+      ipcRenderer.on('ocr:sidecar-unavailable', handler)
+      return () => ipcRenderer.removeListener('ocr:sidecar-unavailable', handler)
+    },
+    downloadEngine: () => ipcRenderer.invoke('ocr:download-engine'),
+    onDownloadProgress: (callback) => {
+      const handler = (_e, data) => callback(data)
+      ipcRenderer.on('ocr:download-progress', handler)
+      return () => ipcRenderer.removeListener('ocr:download-progress', handler)
+    },
   },
 
   // BiRefNet — background removal via Python sidecar (page-based lifecycle)

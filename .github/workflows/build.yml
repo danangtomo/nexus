@@ -79,7 +79,7 @@ jobs:
       - name: Build BiRefNet sidecar
         run: ${{ matrix.py_cmd }} python/background-remover/build_sidecar_ci.py
 
-      # ── 7. OCR sidecar ────────────────────────────────────────────────────
+      # ── 7. OCR sidecar (onedir + zip, uploaded as separate release asset) ──
       - name: Install CPU-only torch (prevents 2 GB CUDA download)
         run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
@@ -89,10 +89,7 @@ jobs:
       - name: Patch modelscope import in PaddleX
         run: ${{ matrix.py_cmd }} python/ocr-reader/patch_modelscope.py
 
-      - name: Download MinerU models
-        run: ${{ matrix.py_cmd }} python/ocr-reader/download_models.py python/dist/models/mineru
-
-      - name: Build OCR sidecar
+      - name: Build OCR sidecar zip
         run: ${{ matrix.py_cmd }} python/ocr-reader/build_sidecar_ci.py
 
       # ── 8. Ghostscript bundle ─────────────────────────────────────────────
@@ -141,5 +138,6 @@ jobs:
             out/*.AppImage
             out/*.deb
             out/latest*.yml
+            python/dist/nexus-ocr-*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

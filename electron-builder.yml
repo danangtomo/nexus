@@ -15,16 +15,9 @@ extraResources:
     filter:
       - "birefnet-server"
       - "birefnet-server.exe"
-      - "ocr-server"
-      - "ocr-server.exe"
   # Pre-bundled BiRefNet INT8 model (~64 MB)
   - from: python/dist/models/birefnet
     to: models/birefnet
-    filter:
-      - "**/*"
-  # Pre-bundled MinerU / PaddleX models (~500 MB)
-  - from: python/dist/models/mineru
-    to: models/mineru
     filter:
       - "**/*"
   # FFmpeg binary
