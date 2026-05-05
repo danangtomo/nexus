@@ -69,7 +69,7 @@ jobs:
       - name: Install JS dependencies
         run: npm ci
 
-      # ── 6. BiRefNet sidecar ───────────────────────────────────────────────
+      # ── 6. BiRefNet sidecar (bundled in installer) ────────────────────────
       - name: Install BiRefNet Python dependencies
         run: pip install -r python/background-remover/requirements.txt pyinstaller
 
@@ -79,7 +79,25 @@ jobs:
       - name: Build BiRefNet sidecar
         run: ${{ matrix.py_cmd }} python/background-remover/build_sidecar_ci.py
 
-      # ── 7. OCR sidecar (onedir + zip, uploaded as separate release asset) ──
+      # ── 7. Ghostscript bundle ─────────────────────────────────────────────
+      - name: Bundle Ghostscript
+        run: node scripts/bundle-ghostscript.js
+
+      # ── 8. Renderer build ─────────────────────────────────────────────────
+      - name: Build renderer
+        run: npm run build
+
+      # ── 9. Package with electron-builder ──────────────────────────────────
+      # NOTE: OCR sidecar is built AFTER packaging so python/dist/ocr-server/
+      # does not exist yet — prevents V8 array overflow from scanning thousands
+      # of PyTorch/PaddlePaddle files during the electron-builder file scan.
+      - name: Package app
+        run: npx electron-builder ${{ matrix.eb_flag }}
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 10. OCR sidecar (onedir + zip, separate release asset) ────────────
       - name: Install CPU-only torch (prevents 2 GB CUDA download)
         run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
@@ -92,27 +110,7 @@ jobs:
       - name: Build OCR sidecar zip
         run: ${{ matrix.py_cmd }} python/ocr-reader/build_sidecar_ci.py
 
-      # ── 8. Ghostscript bundle ─────────────────────────────────────────────
-      - name: Bundle Ghostscript
-        run: node scripts/bundle-ghostscript.js
-
-      # ── 9. Renderer build ─────────────────────────────────────────────────
-      - name: Build renderer
-        run: npm run build
-
-      # ── 10. Verify sidecar outputs ────────────────────────────────────────
-      - name: List python/dist contents
-        shell: bash
-        run: ls -lh python/dist/ 2>/dev/null || echo "(python/dist not found)"
-
-      # ── 11. Package with electron-builder ─────────────────────────────────
-      - name: Package app
-        run: npx electron-builder ${{ matrix.eb_flag }}
-        env:
-          CSC_IDENTITY_AUTO_DISCOVERY: false
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # ── 12. Upload CI artifacts ───────────────────────────────────────────
+      # ── 11. Upload CI artifacts ───────────────────────────────────────────
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -124,7 +122,7 @@ jobs:
             out/*.AppImage
           if-no-files-found: warn
 
-      # ── 13. Publish to GitHub Release (tags only) ─────────────────────────
+      # ── 12. Publish to GitHub Release (tags only) ─────────────────────────
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
