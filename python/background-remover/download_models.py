@@ -39,7 +39,7 @@ def download(target_dir: Path) -> None:
         if cache_dir.exists():
             shutil.rmtree(cache_dir)
 
-    print('[BiRefNet] Quantizing FP32 → INT8 (one-time, ~30 s)...')
+    print('[BiRefNet] Quantizing FP32 -> INT8 (one-time, ~30 s)...')
     try:
         from onnxruntime.quantization import quantize_dynamic, QuantType
         int8_tmp = int8.with_suffix('.tmp')
