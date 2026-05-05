@@ -1,0 +1,10 @@
+# NEXUS — Python dependencies for OCR sidecar
+# Copyright (C) 2026 Danang Estutomoaji — AGPL-3.0
+#
+# INSTALL ORDER MATTERS — run build.bat / build.sh, not pip install -r directly.
+# torch must be installed CPU-only first or pip pulls the 2 GB CUDA build.
+#
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+Pillow>=10.0.0
+mineru[pipeline]>=3.1.6

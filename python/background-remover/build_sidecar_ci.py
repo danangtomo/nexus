@@ -1,6 +1,6 @@
 """
 NEXUS — Cross-platform sidecar build script (used by CI / release.yml).
-Run: python python/build_sidecar_ci.py  (from the project root)
+Run: python python/background-remover/build_sidecar_ci.py  (from the project root)
 
 Produces python/dist/birefnet-server[.exe] which electron-builder copies
 into extraResources/sidecar/ via electron-builder.yml.
@@ -30,13 +30,15 @@ HIDDEN = [
     'anyio._backends._asyncio',
 ]
 
-here   = Path(__file__).parent
-script = here / 'server.py'
+here     = Path(__file__).parent
+dist_dir = here.parent / 'dist'
+script   = here / 'server.py'
 
 args = [
     sys.executable, '-m', 'PyInstaller',
     '--onefile',
     '--name', 'birefnet-server',
+    '--distpath', str(dist_dir),
     '--collect-all', 'onnxruntime',
     *[item for h in HIDDEN for item in ('--hidden-import', h)],
     str(script),
@@ -48,5 +50,5 @@ if result.returncode != 0:
     print('[BiRefNet] build FAILED', file=sys.stderr)
     sys.exit(result.returncode)
 
-out = here / 'dist' / ('birefnet-server.exe' if sys.platform == 'win32' else 'birefnet-server')
+out = dist_dir / ('birefnet-server.exe' if sys.platform == 'win32' else 'birefnet-server')
 print(f'[BiRefNet] sidecar ready: {out}  ({out.stat().st_size / 1_048_576:.0f} MB)')

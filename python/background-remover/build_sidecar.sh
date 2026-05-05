@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
 # NEXUS — Build BiRefNet sidecar binary for macOS / Linux
 # Copyright (C) 2026 Danang Estutomoaji — AGPL-3.0
-# Run from the project root: bash python/build_sidecar.sh
-# Output: python/dist/birefnet-server  →  copy to extraResources/sidecar/
+# Run from the project root: bash python/background-remover/build_sidecar.sh
+# Output: python/dist/birefnet-server  →  copy to resources/sidecar/
+# Requires venv — run setup.sh first if it doesn't exist.
+
 set -e
 cd "$(dirname "$0")"
 
-echo "[BiRefNet] Installing PyInstaller..."
-pip install pyinstaller --quiet
+if [ ! -f ".venv/bin/python3" ]; then
+  echo "[BiRefNet] Venv not found — running setup first..."
+  bash setup.sh
+fi
+
+echo "[BiRefNet] Installing PyInstaller into venv..."
+.venv/bin/pip install pyinstaller --quiet
 
 echo "[BiRefNet] Building sidecar..."
-pyinstaller --onefile \
+.venv/bin/pyinstaller --onefile \
   --name birefnet-server \
+  --distpath ../dist \
   --hidden-import=onnxruntime \
   --collect-all onnxruntime \
   --hidden-import=uvicorn.logging \
@@ -32,5 +40,5 @@ pyinstaller --onefile \
   server.py
 
 echo ""
-echo "[BiRefNet] Build complete: dist/birefnet-server"
-echo "Copy it to: ../resources/sidecar/birefnet-server"
+echo "[BiRefNet] Build complete: ../dist/birefnet-server"
+echo "Copy it to: ../../resources/sidecar/birefnet-server"

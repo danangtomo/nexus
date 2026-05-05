@@ -72,6 +72,18 @@ contextBridge.exposeInMainWorld('nexus', {
     getSessions: (limit) => ipcRenderer.invoke('pomodoro:getSessions', limit),
   },
 
+  // OCR — MinerU via Python sidecar, page-based lifecycle
+  ocr: {
+    pageEnter:     ()                               => ipcRenderer.invoke('ocr:page-enter'),
+    pageLeave:     ()                               => ipcRenderer.invoke('ocr:page-leave'),
+    parse:         (path, lang, startPage, endPage, forceOcr, tableEnable, formulaEnable) => ipcRenderer.invoke('ocr:parse', path, lang, startPage, endPage, forceOcr, tableEnable, formulaEnable),
+    onEngineReady: (callback) => {
+      const handler = () => callback()
+      ipcRenderer.on('ocr:engine-ready', handler)
+      return () => ipcRenderer.removeListener('ocr:engine-ready', handler)
+    },
+  },
+
   // BiRefNet — background removal via Python sidecar (page-based lifecycle)
   birefnet: {
     pageEnter:  () => ipcRenderer.invoke('birefnet:page-enter'),
@@ -131,6 +143,11 @@ contextBridge.exposeInMainWorld('nexus', {
   // Binary file write (for DOCX, etc.)
   writeFileBinary: (filePath, base64Data) =>
     ipcRenderer.invoke('fs:writeFileBinary', filePath, base64Data),
+
+  // Clipboard
+  clipboard: {
+    writeImage: (dataUrl) => ipcRenderer.invoke('clipboard:write-image', dataUrl),
+  },
 
   // Markdown PDF export
   markdown: {

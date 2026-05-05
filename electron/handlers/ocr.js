@@ -6,14 +6,6 @@
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
 'use strict'
@@ -24,14 +16,14 @@ const path             = require('path')
 const fs               = require('fs')
 const { spawn }        = require('child_process')
 
-const PORT    = 7862
-const TIMEOUT = 300_000  // 5 min — covers first-run download + quantisation + inference
+const PORT    = 7863
+const TIMEOUT = 600_000  // 10 min — covers first-run MinerU model download + slow CPU inference
 
 // ── Sidecar state ─────────────────────────────────────────────────────────────
 
-let _proc        = null   // ChildProcess | null
-let _killPromise = null   // Promise | null  — in-flight kill operation
-let _webContents = null   // WebContents of the renderer that owns the page
+let _proc        = null
+let _killPromise = null
+let _webContents = null
 
 // ── Sidecar path resolution ───────────────────────────────────────────────────
 
@@ -45,15 +37,11 @@ function _getDevPython(sidecarDir) {
 
 function _getSidecar() {
   if (process.env.NODE_ENV === 'development') {
-    const sidecarDir = path.join(__dirname, '../../python/background-remover')
+    const sidecarDir = path.join(__dirname, '../../python/ocr-reader')
     const script     = path.join(sidecarDir, 'server.py')
-    return {
-      cmd:       _getDevPython(sidecarDir),
-      args:      [script],
-      checkPath: script,
-    }
+    return { cmd: _getDevPython(sidecarDir), args: [script], checkPath: script }
   }
-  const bin = process.platform === 'win32' ? 'birefnet-server.exe' : 'birefnet-server'
+  const bin = process.platform === 'win32' ? 'ocr-server.exe' : 'ocr-server'
   const cmd = path.join(process.resourcesPath, 'sidecar', bin)
   return { cmd, args: [], checkPath: cmd }
 }
@@ -61,71 +49,60 @@ function _getSidecar() {
 // ── Process lifecycle ─────────────────────────────────────────────────────────
 
 function _spawnSidecar() {
-  if (_proc) return  // already running
+  if (_proc) return
 
   const { cmd, args, checkPath } = _getSidecar()
   if (!fs.existsSync(checkPath)) {
-    console.warn('[BiRefNet] sidecar not found at', checkPath)
+    console.warn('[OCR] sidecar not found at', checkPath)
     return
   }
 
   _proc = spawn(cmd, args, {
     env: {
       ...process.env,
-      NEXUS_BIREFNET_PORT:      String(PORT),
-      NEXUS_MODEL_DIR:          path.join(app.getPath('userData'), 'models'),
-      NEXUS_BUNDLED_MODELS_DIR: path.join(process.resourcesPath, 'models', 'birefnet'),
-      // Force UTF-8 stdout/stderr on Windows (prevents cp1252 UnicodeEncodeError)
-      PYTHONUTF8:               '1',
-      PYTHONIOENCODING:         'utf-8',
+      NEXUS_OCR_PORT:                  String(PORT),
+      NEXUS_MODEL_DIR:                 path.join(app.getPath('userData'), 'models'),
+      NEXUS_BUNDLED_MODELS_DIR:        path.join(process.resourcesPath, 'models', 'mineru'),
+      PYTHONUTF8:                      '1',
+      PYTHONIOENCODING:                'utf-8',
+      HF_HUB_DISABLE_SYMLINKS_WARNING: '1',
     },
     stdio: ['ignore', 'pipe', 'pipe'],
   })
 
   _proc.stdout.on('data', (chunk) => {
     const text = chunk.toString()
-    // Sentinel printed by server.py after model finishes loading
     if (text.includes('NEXUS_READY') && _webContents && !_webContents.isDestroyed()) {
-      _webContents.send('birefnet:engine-ready')
+      _webContents.send('ocr:engine-ready')
     }
-    process.stdout.write('[BiRefNet] ' + text)
+    process.stdout.write('[OCR] ' + text)
   })
-  _proc.stderr.on('data', (d) => process.stderr.write('[BiRefNet] ' + d))
+  _proc.stderr.on('data', (d) => process.stderr.write('[OCR] ' + d))
   _proc.on('exit', (code, signal) => {
     if (code !== 0 && code !== null) {
-      console.warn(`[BiRefNet] process exited — code=${code} signal=${signal}`)
+      console.warn(`[OCR] process exited — code=${code} signal=${signal}`)
     }
     _proc = null
   })
 }
 
 function _killSidecar() {
-  // If a kill is already in flight, join it instead of starting another
   if (_killPromise) return _killPromise
   if (!_proc) return Promise.resolve()
 
   _killPromise = new Promise((resolve) => {
-    const proc = _proc
-
-    // Escalate to SIGKILL after 5 s if SIGTERM is ignored (should not happen on Unix;
-    // on Windows, kill() immediately terminates the process so the timer is a safety net)
+    const proc  = _proc
     const timer = setTimeout(() => {
       if (!proc.killed) proc.kill('SIGKILL')
       resolve()
     }, 5_000)
-
-    proc.once('exit', () => {
-      clearTimeout(timer)
-      resolve()
-    })
-
+    proc.once('exit', () => { clearTimeout(timer); resolve() })
     proc.kill('SIGTERM')
   }).finally(() => { _killPromise = null })
 
   return _killPromise
 }
 
-// Kill on app quit — zombie prevention
 app.on('before-quit', () => _killSidecar())
 
 // ── HTTP helpers ──────────────────────────────────────────────────────────────
@@ -140,7 +117,7 @@ function _get(urlPath) {
         res.on('end', () => resolve(res.statusCode))
       }
     )
-    req.on('error',   reject)
+    req.on('error', reject)
     req.on('timeout', () => reject(new Error('timeout')))
   })
 }
@@ -171,74 +148,51 @@ function _post(urlPath, payload) {
         })
       }
     )
-    req.on('error',   reject)
+    req.on('error', reject)
     req.on('timeout', () => { req.destroy(); reject(new Error('Request timed out')) })
     req.write(body)
     req.end()
   })
 }
 
-async function _waitForServer(maxMs = 120_000) {
+async function _waitForServer(maxMs = 180_000) {
   const deadline = Date.now() + maxMs
   while (Date.now() < deadline) {
     try {
-      if (await _get('/health') === 200) return
+      if (await _get('/ready') === 200) return
     } catch { /* not ready yet */ }
     await new Promise((r) => setTimeout(r, 800))
   }
-  throw new Error(
-    'BiRefNet server did not become ready in time. ' +
-    'Ensure Python 3 and requirements.txt are installed, or use the bundled sidecar.'
-  )
+  throw new Error('OCR server did not become ready in time.')
 }
 
 // ── IPC handlers ──────────────────────────────────────────────────────────────
 
-// Called when the renderer mounts the BackgroundRemover page.
-// Spawns the sidecar so the model starts loading in the background while
-// the user drops their image — by the time they click Remove Background,
-// the engine is likely already warm.
-ipcMain.handle('birefnet:page-enter', async (event) => {
+ipcMain.handle('ocr:page-enter', async (event) => {
   _webContents = event.sender
-  // If a previous kill is still in progress (rapid navigate-away-return),
-  // wait for it to finish so we don't spawn over a dying process.
   if (_killPromise) await _killPromise
   _spawnSidecar()
 })
 
-// Called when the renderer unmounts the page (navigation away).
-// Kills the sidecar immediately — scenario (b).
-ipcMain.handle('birefnet:page-leave', async () => {
+ipcMain.handle('ocr:page-leave', async () => {
   _webContents = null
   await _killSidecar()
 })
 
-// Trigger inference. Handles three cases:
-//   1. Normal: server warm from page-enter → fast response
-//   2. Re-run: server was killed after previous processing → respawn + wait
-//   3. Abandoned: user navigates away mid-flight → HTTP fails, error propagates to renderer
-ipcMain.handle('birefnet:remove-bg', async (event, imagePath) => {
-  // Respawn if killed after a previous run on this page visit
+ipcMain.handle('ocr:parse', async (event, filePath, lang, startPage, endPage, forceOcr, tableEnable, formulaEnable) => {
   if (!_proc) {
     if (_killPromise) await _killPromise
     _webContents = event.sender
     _spawnSidecar()
   }
-
-  const progress = (pct) =>
-    event.sender.send('birefnet:progress', { key: 'inference', pct })
-
-  progress(5)
   await _waitForServer()
-  progress(20)
-
-  const { base64_png } = await _post('/remove-bg', { image_path: imagePath })
-  progress(100)
-
-  // Scenario (a): kill immediately after successful processing.
-  // Memory is freed before the user interacts with the result.
-  // "Run Again" re-spawns automatically on the next remove-bg call.
-  _killSidecar()  // fire-and-forget
-
-  return { base64: base64_png }
+  return _post('/parse', {
+    file_path:  filePath,
+    lang:       lang      || 'ch',
+    start_page: startPage ?? 0,
+    end_page:   endPage   ?? -1,
+    force_ocr:      forceOcr      ?? false,
+    table_enable:   tableEnable   ?? true,
+    formula_enable: formulaEnable ?? true,
+  })
 })

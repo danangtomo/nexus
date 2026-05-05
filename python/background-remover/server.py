@@ -115,12 +115,25 @@ def _quantize_to_int8() -> bool:
 def _resolve_model() -> Path:
     """
     Return the best available model path.
-    Priority: INT8 cached → quantise from FP32 → FP32 fallback.
-    Downloads FP32 from HuggingFace if neither exists.
-    All paths are relative to NEXUS_MODEL_DIR so the app is portable.
+    Priority: bundled INT8 (installer) → cached INT8 (userData) → quantise FP32 → download.
     """
+    # 1. Installer-bundled INT8 (extraResources/models/birefnet/)
+    bundled_dir = os.environ.get('NEXUS_BUNDLED_MODELS_DIR', '')
+    if bundled_dir:
+        bundled_int8 = Path(bundled_dir) / 'birefnet_int8.onnx'
+        if bundled_int8.exists():
+            print(f'[BiRefNet] Using bundled INT8 model: {bundled_int8}', flush=True)
+            return bundled_int8
+        bundled_fp32 = Path(bundled_dir) / 'birefnet.onnx'
+        if bundled_fp32.exists():
+            print(f'[BiRefNet] Using bundled FP32 model: {bundled_fp32}', flush=True)
+            return bundled_fp32
+
+    # 2. Previously cached INT8 in userData
     if MODEL_INT8.exists():
         return MODEL_INT8
+
+    # 3. Download FP32 from HuggingFace then quantize
     if not MODEL_FP32.exists():
         _download_model()
     return MODEL_INT8 if _quantize_to_int8() else MODEL_FP32

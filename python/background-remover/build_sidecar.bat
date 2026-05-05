@@ -1,18 +1,25 @@
 @echo off
 :: NEXUS — Build BiRefNet sidecar binary for Windows (x64)
 :: Copyright (C) 2026 Danang Estutomoaji — AGPL-3.0
-:: Run from the project root: python\build_sidecar.bat
+:: Run from the project root: python\background-remover\build_sidecar.bat
 :: Output: python\dist\birefnet-server.exe  →  copy to extraResources\sidecar\
+:: Requires venv to exist — run setup.bat first if it doesn't.
 
 setlocal
 cd /d "%~dp0"
 
-echo [BiRefNet] Installing PyInstaller...
-pip install pyinstaller --quiet
+if not exist ".venv\Scripts\python.exe" (
+  echo [BiRefNet] Venv not found — running setup first...
+  call setup.bat
+)
+
+echo [BiRefNet] Installing PyInstaller into venv...
+.venv\Scripts\pip install pyinstaller --quiet
 
 echo [BiRefNet] Building sidecar...
-pyinstaller --onefile ^
+.venv\Scripts\pyinstaller --onefile ^
   --name birefnet-server ^
+  --distpath ..\dist ^
   --hidden-import=onnxruntime ^
   --collect-all onnxruntime ^
   --hidden-import=uvicorn.logging ^
@@ -38,6 +45,6 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo.
-echo [BiRefNet] Build complete: dist\birefnet-server.exe
-echo Copy it to: ..\resources\sidecar\birefnet-server.exe
+echo [BiRefNet] Build complete: ..\dist\birefnet-server.exe
+echo Copy it to: ..\..\resources\sidecar\birefnet-server.exe
 endlocal

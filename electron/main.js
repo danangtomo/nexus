@@ -16,7 +16,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog, shell, clipboard, nativeImage } = require('electron')
 const path   = require('path')
 const fs     = require('fs')
 const { getDb } = require('./db')
@@ -30,6 +30,7 @@ require('./handlers/ghostscript')
 require('./handlers/archive')
 require('./handlers/dbconnect')
 require('./handlers/birefnet')
+require('./handlers/ocr')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -317,6 +318,14 @@ ipcMain.handle('pomodoro:getSessions', (_e, limit = 100) =>
     .prepare('SELECT * FROM pomodoro_sessions ORDER BY created_at DESC LIMIT ?')
     .all(limit)
 )
+
+// ── Clipboard ─────────────────────────────────────────────────────────────────
+
+ipcMain.handle('clipboard:write-image', (_e, dataUrl) => {
+  const base64 = dataUrl.replace(/^data:[^;]+;base64,/, '')
+  const img    = nativeImage.createFromBuffer(Buffer.from(base64, 'base64'))
+  if (!img.isEmpty()) clipboard.writeImage(img)
+})
 
 // ── Binary file write ─────────────────────────────────────────────────────────
 
