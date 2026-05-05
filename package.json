@@ -15,7 +15,7 @@
     "rebuild": "electron-builder install-app-deps",
     "bundle-gs": "node scripts/bundle-ghostscript.js",
     "build-icons": "node scripts/build-icons.js",
-    "build:licenses": "license-checker --production --json > dist/licenses.json",
+    "build:licenses": "license-checker --production --json --out licenses.json",
     "postbuild": "npm run build:licenses"
   },
   "keywords": [],
