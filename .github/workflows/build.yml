@@ -4,9 +4,8 @@ on:
   push:
     branches: [main]
     tags: ["v*"]
-  workflow_dispatch: # allows manual trigger from the Actions tab
+  workflow_dispatch:
 
-# Needed to create GitHub Releases and upload assets
 permissions:
   contents: write
 
@@ -15,7 +14,7 @@ jobs:
     name: Build — ${{ matrix.name }}
     runs-on: ${{ matrix.runner }}
     strategy:
-      fail-fast: false # don't cancel sibling jobs if one platform fails
+      fail-fast: false
       matrix:
         include:
           - name: Windows
@@ -43,66 +42,81 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm" # caches ~/.npm, keyed on package-lock.json
+          cache: "npm"
 
-      # ── 3. Python  ───────────────────────────────────────────────────
-      - name: Setup Python
+      # ── 3. Python ─────────────────────────────────────────────────────────
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
-          cache: pip
+          python-version: "3.11"
 
-      # ── 4. Linux deps ─────────────────────────────────────────────────────
+      # ── 4. System deps ────────────────────────────────────────────────────
       - name: Install Linux system dependencies
-        if: matrix.runner == 'ubuntu-latest'
-        run: sudo apt-get update -y && sudo apt-get install -y fakeroot rpm ghostscript
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y fakeroot rpm ghostscript libgl1 libglib2.0-0
 
-      # ── 5. Ghostscript ────────────────────────────────────────────────────
       - name: Install Ghostscript (Windows)
-        if: matrix.runner == 'windows-latest'
+        if: runner.os == 'Windows'
         run: choco install ghostscript --yes
 
       - name: Install Ghostscript (macOS)
-        if: matrix.runner == 'macos-latest'
+        if: runner.os == 'macOS'
         run: brew install ghostscript
 
-      # ── 6. Install JS deps ────────────────────────────────────────────────
-      - name: Install dependencies
+      # ── 5. JS dependencies ────────────────────────────────────────────────
+      - name: Install JS dependencies
         run: npm ci
 
-      # ── 7. Install Python deps ──────────────────────────────────────
-      - name: Install Python dependencies
-        run: |
-          pip install -r python/requirements.txt
-          pip install pyinstaller
+      # ── 6. BiRefNet sidecar ───────────────────────────────────────────────
+      - name: Install BiRefNet Python dependencies
+        run: pip install -r python/background-remover/requirements.txt pyinstaller
 
-      # ── 8. Build Python sidecar ───────────────────────────────────
+      - name: Download and quantize BiRefNet model
+        run: ${{ matrix.py_cmd }} python/background-remover/download_models.py python/dist/models/birefnet
+
       - name: Build BiRefNet sidecar
-        run: |
-          ${{ matrix.py_cmd }} python/build_sidecar_ci.py
+        run: ${{ matrix.py_cmd }} python/background-remover/build_sidecar_ci.py
 
-      # ── 9. Debug ───────────────────────────────────────────
-      - name: Debug python dist
-        run: |
-          dir python/dist || ls python/dist
+      # ── 7. OCR sidecar ────────────────────────────────────────────────────
+      - name: Install CPU-only torch (prevents 2 GB CUDA download)
+        run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
-      # ── 10. Bundle Ghostscript ────────────────────────────────────────────
+      - name: Install OCR Python dependencies
+        run: pip install -r python/ocr-reader/requirements.txt pyinstaller
+
+      - name: Patch modelscope import in PaddleX
+        run: ${{ matrix.py_cmd }} python/ocr-reader/patch_modelscope.py
+
+      - name: Download MinerU models
+        run: ${{ matrix.py_cmd }} python/ocr-reader/download_models.py python/dist/models/mineru
+
+      - name: Build OCR sidecar
+        run: ${{ matrix.py_cmd }} python/ocr-reader/build_sidecar_ci.py
+
+      # ── 8. Ghostscript bundle ─────────────────────────────────────────────
       - name: Bundle Ghostscript
         run: node scripts/bundle-ghostscript.js
 
-      # ── 11. Build renderer ───────────────────────────────────────────────
+      # ── 9. Renderer build ─────────────────────────────────────────────────
       - name: Build renderer
         run: npm run build
 
-      # ── 12. Package ──────────────────────────────────────────────────────
+      # ── 10. Verify sidecar outputs ────────────────────────────────────────
+      - name: List python/dist contents
+        shell: bash
+        run: ls -lh python/dist/ 2>/dev/null || echo "(python/dist not found)"
+
+      # ── 11. Package with electron-builder ─────────────────────────────────
       - name: Package app
         run: npx electron-builder ${{ matrix.eb_flag }}
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: false
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── 13. Upload artifacts ─────────────────────────────────────────────
-      - name: Upload artifacts
+      # ── 12. Upload CI artifacts ───────────────────────────────────────────
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: nexus-${{ matrix.name }}
@@ -113,15 +127,19 @@ jobs:
             out/*.AppImage
           if-no-files-found: warn
 
-      # ── 14. Publish release ──────────────────────────────────────────────
+      # ── 13. Publish to GitHub Release (tags only) ─────────────────────────
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
+          fail_on_unmatched_files: false
           files: |
             out/*.exe
+            out/*.exe.blockmap
             out/*.dmg
-            out/*.deb
+            out/*.dmg.blockmap
             out/*.AppImage
+            out/*.deb
+            out/latest*.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

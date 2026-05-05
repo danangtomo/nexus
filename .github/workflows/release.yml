@@ -1,69 +1,22 @@
-name: Release
+# This workflow has been consolidated into build.yml.
+# build.yml handles both CI builds (on push to main) and releases (on tag push).
+# This file is kept as a manual fallback only.
+
+name: Release (manual fallback)
 
 on:
-  push:
-    tags:
-      - 'v*'
-
-permissions:
-  contents: write
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g. v1.2.3)"
+        required: true
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        include:
-          - os: windows-latest
-            build_cmd:    npm run build:win -- --publish never
-            sidecar_cmd:  python python/build_sidecar_ci.py
-          - os: macos-latest
-            build_cmd:    npm run build:mac -- --publish never
-            sidecar_cmd:  python3 python/build_sidecar_ci.py
-          - os: ubuntu-latest
-            build_cmd:    npm run build:linux -- --publish never
-            sidecar_cmd:  python3 python/build_sidecar_ci.py
-
-    runs-on: ${{ matrix.os }}
-
+  info:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: pip
-
-      - name: Install Node dependencies
-        run: npm ci
-
-      - name: Rebuild native modules
-        run: npm run rebuild
-
-      - name: Install Python dependencies
-        run: pip install -r python/requirements.txt pyinstaller
-
-      - name: Build BiRefNet sidecar
-        run: ${{ matrix.sidecar_cmd }}
-
-      - name: Build Electron app
-        env:
-          CSC_IDENTITY_AUTO_DISCOVERY: false
-        run: ${{ matrix.build_cmd }}
-
-      - name: Upload to GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          fail_on_unmatched_files: false
-          files: |
-            out/*.exe
-            out/*.exe.blockmap
-            out/*.dmg
-            out/*.dmg.blockmap
-            out/*.AppImage
-            out/*.deb
-            out/latest*.yml
+      - name: Info
+        run: |
+          echo "Use build.yml for automated releases."
+          echo "It triggers on tag push and handles all platforms."
+          echo "Requested tag: ${{ github.event.inputs.tag }}"

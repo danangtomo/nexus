@@ -7,20 +7,37 @@ files:
   - dist/**/*
   - electron/**/*
   - package.json
+  - licenses.json
 extraResources:
+  # Python sidecar binaries
   - from: python/dist
     to: sidecar
     filter:
       - "birefnet-server"
       - "birefnet-server.exe"
+      - "ocr-server"
+      - "ocr-server.exe"
+  # Pre-bundled BiRefNet INT8 model (~64 MB)
+  - from: python/dist/models/birefnet
+    to: models/birefnet
+    filter:
+      - "**/*"
+  # Pre-bundled MinerU / PaddleX models (~500 MB)
+  - from: python/dist/models/mineru
+    to: models/mineru
+    filter:
+      - "**/*"
+  # FFmpeg binary
   - from: node_modules/ffmpeg-static
     to: ffmpeg-static
     filter:
       - "**/*"
+  # Ghostscript binary
   - from: resources/ghostscript
     to: ghostscript
     filter:
       - "**/*"
+  # App icons
   - from: build
     to: icons
     filter:
