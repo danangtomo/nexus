@@ -1,4 +1,8 @@
-import site, pathlib, re
+"""
+Patch paddlex official_models.py to make `import modelscope` optional.
+Non-fatal: exits 0 if the file is absent or already patched.
+"""
+import site, pathlib, re, sys
 
 p = None
 for sp in site.getsitepackages():
@@ -8,7 +12,8 @@ for sp in site.getsitepackages():
         break
 
 if p is None:
-    raise FileNotFoundError('official_models.py not found in any site-packages directory')
+    print('official_models.py not found in site-packages — patch not needed, skipping.')
+    sys.exit(0)
 
 content = p.read_text(encoding='utf-8')
 patched = re.sub(
@@ -19,7 +24,7 @@ patched = re.sub(
 )
 
 if patched == content:
-    print('No change needed (already patched or import not found)')
+    print('No change needed (already patched or import not present).')
 else:
     p.write_text(patched, encoding='utf-8')
     print('Patched:', p)
