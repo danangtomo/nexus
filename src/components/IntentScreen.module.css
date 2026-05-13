@@ -275,3 +275,175 @@
   border-color: var(--accent);
   color: var(--color-label);
 }
+
+/* ── Recent Data Tables ─────────────────────────────────────────────────── */
+.recentSection {
+  width: 100%;
+  margin-top: var(--sp-8);
+}
+
+.recentLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-3);
+}
+
+.recentLabelSep {
+  color: var(--border-subtle);
+  font-weight: 300;
+}
+
+.recentWs {
+  font-size: var(--text-caption1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.recentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--transition), background var(--transition);
+  width: 100%;
+}
+
+.recentItem:hover {
+  border-color: var(--accent);
+  background: rgba(0,122,255,0.04);
+}
+
+.recentIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.recentInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.recentName {
+  font-size: var(--text-footnote);
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recentMeta {
+  font-size: var(--text-caption2);
+  color: var(--text-secondary);
+}
+
+.recentDel {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 11px;
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.recentItem:hover .recentDel {
+  opacity: 1;
+}
+
+.recentDel:hover {
+  background: rgba(255,55,95,0.12);
+  color: #ff375f;
+}
+
+/* ── Activity timeline ───────────────────────────────────────────────────── */
+.activitySection {
+  width: 100%;
+  margin-top: var(--sp-6);
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+}
+
+.activityItem:hover {
+  background: var(--color-bg-secondary);
+}
+
+.activityIcon {
+  font-size: 15px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.activityInfo {
+  flex: 1;
+  display: flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.activityLabel {
+  font-size: var(--text-caption1);
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.activityDetail {
+  font-size: var(--text-caption1);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activityTime {
+  font-size: var(--text-caption2);
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  white-space: nowrap;
+}

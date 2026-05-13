@@ -8,7 +8,9 @@
  * (at your option) any later version.
  */
 
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useWorkspace } from '../contexts/WorkspaceContext'
 import styles from './IntentScreen.module.css'
 
 const HERO_FLOW = ['Drop PDF', 'OCR & Extract', 'Data Table', 'Export Report']
@@ -43,6 +45,54 @@ const SECONDARY = [
 
 export default function IntentScreen() {
   const navigate = useNavigate()
+  const { activeWorkspace } = useWorkspace()
+  const [datasets,  setDatasets]  = useState([])
+  const [activity,  setActivity]  = useState([])
+
+  useEffect(() => {
+    if (!activeWorkspace) return
+    const load = () => {
+      window.nexus.workspace.datasets(activeWorkspace.id).then(setDatasets)
+      window.nexus.workspace.getActivity(activeWorkspace.id, 6).then(setActivity)
+    }
+    load()
+    window.addEventListener('nexus:workspace:refresh', load)
+    return () => window.removeEventListener('nexus:workspace:refresh', load)
+  }, [activeWorkspace])
+
+  async function openDataset(ds) {
+    const full = await window.nexus.workspace.getDataset(ds.id)
+    navigate('/csv-editor', { state: { dataset: { ...full, source: 'workspace' } } })
+  }
+
+  async function deleteDataset(e, id) {
+    e.stopPropagation()
+    await window.nexus.workspace.deleteDataset(id)
+    setDatasets(p => p.filter(d => d.id !== id))
+    window.dispatchEvent(new Event('nexus:workspace:refresh'))
+  }
+
+  function activityLabel(tool, action) {
+    if (action === 'save_dataset') return 'Saved data table'
+    if (action === 'save_report')  return 'Saved report'
+    return action.replace(/_/g, ' ')
+  }
+
+  function activityIcon(tool) {
+    if (tool === 'report-builder') return '📝'
+    return '📊'
+  }
+
+  function fmtDate(ts) {
+    if (!ts) return ''
+    const d = new Date(ts * 1000)
+    const now = Date.now()
+    const diff = now - d.getTime()
+    if (diff < 60000) return 'just now'
+    if (diff < 3600000) return `${Math.floor(diff / 60000)}m ago`
+    if (diff < 86400000) return `${Math.floor(diff / 3600000)}h ago`
+    return d.toLocaleDateString()
+  }
 
   return (
     <div className={styles.screen}>
@@ -112,6 +162,59 @@ export default function IntentScreen() {
             Open SQL Runner
           </button>
         </div>
+
+        {/* ── Recent Data Tables ── */}
+        {datasets.length > 0 && (
+          <div className={styles.recentSection}>
+            <p className={styles.recentLabel}>
+              Recent Data Tables
+              <span className={styles.recentLabelSep}>·</span>
+              <span className={styles.recentWs}>{activeWorkspace?.name}</span>
+            </p>
+            <div className={styles.recentList}>
+              {datasets.slice(0, 6).map(ds => (
+                <div
+                  key={ds.id}
+                  className={styles.recentItem}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => openDataset(ds)}
+                  onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') openDataset(ds) }}
+                >
+                  <span className={styles.recentIcon}>📊</span>
+                  <span className={styles.recentInfo}>
+                    <span className={styles.recentName}>{ds.name}</span>
+                    <span className={styles.recentMeta}>{ds.row_count.toLocaleString()} rows · {fmtDate(ds.updated_at)}</span>
+                  </span>
+                  <button
+                    className={styles.recentDel}
+                    title="Remove from workspace"
+                    onClick={e => deleteDataset(e, ds.id)}
+                  >✕</button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── Activity timeline ── */}
+        {activity.length > 0 && (
+          <div className={styles.activitySection}>
+            <p className={styles.recentLabel}>Recent Activity</p>
+            <div className={styles.activityList}>
+              {activity.map((a, i) => (
+                <div key={i} className={styles.activityItem}>
+                  <span className={styles.activityIcon}>{activityIcon(a.tool)}</span>
+                  <span className={styles.activityInfo}>
+                    <span className={styles.activityLabel}>{activityLabel(a.tool, a.action)}</span>
+                    <span className={styles.activityDetail}>{a.detail}</span>
+                  </span>
+                  <span className={styles.activityTime}>{fmtDate(a.created_at)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
