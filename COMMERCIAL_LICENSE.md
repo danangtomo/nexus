@@ -42,7 +42,6 @@ The following tools rely on components with copyleft licenses that restrict clos
 | Video Converter | FFmpeg (ffmpeg-static) | GPL-3.0 |
 | Audio Converter | FFmpeg (ffmpeg-static) | GPL-3.0 |
 | PDF Compressor | Ghostscript | AGPL-3.0 |
-| PDF Encryptor | Ghostscript | AGPL-3.0 |
 
 OEM licensees **must exclude** the tools listed above from their closed-source distribution, or ensure that portion of their distribution is released under a compatible open source license.
 
