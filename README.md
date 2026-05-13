@@ -6,14 +6,14 @@
 
 **Intent-driven offline productivity workspace**
 
-[![Version](https://img.shields.io/badge/version-0.16.0-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
+[![Version](https://img.shields.io/badge/version-0.17.1-007AFF?style=flat-square)](https://github.com/danangtomo/nexus/releases)
 [![License](https://img.shields.io/badge/license-AGPL--3.0-blueviolet?style=flat-square)](LICENSE)
 [![Electron](https://img.shields.io/badge/Electron-41-47848F?style=flat-square&logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](https://github.com/danangtomo/nexus/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/danangtomo/nexus/pulls)
 
-_The fastest way to turn messy files into structured insight. No internet. No cloud. No AI APIs._
+_The fastest way to turn messy files into structured insight. No cloud. No subscriptions. No AI APIs._
 
 </div>
 
@@ -23,7 +23,7 @@ _The fastest way to turn messy files into structured insight. No internet. No cl
 
 NEXUS is a free, open-source desktop app built on an **intent-driven workspace model**. Instead of asking you which tool to pick, NEXUS asks what you want to accomplish — then takes you there in the fewest steps.
 
-Open the app, click an outcome card ("Extract tables & insights from PDF", "Analyze my spreadsheet data", "Convert a batch of images"), drop your files, and get results — without reading documentation.
+Open the app, click an outcome card ("Extract tables & insights from PDF", "Find insights from data", "Convert image format"), drop your files, and get results — without reading documentation.
 
 Built with an Apple HIG-inspired design system. Supports Light, Dark, and Auto themes on Windows, macOS, and Linux. All processing is 100% local — no subscriptions, no cloud uploads, no telemetry.
 
@@ -82,7 +82,7 @@ NEXUS keeps all your work in named **Workspaces** — persistent containers stor
 | PDF Splitter   | Split by custom page-range list (e.g. `1-3, 5, 8-10`) or automatically every N pages.                                                                                                                                                                                                                                                                                    |
 | PDF Compressor | Reduce PDF size using Ghostscript with three quality presets — Screen (72 dpi), eBook (150 dpi), and Printer (300 dpi).                                                                                                                                                                                                                                                   |
 | PDF Encryptor  | Set a user password (required to open) and optional owner password (restricts print/copy/edit). AES-256 encryption via pdf-lib. Also removes passwords from protected PDFs.                                                                                                                                                                                               |
-| OCR Reader     | Extract text, tables, formulas, and images from PDF documents and image files (JPG, PNG, BMP, TIFF, WEBP). Powered by **MinerU** (Apache-2.0) via a Python sidecar — a CPU-based ONNX pipeline with no GPU required. Supports 17 languages including CJK, Arabic, Cyrillic, and Indic scripts. Layout-aware extraction preserves reading order, identifies tables as structured rows/columns (editable inline), and renders bounding-box overlays on the source preview. Tables export directly to the CSV Editor as a Data Table. All MinerU models are **bundled with the installer** — no download required after installation. |
+| OCR Reader     | Extract text, tables, formulas, and images from PDF documents and image files (JPG, PNG, BMP, TIFF, WEBP). Powered by **MinerU** (Apache-2.0) via a Python sidecar — a CPU-based ONNX pipeline with no GPU required. Supports 17 languages including CJK, Arabic, Cyrillic, and Indic scripts. Layout-aware extraction preserves reading order, identifies tables as structured rows/columns (editable inline), and renders bounding-box overlays on the source preview. Tables export directly to the CSV Editor as a Data Table. MinerU models **download automatically on first use** with a progress bar — internet is required only for this one-time download. |
 
 ### Media
 
@@ -194,7 +194,7 @@ npm run build:linux  # Linux (.AppImage / .deb)
 The build pipeline automatically:
 1. Compiles the React frontend (Vite)
 2. Generates `licenses.json` (npm dependency license report)
-3. Bundles Ghostscript, FFmpeg, both Python sidecar binaries, BiRefNet INT8 model, and MinerU models into the installer via electron-builder
+3. Bundles Ghostscript, FFmpeg, both Python sidecar binaries, and the BiRefNet INT8 model into the installer via electron-builder (MinerU models download on first use)
 
 ---
 
