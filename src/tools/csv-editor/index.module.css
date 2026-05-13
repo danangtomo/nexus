@@ -506,6 +506,45 @@
   min-width: 0;
 }
 
+/* ── Save to Workspace button ───────────────────────────────────────────── */
+.btnWsSave {
+  height: 26px;
+  padding: 0 var(--sp-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-green, #34c759);
+  background: rgba(52,199,89,0.08);
+  color: var(--color-green, #34c759);
+  font-size: var(--text-caption1);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur-fast), color var(--dur-fast);
+  flex-shrink: 0;
+}
+.btnWsSave:hover:not(:disabled) { background: rgba(52,199,89,0.18); }
+.btnWsSaved {
+  border-color: var(--color-green, #34c759);
+  background: rgba(52,199,89,0.22);
+  cursor: default;
+}
+
+/* ── Generate Report button ─────────────────────────────────────────────── */
+.btnReport {
+  height: 26px;
+  padding: 0 var(--sp-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-blue);
+  background: var(--accent-soft);
+  color: var(--color-blue);
+  font-size: var(--text-caption1);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur-fast);
+  flex-shrink: 0;
+}
+.btnReport:hover { background: rgba(10,132,255,0.22); }
+
 /* ── Help button ────────────────────────────────────────────────────────── */
 .helpBtn {
   margin-left: var(--sp-1);
@@ -843,3 +882,78 @@
   pointer-events: all;
   box-shadow: 0 0 0 1px var(--accent);
 }
+
+/* ── Stats modal ─────────────────────────────────────────────────────────── */
+.statsPanel {
+  background: var(--color-bg);
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  width: 680px;
+  max-width: 95vw;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.statsBody {
+  overflow: auto;
+  padding: var(--sp-3);
+}
+
+.statsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-footnote);
+}
+
+.statsTable th {
+  text-align: left;
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--text-caption2);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-label-2);
+  border-bottom: 1px solid var(--separator);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+}
+
+.statsTable td {
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--fill-3);
+  color: var(--color-label);
+  white-space: nowrap;
+}
+
+.statsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.statsColName {
+  font-weight: 500;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statsTypeBadge {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--fill-3);
+  color: var(--color-label-2);
+  font-family: var(--font-mono);
+}
+
+.statsEmpty {
+  color: #ff375f;
+}
+
+

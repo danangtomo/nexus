@@ -17,6 +17,8 @@
  */
 
 import { useState, useRef, useCallback, useMemo, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useWorkspace } from '../../contexts/WorkspaceContext'
 import { AgGridReact } from 'ag-grid-react'
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
 import { parseCSV, parseXLSX, unparseCSV, unparseXLSX, unparseJSON, unparseSQL, detectColTypes, indexToColLetter, computeFormulaResults, shiftFormula } from './handler'
@@ -150,6 +152,14 @@ const IcoCF = () => (
     <line x1="7.5" y1="2" x2="7.5" y2="13" strokeWidth="1"/>
     <rect x="1" y="2" width="6.5" height="4" fill="currentColor" fillOpacity="0.3" stroke="none"/>
     <rect x="7.5" y="9.5" width="6.5" height="3.5" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+  </svg>
+)
+const IcoStats = () => (
+  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="1" y1="13" x2="14" y2="13"/>
+    <rect x="2" y="7" width="2.5" height="6" rx="0.5"/>
+    <rect x="6.25" y="4" width="2.5" height="9" rx="0.5"/>
+    <rect x="10.5" y="1.5" width="2.5" height="11.5" rx="0.5"/>
   </svg>
 )
 
@@ -358,7 +368,11 @@ function rebuildColLetters(defs) {
   })
 }
 
+
 export default function CsvEditor() {
+  const location   = useLocation()
+  const navigate   = useNavigate()
+  const { activeWorkspace } = useWorkspace()
   const gridRef    = useRef(null)
   const [gridKey, setGridKey]           = useState(0)
   const [rowData, setRowData]           = useState([])
@@ -372,6 +386,11 @@ export default function CsvEditor() {
   const [colStats, setColStats]         = useState(null)
   const [filteredCount, setFilteredCount] = useState(null)
   const [showHelp, setShowHelp]         = useState(false)
+  const [showStats, setShowStats]       = useState(false)
+  const [allStats, setAllStats]         = useState([])
+  const [wsSaved, setWsSaved]           = useState(false)
+  const wsDatasetIdRef                  = useRef(null) // persists dataset ID for upsert on re-save
+  const [wsLinked, setWsLinked]         = useState(false) // true when grid data is linked to a workspace dataset
 
   // Conditional formatting
   const [cfEnabled, setCfEnabled]       = useState(false)
@@ -867,6 +886,7 @@ export default function CsvEditor() {
     setGridKey(k => k + 1)
     setColDefs([ROW_NUM_COL, ...cols]); setRowData(data)
     setFileName(name); setFilePath(path)
+    wsDatasetIdRef.current = null; setWsLinked(false)
     setDelimiter(sep); setDirty(false); setActiveCol(null); setColStats(null); setFilteredCount(null)
     setStatus('')
     clearFind()
@@ -917,6 +937,7 @@ export default function CsvEditor() {
     setHistoryRevision(r => r + 1)
     setColDefs([ROW_NUM_COL, ...cols]); setRowData(data)
     setFileName('Untitled.csv'); setFilePath(null)
+    wsDatasetIdRef.current = null; setWsLinked(false)
     setDelimiter(','); setDirty(true); setActiveCol(null); setColStats(null)
     setStatus('')
     clearFind()
@@ -1457,8 +1478,106 @@ export default function CsvEditor() {
   }
 
   const statusText = status || (hasData
-    ? `${isFiltered ? `${filteredCount} of ` : ''}${rowData.length} rows × ${dataColCount} cols${isFiltered ? ' (filtered)' : ''}${statsText}`
+    ? `${isFiltered ? `${filteredCount} of ` : ''}${rowData.length} rows × ${dataColCount} cols${isFiltered ? ' (filtered)' : ''}${statsText}${wsLinked && activeWorkspace ? ` · ${activeWorkspace.name}` : ''}`
     : 'Ready')
+
+  // Load dataset passed via navigation state (e.g. from OCR Reader)
+  useEffect(() => {
+    const ds = location.state?.dataset
+    if (!ds?.columns?.length) return
+
+    // Drop columns where ≥ 70% of rows are empty (OCR ghost columns)
+    const rows = ds.rows ?? []
+    const sample = rows.slice(0, 40)
+    const cleanCols = ds.columns.filter(col => {
+      const filled = sample.filter(r => r[col.name] !== '' && r[col.name] != null).length
+      return sample.length === 0 || filled / sample.length > 0.3
+    })
+    const cleanRows = rows.map(r => {
+      const out = {}
+      cleanCols.forEach(c => { out[c.name] = r[c.name] })
+      return out
+    })
+    const cleanDs = { ...ds, columns: cleanCols, rows: cleanRows }
+
+    const headers = cleanCols.map(c => c.name)
+    applyParsed(headers, cleanRows, ds.name || 'Dataset', null, ',')
+    if (ds.source === 'workspace' && ds.id) { wsDatasetIdRef.current = ds.id; setWsLinked(true) }
+    window.history.replaceState({}, '')
+  }, [location.key]) // re-run on every navigation (even same route → new dataset)
+
+  function generateReport() {
+    const dataCols = colDefs.filter(c => c.field !== ROW_NUM_FIELD)
+    const headers  = dataCols.map(c => c.field)
+    const rows     = rowData.map(r => {
+      const obj = {}
+      headers.forEach(h => { obj[h] = r[h] ?? '' })
+      return obj
+    })
+    navigate('/report-builder', {
+      state: {
+        dataset: {
+          id:         crypto.randomUUID(),
+          name:       (fileName || 'Dataset').replace(/\.[^.]+$/, ''),
+          source:     'csv-editor',
+          sourceTool: 'CSV Editor',
+          columns:    headers.map(h => ({ name: h, type: 'string' })),
+          rows,
+          rowCount:   rows.length,
+          createdAt:  new Date().toISOString(),
+        },
+      },
+    })
+  }
+
+  function openStats() {
+    const api = gridRef.current?.api
+    if (!api) return
+    const dataCols = colDefs.filter(c => c.field !== ROW_NUM_FIELD && c.field !== RID)
+    setAllStats(dataCols.map(c => computeColStats(api, c.field)))
+    setShowStats(true)
+  }
+
+  async function saveToWorkspace() {
+    if (!hasData || !activeWorkspace || wsSaved) return
+    // Commit any active cell edit before reading data
+    gridRef.current?.api.stopEditing(false)
+    const dataCols = colDefs.filter(c => c.field !== ROW_NUM_FIELD)
+    const headers  = dataCols.map(c => c.field)
+    const rows = []
+    gridRef.current?.api.forEachNode(node => {
+      if (!node.data) return
+      const obj = {}
+      headers.forEach(h => { obj[h] = node.data[h] ?? '' })
+      rows.push(obj)
+    })
+    const name = (fileName || 'Dataset').replace(/\.[^.]+$/, '')
+    if (!wsDatasetIdRef.current) wsDatasetIdRef.current = crypto.randomUUID()
+    await window.nexus.workspace.saveDataset({
+      workspaceId: activeWorkspace.id,
+      id:          wsDatasetIdRef.current,
+      name,
+      sourceTool:  'csv-editor',
+      columns:     headers.map(h => ({ name: h, type: 'string' })),
+      rows,
+    })
+    await window.nexus.workspace.addActivity({
+      workspaceId: activeWorkspace.id,
+      tool:        'csv-editor',
+      action:      'save_dataset',
+      detail:      name,
+    })
+    setWsSaved(true)
+    setWsLinked(true)
+    window.dispatchEvent(new Event('nexus:workspace:refresh'))
+    document.body.style.pointerEvents = 'none'
+    document.body.style.cursor = 'not-allowed'
+    setTimeout(() => {
+      setWsSaved(false)
+      document.body.style.pointerEvents = ''
+      document.body.style.cursor = ''
+    }, 1000)
+  }
 
   // ── Render ────────────────────────────────────────────────────────────────
 
@@ -1529,6 +1648,9 @@ export default function CsvEditor() {
             >
               <IcoCF />
             </button>
+            <button className={styles.btnIcon} onClick={openStats} disabled={!hasData} title="Column stats overview">
+              <IcoStats />
+            </button>
           </div>
           <div className={styles.sep} />
           {/* Export */}
@@ -1540,6 +1662,21 @@ export default function CsvEditor() {
             <button className={styles.btnSm} onClick={() => exportAs('sql')} disabled={!hasData} title="Export as SQL INSERT statements">SQL</button>
           </div>
           <div className={styles.toolbarEnd}>
+            {hasData && activeWorkspace && (
+              <button
+                className={`${styles.btnWsSave} ${wsSaved ? styles.btnWsSaved : ''}`}
+                onClick={saveToWorkspace}
+                disabled={wsSaved}
+                title={`Save to workspace "${activeWorkspace.name}"`}
+              >
+                {wsSaved ? '✓ Saved' : `Save to ${activeWorkspace.name}`}
+              </button>
+            )}
+            {hasData && (
+              <button className={styles.btnReport} onClick={generateReport} title="Send to Report Builder">
+                Generate Report
+              </button>
+            )}
             {fileName && <span className={styles.fileTag}>{fileName}{dirty ? ' *' : ''}</span>}
             <button className={styles.helpBtn} onClick={() => setShowHelp(true)} title="Shortcuts & guide">?</button>
           </div>
@@ -1962,6 +2099,48 @@ export default function CsvEditor() {
                 </tbody></table>
               </div>
 
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Stats modal */}
+      {showStats && (
+        <div className={styles.helpOverlay} onClick={() => setShowStats(false)}>
+          <div className={styles.statsPanel} onClick={e => e.stopPropagation()}>
+            <div className={styles.helpHeader}>
+              <span>Column Overview — {allStats.length} col{allStats.length !== 1 ? 's' : ''} · {rowData.length.toLocaleString()} rows</span>
+              <button className={styles.helpClose} onClick={() => setShowStats(false)}>✕</button>
+            </div>
+            <div className={styles.statsBody}>
+              <table className={styles.statsTable}>
+                <thead>
+                  <tr>
+                    <th>Column</th>
+                    <th>Type</th>
+                    <th>Values</th>
+                    <th>Empty</th>
+                    <th>Unique</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Avg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allStats.map(s => (
+                    <tr key={s.colId}>
+                      <td className={styles.statsColName} title={s.colId}>{s.colId}</td>
+                      <td><span className={styles.statsTypeBadge}>{s.isNumeric ? '123' : 'ABC'}</span></td>
+                      <td>{s.count.toLocaleString()}</td>
+                      <td className={s.nulls > 0 ? styles.statsEmpty : ''}>{s.nulls.toLocaleString()}</td>
+                      <td>{s.unique.toLocaleString()}</td>
+                      <td>{s.isNumeric ? fmtNum(s.min) : '—'}</td>
+                      <td>{s.isNumeric ? fmtNum(s.max) : '—'}</td>
+                      <td>{s.isNumeric ? fmtNum(s.avg) : '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
