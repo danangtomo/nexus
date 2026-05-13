@@ -233,7 +233,7 @@ This means you can use, study, share, and modify this software freely — but an
 
 ### Third-Party Licenses
 
-Full npm dependency license details are auto-generated at build time via `license-checker --production` and included in every release artifact as `licenses.json`.
+Full npm dependency license details are auto-generated at build time via `license-checker --production` and bundled inside the installer as `licenses.json` (not committed to the repository — it is a generated file).
 
 **Bundled components and their licenses:**
 
