@@ -22,6 +22,7 @@ import ToolLayout from './components/ToolLayout'
 import IntentScreen from './components/IntentScreen'
 import Settings from './components/Settings'
 import UpdateNotification from './components/UpdateNotification'
+import CommandPalette from './components/CommandPalette'
 import styles from './App.module.css'
 
 // Phase 3 — File & image conversion
@@ -54,6 +55,8 @@ import KanbanBoard from './tools/kanban-board'
 import PomodoroTimer from './tools/pomodoro-timer'
 import GanttChart from './tools/gantt-chart'
 
+import ReportBuilder from './tools/report-builder'
+
 // Quick Tools — accessible via ⌘K / URL but not in sidebar
 import QrBarcode from './tools/qr-barcode'
 import TimezoneConverter from './tools/timezone-converter'
@@ -63,6 +66,7 @@ export default function App() {
   return (
     <div className={styles.app}>
       <Sidebar />
+      <CommandPalette />
       <main className={styles.main}>
         <UpdateNotification />
         <Routes>
@@ -93,6 +97,7 @@ export default function App() {
           <Route path="/json-formatter" element={<ToolLayout title="JSON Formatter" fill><JsonFormatter /></ToolLayout>} />
           <Route path="/diff-checker" element={<ToolLayout title="Diff Checker" fill><DiffChecker /></ToolLayout>} />
           <Route path="/chart-builder" element={<ToolLayout title="Chart Builder"><ChartBuilder /></ToolLayout>} />
+          <Route path="/report-builder" element={<ToolLayout title="Report Builder" fill><ReportBuilder /></ToolLayout>} />
           <Route path="/sql-runner" element={<ToolLayout title="SQL Runner" fill><SqlRunner /></ToolLayout>} />
           <Route path="/kanban-board" element={<ToolLayout title="Kanban Board"><KanbanBoard /></ToolLayout>} />
           <Route path="/pomodoro-timer" element={<ToolLayout title="Pomodoro Timer"><PomodoroTimer /></ToolLayout>} />
