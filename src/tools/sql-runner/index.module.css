@@ -538,6 +538,9 @@
   cursor: pointer; font-size: 11px; border-radius: 3px; opacity: 0.6; flex-shrink: 0;
 }
 .schemaRemove:hover { opacity: 1; color: #e05555; }
+.wsTableBadge {
+  font-size: 8px; color: var(--accent); margin-right: 4px; flex-shrink: 0; vertical-align: middle;
+}
 .schemaCols { padding: 2px 6px 4px 24px; }
 .schemaCol {
   display: flex; align-items: center; justify-content: space-between; padding: 2px 6px;
@@ -663,22 +666,58 @@
 }
 .multiCount { font-size: 11px; opacity: 0.7; }
 
-/* ── History bar ─────────────────────────────────────────────────────────── */
-.history {
-  display: flex; align-items: center; padding: 0 12px; gap: 6px;
-  height: 38px; flex-shrink: 0; border-top: 1px solid var(--border);
-  overflow-x: auto; background: var(--bg-secondary); scrollbar-width: thin;
+/* ── History panel ────────────────────────────────────────────────────────── */
+.historyPanel {
+  flex-shrink: 0; border-top: 1px solid var(--border); background: var(--bg-secondary);
+  display: flex; flex-direction: column; max-height: 320px;
 }
-.historyLabel {
+.historyPanelHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 7px 14px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.historyPanelTitle {
+  font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em;
+}
+.historyPanelSub { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--text-muted); }
+.historyPanelClear {
+  font-size: 11px; color: var(--text-muted); background: none; border: none; cursor: pointer; padding: 2px 6px;
+  border-radius: 4px;
+}
+.historyPanelClear:hover { color: var(--color-danger, #e05); background: var(--bg-hover); }
+.historyPanelBody { overflow-y: auto; flex: 1; scrollbar-width: thin; }
+.historyGroup { padding: 6px 0 2px; }
+.historyGroupLabel {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--text-secondary); white-space: nowrap; flex-shrink: 0;
+  color: var(--text-muted); padding: 0 14px 4px;
 }
-.historyBtn {
-  padding: 3px 8px; border: 1px solid var(--border); border-radius: 4px;
-  background: var(--color-bg); color: var(--text-secondary); font-size: 11px; cursor: pointer;
-  white-space: nowrap; font-family: 'Menlo', 'Consolas', monospace; flex-shrink: 0;
+.historyGroupLabelWeek {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted); padding: 4px 14px; cursor: pointer; user-select: none;
+  border-radius: 4px;
 }
-.historyBtn:hover { background: var(--bg-hover); color: var(--color-label); }
+.historyGroupLabelWeek:hover { background: var(--bg-hover); color: var(--color-label); }
+.historyWeekChevron { font-size: 8px; flex-shrink: 0; }
+.historyWeekCount {
+  margin-left: auto; font-size: 10px; font-weight: 400;
+  background: var(--bg-hover); border-radius: 8px; padding: 0 5px; color: var(--text-muted);
+}
+.historyEntry {
+  display: flex; align-items: baseline; gap: 10px; width: 100%; text-align: left;
+  padding: 5px 14px; background: none; border: none; cursor: pointer;
+  color: var(--text-secondary); font-size: 12px;
+}
+.historyEntry:hover { background: var(--bg-hover); color: var(--color-label); }
+.historyEntryTime {
+  flex-shrink: 0; font-size: 10px; color: var(--text-muted); font-variant-numeric: tabular-nums;
+  min-width: 86px;
+}
+.historyEntrySql { font-family: 'Menlo', 'Cascadia Code', Consolas, monospace; font-size: 11px; }
+.historyCount {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; border-radius: 8px;
+  font-size: 10px; font-weight: 700; padding: 0 5px; min-width: 16px; margin-left: 3px;
+}
 
 /* ── ER button active state ──────────────────────────────────────────────── */
 .erBtnActive {

@@ -28,6 +28,7 @@ import {
   detectExplainResult, buildExplainTree, buildPivotData,
 } from './handler'
 import ConnectionPanel from './ConnectionPanel'
+import { useWorkspace } from '../../contexts/WorkspaceContext'
 import styles from './index.module.css'
 
 const PAGE_SIZE = 200
@@ -517,7 +518,7 @@ function MultiResults({ sets }) {
           </button>
         ))}
       </div>
-      <ResultsTable results={sets[tab]} />
+      <ResultsTable key={tab} results={sets[tab]} />
     </div>
   )
 }
@@ -584,7 +585,33 @@ function ResultsTable({ results }) {
   const [tooltip,   setTooltip]   = useState(null)
   const [showChart, setShowChart] = useState(false)
   const [copyAllOk, setCopyAllOk] = useState(false)
-  const tipTimer = useRef(null)
+  const [snapSaved, setSnapSaved] = useState(false)
+  const tipTimer  = useRef(null)
+  const snapIdRef = useRef(null)
+  const { activeWorkspace } = useWorkspace()
+
+  async function snapshot() {
+    if (!activeWorkspace || snapSaved) return
+    if (!snapIdRef.current) snapIdRef.current = crypto.randomUUID()
+    const name = `SQL Result (${rows.length.toLocaleString()} rows)`
+    await window.nexus.workspace.saveDataset({
+      workspaceId: activeWorkspace.id,
+      id:          snapIdRef.current,
+      name,
+      sourceTool:  'sql-runner',
+      columns:     columns.map(c => ({ name: c, type: 'string' })),
+      rows,
+    })
+    await window.nexus.workspace.addActivity({
+      workspaceId: activeWorkspace.id,
+      tool:        'sql-runner',
+      action:      'save_dataset',
+      detail:      name,
+    })
+    window.dispatchEvent(new Event('nexus:workspace:refresh'))
+    setSnapSaved(true)
+    setTimeout(() => setSnapSaved(false), 2000)
+  }
 
   const explainType = useMemo(() => detectExplainResult(columns), [columns])
   const explainRoots = useMemo(
@@ -651,6 +678,11 @@ function ResultsTable({ results }) {
           <span className={styles.filterCount}>{sorted.length.toLocaleString()} / {rows.length.toLocaleString()}</span>
         )}
         <div className={styles.resultsActions}>
+          {viewMode === 'table' && activeWorkspace && (
+            <button className={snapSaved ? styles.copyDoneBtn : styles.rBtn} onClick={snapshot} disabled={snapSaved}>
+              {snapSaved ? '✓ Saved' : 'Snapshot'}
+            </button>
+          )}
           {viewMode === 'table' && (
             <button className={copyAllOk ? styles.copyDoneBtn : styles.rBtn} onClick={copyAll}>
               {copyAllOk ? '✓ Copied' : 'Copy All'}
@@ -842,9 +874,12 @@ function SchemaPanel({
                   {openTables.has(t.name) ? '▼' : '▶'}
                 </button>
                 <button className={styles.schemaTName} onClick={() => onInsertTable(t.name)}
-                  title="SELECT * FROM this table">{t.name}</button>
+                  title="SELECT * FROM this table">
+                  {t.fromWorkspace && <span className={styles.wsTableBadge} title="Workspace dataset">◆</span>}
+                  {t.name}
+                </button>
                 <span className={styles.schemaRows}>{t.rowCount.toLocaleString()} r · {t.columns.length} c</span>
-                {onRemoveTable && (
+                {!t.fromWorkspace && onRemoveTable && (
                   <button className={styles.schemaRemove} onClick={() => onRemoveTable(t.name)}>✕</button>
                 )}
               </div>
@@ -1002,6 +1037,51 @@ function Dropdown({ label, disabled, items, right }) {
   )
 }
 
+// ── History grouping helper ────────────────────────────────────────────────────
+function historyGroups(entries) {
+  const now   = new Date()
+  const sod   = d => new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime()
+  const today = sod(now)
+  const yest  = today - 86400000
+  const week  = today - 6 * 86400000
+  const groups = []
+  const push = (label, items) => { if (items.length) groups.push({ label, items, weekGroup: false }) }
+  push('Today',     entries.filter(h => h.executedAt >= today))
+  push('Yesterday', entries.filter(h => h.executedAt >= yest && h.executedAt < today))
+  push('This week', entries.filter(h => h.executedAt >= week && h.executedAt < yest))
+
+  // "Earlier" broken into per-week buckets (Monday-anchored)
+  const earlier = entries.filter(h => h.executedAt < week)
+  if (earlier.length) {
+    const buckets = new Map()
+    for (const h of earlier) {
+      const d = new Date(h.executedAt)
+      const dow = d.getDay()
+      const mon = new Date(d)
+      mon.setDate(d.getDate() - ((dow + 6) % 7))
+      mon.setHours(0, 0, 0, 0)
+      const key = mon.getTime()
+      if (!buckets.has(key)) buckets.set(key, { start: mon, items: [] })
+      buckets.get(key).items.push(h)
+    }
+    const weeks = [...buckets.values()].sort((a, b) => b.start - a.start)
+    weeks.forEach((w, i) => {
+      const label = `Week of ${w.start.toLocaleDateString([], { month: 'short', day: 'numeric' })}`
+      groups.push({ label, items: w.items, weekGroup: true, defaultOpen: i === 0 })
+    })
+  }
+  return groups
+}
+
+function fmtHistoryTime(ts) {
+  const d   = new Date(ts)
+  const now = new Date()
+  const sameDay = d.toDateString() === now.toDateString()
+  if (sameDay) return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  return d.toLocaleDateString([], { month: 'short', day: 'numeric' }) +
+    ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+}
+
 // ── Main component ─────────────────────────────────────────────────────────────
 export default function SqlRunner() {
   // ── File mode state ───────────────────────────────────────────────────────────
@@ -1009,6 +1089,8 @@ export default function SqlRunner() {
   const [initErr,  setInitErr]    = useState(null)
   const [tables,   setTables]     = useState([])
   const [loading,  setLoading]    = useState(false)
+  const { activeWorkspace } = useWorkspace()
+  const wsTableNamesRef = useRef(new Set())
 
   // ── Server mode state ─────────────────────────────────────────────────────────
   const [mode,             setMode]           = useState('file')
@@ -1035,6 +1117,8 @@ export default function SqlRunner() {
 
   // ── Shared state ──────────────────────────────────────────────────────────────
   const [history,         setHistory]         = useState([])
+  const [showHistory,     setShowHistory]     = useState(false)
+  const [collapsedWeeks,  setCollapsedWeeks]  = useState(new Set())
   const [status,          setStatus]          = useState('')
   const [savedQueries,    setSavedQueries]    = useState([])
   const [saveMode,        setSaveMode]        = useState(false)
@@ -1095,6 +1179,64 @@ export default function SqlRunner() {
       .catch(e => setInitErr('SQL engine failed to initialize: ' + e.message))
   }, [])
 
+  // ── Workspace datasets → sql.js tables ───────────────────────────────────────
+  async function loadWorkspaceTables() {
+    if (!dbRef.current || !activeWorkspace || mode !== 'file') return
+    // Drop previous workspace tables from sql.js + tables state
+    for (const name of wsTableNamesRef.current) {
+      try { dbRef.current.run(`DROP TABLE IF EXISTS "${name}"`) } catch (_) {}
+    }
+    const prevNames = new Set(wsTableNamesRef.current)
+    wsTableNamesRef.current = new Set()
+    setTables(prev => prev.filter(t => !prevNames.has(t.name)))
+
+    const datasets = await window.nexus.workspace.datasets(activeWorkspace.id)
+    for (const ds of datasets) {
+      const full = await window.nexus.workspace.getDataset(ds.id)
+      if (!full?.columns?.length) continue
+      const tableName = sanitizeName(full.name) || `ds_${ds.id.slice(0, 8)}`
+      const colNames  = full.columns.map(c => c.name)
+      const rows      = full.rows
+      try {
+        const colMeta = colNames.map(c => ({ name: c, type: inferColType(c, rows) }))
+        dbRef.current.run(`DROP TABLE IF EXISTS "${tableName}"`)
+        dbRef.current.run(buildTableSql(tableName, colMeta))
+        if (rows.length) {
+          const { cols, placeholders } = buildInsertPlaceholders(colNames)
+          const stmt = dbRef.current.prepare(`INSERT INTO "${tableName}" (${cols}) VALUES (${placeholders})`)
+          dbRef.current.run('BEGIN;')
+          for (const row of rows) {
+            stmt.run(colMeta.map(({ name, type }) => {
+              const v = row[name]
+              if (v == null || v === '') return null
+              if (type === 'INTEGER') return parseInt(v, 10)
+              if (type === 'REAL')    return parseFloat(v)
+              return String(v)
+            }))
+          }
+          dbRef.current.run('COMMIT;')
+          stmt.free()
+        }
+        const numericCols = colMeta.filter(c => c.type !== 'TEXT').map(c => c.name)
+        wsTableNamesRef.current.add(tableName)
+        setTables(prev => [
+          ...prev.filter(t => t.name !== tableName),
+          { name: tableName, columns: colMeta, rowCount: rows.length, numericCols, fromWorkspace: true },
+        ])
+      } catch (e) {
+        console.error(`Failed to load workspace dataset "${full.name}":`, e)
+      }
+    }
+  }
+
+  // Reload when workspace or mode changes, and keep in sync with refresh events
+  useEffect(() => {
+    if (!sqlReady || !activeWorkspace || mode !== 'file') return
+    loadWorkspaceTables()
+    window.addEventListener('nexus:workspace:refresh', loadWorkspaceTables)
+    return () => window.removeEventListener('nexus:workspace:refresh', loadWorkspaceTables)
+  }, [activeWorkspace?.id, mode, sqlReady]) // eslint-disable-line react-hooks/exhaustive-deps
+
   // ── Load saved state ──────────────────────────────────────────────────────────
   useEffect(() => {
     window.nexus.getPref('sqlrunner_saved').then(raw => {
@@ -1102,6 +1244,14 @@ export default function SqlRunner() {
     })
     window.nexus.getPref('sqlrunner_connections').then(raw => {
       if (raw) try { setConnList(JSON.parse(raw)) } catch (_) {}
+    })
+    window.nexus.getPref('sqlrunner_history').then(raw => {
+      if (!raw) return
+      try {
+        const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000
+        const all = JSON.parse(raw).filter(h => h.executedAt >= cutoff)
+        setHistory(all)
+      } catch (_) {}
     })
   }, [])
 
@@ -1506,7 +1656,7 @@ export default function SqlRunner() {
           ? { single: true, ...res.sets[0] }
           : { multi: true, sets: res.sets }
         markOk(newResults, ms)
-        setHistory(prev => [q, ...prev.filter(h => h !== q)].slice(0, 10))
+        pushHistory(q)
         const useMatch = q.match(/^\s*USE\s+[`\[]?([^`\];\s]+)[`\]]?\s*;?\s*$/i)
         if (useMatch) await switchDatabase(useMatch[1])
       } catch (e) { markErr(e.message, performance.now() - t0) }
@@ -1527,7 +1677,7 @@ export default function SqlRunner() {
         newResults = { multi: true, sets: allRes.map(r => ({ columns: r.columns, rows: r.values.map(vs => Object.fromEntries(r.columns.map((c, i) => [c, vs[i]]))) })) }
       }
       markOk(newResults, ms)
-      setHistory(prev => [q, ...prev.filter(h => h !== q)].slice(0, 10))
+      pushHistory(q)
     } catch (e) { markErr(e.message, performance.now() - t0) }
   }
 
@@ -1590,6 +1740,17 @@ export default function SqlRunner() {
     flash('Saved ' + fp.split(/[\\/]/).pop())
   }
 
+  // ── Query history ─────────────────────────────────────────────────────────────
+  function pushHistory(sql) {
+    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000
+    setHistory(prev => {
+      const entry = { id: crypto.randomUUID(), sql, executedAt: Date.now() }
+      const next  = [entry, ...prev.filter(h => h.sql !== sql && h.executedAt >= cutoff)]
+      window.nexus.setPref('sqlrunner_history', JSON.stringify(next))
+      return next
+    })
+  }
+
   // ── Save queries ──────────────────────────────────────────────────────────────
   async function doSave() {
     if (!saveName.trim() || !activeTab.sql.trim()) return
@@ -1615,14 +1776,16 @@ export default function SqlRunner() {
   function clearAll() {
     tables.forEach(t => { try { dbRef.current.run(`DROP TABLE IF EXISTS "${t.name}";`) } catch (_) {} })
     dbRef.current = new SQLRef.current.Database()
+    wsTableNamesRef.current = new Set()
     setTables([])
     setTableDetails({}); setForeignKeys([]); fkLoadedRef.current = false
     setTabs([mkTab('1', 'Query 1')])
     setActiveTabId('1')
     tabCount.current = 2
-    setHistory([])
+    setHistory([]); window.nexus.setPref('sqlrunner_history', '[]')
     setAc(null)
     setErView(false)
+    loadWorkspaceTables()
   }
 
   // ── Derived values ────────────────────────────────────────────────────────────
@@ -1737,6 +1900,21 @@ export default function SqlRunner() {
             disabled={activeTables.length === 0}
           >
             ER
+          </button>
+          <button
+            className={showHistory ? styles.erBtnActive : styles.actionBtn}
+            onClick={() => {
+              if (!showHistory) {
+                const groups = historyGroups(history)
+                const collapsed = new Set(groups.filter(g => g.weekGroup && !g.defaultOpen).map(g => g.label))
+                setCollapsedWeeks(collapsed)
+              }
+              setShowHistory(p => !p)
+            }}
+            disabled={history.length === 0}
+            title="Query history (last 30 days)"
+          >
+            History {history.length > 0 && <span className={styles.historyCount}>{history.length}</span>}
           </button>
           <div className={styles.sep} />
           {saveMode ? (
@@ -1938,17 +2116,53 @@ export default function SqlRunner() {
         />
       </div>
 
-      {/* History bar */}
-      {history.length > 0 && (
-        <div className={styles.history}>
-          <span className={styles.historyLabel}>History</span>
-          {history.map((h, i) => (
-            <button key={i} className={styles.historyBtn}
-              onClick={() => setTabs(p => p.map(t => t.id === activeTabId ? { ...t, sql: h, error: null } : t))}
-              title={h}>
-              {h.replace(/\s+/g, ' ').slice(0, 55)}{h.replace(/\s+/g, ' ').length > 55 ? '…' : ''}
-            </button>
-          ))}
+      {/* History panel */}
+      {showHistory && history.length > 0 && (
+        <div className={styles.historyPanel}>
+          <div className={styles.historyPanelHeader}>
+            <span className={styles.historyPanelTitle}>Query History <span className={styles.historyPanelSub}>· last 30 days</span></span>
+            <button className={styles.historyPanelClear} onClick={() => {
+              setHistory([]); window.nexus.setPref('sqlrunner_history', '[]'); setShowHistory(false)
+            }}>Clear all</button>
+          </div>
+          <div className={styles.historyPanelBody}>
+            {historyGroups(history).map(group => {
+              const isCollapsed = group.weekGroup && collapsedWeeks.has(group.label)
+              return (
+                <div key={group.label} className={styles.historyGroup}>
+                  <div
+                    className={group.weekGroup ? styles.historyGroupLabelWeek : styles.historyGroupLabel}
+                    onClick={group.weekGroup ? () => setCollapsedWeeks(prev => {
+                      const next = new Set(prev)
+                      next.has(group.label) ? next.delete(group.label) : next.add(group.label)
+                      return next
+                    }) : undefined}
+                  >
+                    {group.weekGroup && (
+                      <span className={styles.historyWeekChevron}>{isCollapsed ? '▶' : '▼'}</span>
+                    )}
+                    {group.label}
+                    {group.weekGroup && (
+                      <span className={styles.historyWeekCount}>{group.items.length}</span>
+                    )}
+                  </div>
+                  {!isCollapsed && group.items.map(h => (
+                    <button key={h.id} className={styles.historyEntry}
+                      title={h.sql}
+                      onClick={() => {
+                        setTabs(p => p.map(t => t.id === activeTabId ? { ...t, sql: h.sql, error: null } : t))
+                        setShowHistory(false)
+                      }}>
+                      <span className={styles.historyEntryTime}>{fmtHistoryTime(h.executedAt)}</span>
+                      <span className={styles.historyEntrySql}>
+                        {h.sql.replace(/\s+/g, ' ').slice(0, 120)}{h.sql.replace(/\s+/g, ' ').length > 120 ? '…' : ''}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )
+            })}
+          </div>
         </div>
       )}
 
