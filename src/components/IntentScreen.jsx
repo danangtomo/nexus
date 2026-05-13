@@ -19,28 +19,28 @@ const PRIMARY = [
   {
     icon: '📊',
     title: 'Find insights from data',
-    desc: 'Upload any CSV or JSON — instantly see patterns, outliers, and summaries',
+    desc: 'Upload any CSV or JSON — view in a table, inspect column stats, filter and export',
     path: '/csv-editor',
   },
   {
-    icon: '📈',
+    icon: '📄',
     title: 'Create a report from data',
-    desc: 'Turn your data into shareable charts and visuals — one click to export',
-    path: '/chart-builder',
+    desc: 'Compose a structured report with tables, charts, and text — export as PDF',
+    path: '/report-builder',
   },
   {
     icon: '🔄',
-    title: 'Change file format',
-    desc: 'Convert images, documents, PDFs, audio, and video — batch supported',
+    title: 'Convert image format',
+    desc: 'Convert between JPEG, PNG, WebP, AVIF, and more — batch supported',
     path: '/image-converter',
   },
 ]
 
 const SECONDARY = [
-  { icon: '🖼',  title: 'Extract text from image',  desc: 'Pull text and numbers from photos or screenshots', path: '/ocr-reader' },
-  { icon: '🧹',  title: 'Clean up messy data',       desc: 'Remove duplicates, fix formats, filter rows',       path: '/csv-editor' },
-  { icon: '🔗',  title: 'Combine two data tables',   desc: 'Merge or JOIN datasets using SQL',                  path: '/sql-runner' },
-  { icon: '✏️', title: 'Write or edit a document',  desc: 'Rich text, Markdown, or structured notes',          path: '/rich-text-editor' },
+  { icon: '🖼',  title: 'Extract text from image',   desc: 'Pull text and numbers from photos or screenshots',              path: '/ocr-reader' },
+  { icon: '🧹',  title: 'Clean up messy data',        desc: 'Edit cells, fix values, filter and sort rows in your data table', path: '/csv-editor' },
+  { icon: '🔗',  title: 'Combine two data tables',    desc: 'Merge or JOIN datasets using SQL',                               path: '/sql-runner' },
+  { icon: '✏️', title: 'Write or edit a document',   desc: 'Format rich text with headings, tables, and lists — export ready', path: '/rich-text-editor' },
 ]
 
 export default function IntentScreen() {
@@ -97,9 +97,9 @@ export default function IntentScreen() {
   return (
     <div className={styles.screen}>
       <div className={styles.container}>
-        <div className={styles.badge}>100% Offline &amp; Private · No Cloud Required</div>
+        <div className={styles.badge}>100% Local &amp; Private · No Cloud Required</div>
         <h1 className={styles.heading}>What do you want to do?</h1>
-        <p className={styles.sub}>Choose an outcome or pick a tool from the sidebar</p>
+        <p className={styles.sub}>Choose an outcome, pick a tool from the sidebar, or press <kbd>Ctrl K</kbd> to search</p>
 
         {/* ── Hero card ── */}
         <button className={styles.heroCard} onClick={() => navigate('/ocr-reader')}>
@@ -156,7 +156,7 @@ export default function IntentScreen() {
 
         <div className={styles.blanks}>
           <button className={styles.blankBtn} onClick={() => navigate('/csv-editor')}>
-            Start blank workspace
+            Open blank data table
           </button>
           <button className={styles.blankBtn} onClick={() => navigate('/sql-runner')}>
             Open SQL Runner

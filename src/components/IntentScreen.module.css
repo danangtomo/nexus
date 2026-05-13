@@ -45,6 +45,20 @@
   text-align: center;
 }
 
+.sub kbd {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--color-label);
+  background: var(--color-fill-tertiary);
+  border: 1px solid var(--color-separator);
+  border-radius: 4px;
+  padding: 1px 5px;
+  line-height: 1.4;
+}
+
 /* ── Hero card ───────────────────────────────────────────────────────────── */
 
 .heroCard {
