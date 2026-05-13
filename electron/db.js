@@ -87,6 +87,48 @@ function initSchema() {
       updated_at INTEGER DEFAULT (strftime('%s', 'now')),
       created_at INTEGER DEFAULT (strftime('%s', 'now'))
     );
+
+    CREATE TABLE IF NOT EXISTS workspaces (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      description TEXT DEFAULT '',
+      created_at INTEGER DEFAULT (strftime('%s', 'now')),
+      last_opened_at INTEGER DEFAULT (strftime('%s', 'now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS workspace_datasets (
+      id TEXT PRIMARY KEY,
+      workspace_id TEXT NOT NULL,
+      name TEXT NOT NULL,
+      source_tool TEXT NOT NULL DEFAULT 'csv-editor',
+      columns TEXT NOT NULL DEFAULT '[]',
+      rows TEXT NOT NULL DEFAULT '[]',
+      row_count INTEGER NOT NULL DEFAULT 0,
+      created_at INTEGER DEFAULT (strftime('%s', 'now')),
+      updated_at INTEGER DEFAULT (strftime('%s', 'now')),
+      FOREIGN KEY (workspace_id) REFERENCES workspaces(id) ON DELETE CASCADE
+    );
+
+    CREATE TABLE IF NOT EXISTS workspace_activity (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      workspace_id TEXT NOT NULL,
+      tool TEXT NOT NULL,
+      action TEXT NOT NULL,
+      detail TEXT DEFAULT '',
+      created_at INTEGER DEFAULT (strftime('%s', 'now')),
+      FOREIGN KEY (workspace_id) REFERENCES workspaces(id) ON DELETE CASCADE
+    );
+
+    CREATE TABLE IF NOT EXISTS workspace_reports (
+      id TEXT PRIMARY KEY,
+      workspace_id TEXT NOT NULL,
+      name TEXT NOT NULL,
+      sections TEXT NOT NULL DEFAULT '[]',
+      theme TEXT NOT NULL DEFAULT 'classic',
+      created_at INTEGER DEFAULT (strftime('%s', 'now')),
+      updated_at INTEGER DEFAULT (strftime('%s', 'now')),
+      FOREIGN KEY (workspace_id) REFERENCES workspaces(id) ON DELETE CASCADE
+    );
   `)
 
   // Default preferences

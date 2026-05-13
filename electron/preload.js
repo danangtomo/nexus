@@ -178,6 +178,24 @@ contextBridge.exposeInMainWorld('nexus', {
     foreignkeys: (connId)              => ipcRenderer.invoke('dbconn:foreignkeys', connId),
   },
 
+  // Workspace system
+  workspace: {
+    list:          ()                  => ipcRenderer.invoke('workspace:list'),
+    create:        (name, desc)        => ipcRenderer.invoke('workspace:create', name, desc),
+    rename:        (id, name)          => ipcRenderer.invoke('workspace:rename', id, name),
+    delete:        (id)                => ipcRenderer.invoke('workspace:delete', id),
+    touch:         (id)                => ipcRenderer.invoke('workspace:touch', id),
+    datasets:      (workspaceId)       => ipcRenderer.invoke('workspace:datasets', workspaceId),
+    saveDataset:   (payload)           => ipcRenderer.invoke('workspace:saveDataset', payload),
+    getDataset:    (id)                => ipcRenderer.invoke('workspace:getDataset', id),
+    deleteDataset: (id)                => ipcRenderer.invoke('workspace:deleteDataset', id),
+    addActivity:   (payload)           => ipcRenderer.invoke('workspace:addActivity', payload),
+    getActivity:   (workspaceId, limit)=> ipcRenderer.invoke('workspace:getActivity', workspaceId, limit),
+    saveReport:    (payload)           => ipcRenderer.invoke('workspace:saveReport', payload),
+    reports:       (workspaceId)       => ipcRenderer.invoke('workspace:reports', workspaceId),
+    deleteReport:  (id)                => ipcRenderer.invoke('workspace:deleteReport', id),
+  },
+
   // Shell / system
   openExternal: (url) => ipcRenderer.invoke('shell:openExternal', url),
   showItemInFolder: (filePath) =>

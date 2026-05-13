@@ -31,6 +31,7 @@ require('./handlers/archive')
 require('./handlers/dbconnect')
 require('./handlers/birefnet')
 require('./handlers/ocr')
+require('./handlers/workspace')
 
 const isDev = process.env.NODE_ENV === 'development'
 
