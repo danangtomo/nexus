@@ -1,6 +1,6 @@
 {
   "name": "nexus",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "NEXUS — Intent-driven offline productivity workspace",
   "main": "electron/main.js",
   "scripts": {
